@@ -14,6 +14,7 @@
 		7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7511F68457800E90CB9 /* CoreDataStack.swift */; };
 		7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */; };
 		7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */; };
+		7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7581F687A5500E90CB9 /* Review+Convenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7144E7511F68457800E90CB9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7144E7541F68458700E90CB9 /* RestaurantProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantProject.xcdatamodel; sourceTree = "<group>"; };
 		7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Restaurant+Convenience.swift"; sourceTree = "<group>"; };
+		7144E7581F687A5500E90CB9 /* Review+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Review+Convenience.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */,
 				7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */,
+				7144E7581F687A5500E90CB9 /* Review+Convenience.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */,
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */,

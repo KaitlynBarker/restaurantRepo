@@ -10,4 +10,12 @@ import Foundation
 
 extension Restaurant {
     
+//    convenience init(dictionary: [:], context: ) {
+//        
+//        guard let name = dictionary
+//        
+//        
+//        self.name = name
+//    }
+    
 }

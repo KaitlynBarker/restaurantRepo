@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES" codeGenerationType="class">
-        <attribute name="cuisines" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="resID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="restaurantName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="cuisine" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryOption" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isThumbsDown" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
+        <attribute name="priceRange" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rating" attributeType="String" syncable="YES"/>
+        <attribute name="ratingText" attributeType="String" syncable="YES"/>
+        <attribute name="reservable" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="resID" attributeType="String" syncable="YES"/>
+        <attribute name="restaurantName" attributeType="String" syncable="YES"/>
+        <relationship name="reviews" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="restaurant" inverseEntity="Review" syncable="YES"/>
+    </entity>
+    <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ratingText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewPostTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Review" positionX="-54" positionY="63" width="128" height="120"/>
     </elements>
 </model>
