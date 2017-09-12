@@ -2,13 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES" codeGenerationType="class">
         <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="averageRating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cuisine" attributeType="String" syncable="YES"/>
         <attribute name="deliveryOption" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isThumbsDown" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
         <attribute name="priceRange" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="rating" attributeType="String" syncable="YES"/>
         <attribute name="ratingText" attributeType="String" syncable="YES"/>
         <attribute name="reservable" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="resID" attributeType="String" syncable="YES"/>
