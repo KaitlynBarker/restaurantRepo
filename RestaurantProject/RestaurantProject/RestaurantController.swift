@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 //import MapKit
 
 class RestaurantController {
@@ -80,6 +81,19 @@ class RestaurantController {
             let restaurants = restaurantsDicts.flatMap { Restaurant(dictionary: $0) }
             
             completion(restaurants)
+        }
+        dataTask.resume()
+    }
+    
+    func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
+        guard let imageURL = URL(string: imageURL) else { completion(nil); return }
+        
+        let dataTask = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+            if let error = error { NSLog("unable to retreive image. Error: \(error.localizedDescription)"); completion(nil); return }
+            
+            guard let data = data, let image = UIImage(data: data) else { completion(nil); return }
+            
+            completion(image)
         }
         dataTask.resume()
     }

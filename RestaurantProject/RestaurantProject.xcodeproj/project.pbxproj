@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */; };
 		711705841F69B0C100BB107F /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */; };
+		7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */; };
 		7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7361F68303A00E90CB9 /* AppDelegate.swift */; };
 		7144E73C1F68303A00E90CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73A1F68303A00E90CB9 /* Main.storyboard */; };
 		7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73D1F68303A00E90CB9 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		7144E7331F68303A00E90CB9 /* RestaurantProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7144E7361F68303A00E90CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7144E73B1F68303A00E90CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */,
+				7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
+				7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */,
 				7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */,
 				711705841F69B0C100BB107F /* RestaurantTableViewCell.swift in Sources */,
 				7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */,

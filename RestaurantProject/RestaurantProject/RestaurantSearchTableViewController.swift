@@ -23,19 +23,23 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Actions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        RestaurantController.shared.fetchRestaurantInfo { (restaurant) in
+            // i will fill this in properly after i do map kit
+        }
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return RestaurantController.shared.restaurants.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
 
+        let restaurant = RestaurantController.shared.restaurants[indexPath.row]
         
+        cell.restaurant = restaurant
 
         return cell
     }

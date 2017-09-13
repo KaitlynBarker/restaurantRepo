@@ -98,6 +98,7 @@
                                     <outlet property="restaurantDistanceLabel" destination="RLd-d0-jj2" id="ncr-E0-jay"/>
                                     <outlet property="restaurantImageView" destination="fMY-Hx-A7f" id="UtZ-4R-fzy"/>
                                     <outlet property="restaurantNameLabel" destination="5kG-Sf-dpe" id="KhU-Aw-ktd"/>
+                                    <segue destination="hl5-3t-8tM" kind="show" id="4tg-88-AUq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -116,6 +117,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVg-Vt-Q2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1976.8" y="116.49175412293854"/>
+        </scene>
+        <!--Restaurant Details View Controller-->
+        <scene sceneID="xj9-9S-ctQ">
+            <objects>
+                <viewController id="hl5-3t-8tM" customClass="RestaurantDetailsViewController" customModule="RestaurantProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XxM-9q-DkQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="vQx-Kc-QyW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pj3-pB-CGV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gS-uY-Uqr">
+                                <rect key="frame" x="8" y="72" width="359" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9gS-uY-Uqr" secondAttribute="height" multiplier="49:30" id="CN2-T2-QdU"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9gS-uY-Uqr" firstAttribute="top" secondItem="XxM-9q-DkQ" secondAttribute="bottom" constant="8" id="RrQ-hN-f57"/>
+                            <constraint firstItem="9gS-uY-Uqr" firstAttribute="leading" secondItem="pj3-pB-CGV" secondAttribute="leading" constant="8" id="VPF-fc-uMi"/>
+                            <constraint firstAttribute="trailing" secondItem="9gS-uY-Uqr" secondAttribute="trailing" constant="8" id="igm-nx-aF5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPV-pZ-4s9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2765.5999999999999" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hhx-DV-lJw">
