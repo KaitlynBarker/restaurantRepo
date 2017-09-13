@@ -37,19 +37,11 @@ extension Restaurant {
     
     // dictionary and array keys
     
-    private static var nearbyRestaurantsArrayKey: String { return "nearby_restaurants" }
     private static var restaurantDictionaryKey: String { return "restaurant" }
     private static var locationDictionaryKey: String { return "location" }
     private static var userRatingDictionaryKey: String { return "user_rating" }
     
     // convenience init
-    
-    //    convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {
-    //        var restaurantDictionary
-    //        var nearbyRestaurants: [String] = []
-    //
-    //        for
-    //    }
     
     convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {
         guard let restaurantDictionary = dictionary[Restaurant.restaurantDictionaryKey] as? [String:Any],

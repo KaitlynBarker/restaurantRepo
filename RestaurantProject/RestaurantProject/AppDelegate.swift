@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            //
 //        }
         
+        ReviewController.shared.fetchReviews { (reviews) in
+            //
+        }
+        
         return true
     }
 

@@ -10,16 +10,24 @@ import Foundation
 import CoreData
 
 extension Review {
+    
+    // dictionary and array keys
+    
+    private static var reviewDictionaryKey: String { return "review" }
+    
+    // keys in review dictionary
+    
     private static var ratingKey: String { return "rating" }
     private static var ratingTextKey: String { return "rating_text" }
     private static var reviewPostTimeKey: String { return "review_time_friendly" }
     private static var reviewTextKey: String { return "review_text" }
     
     convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {
-        guard let rating = dictionary[Review.ratingKey] as? Int32,
-            let ratingText = dictionary[Review.ratingTextKey] as? String,
-            let reviewPostTime = dictionary[Review.reviewPostTimeKey] as? String,
-            let reviewText = dictionary[Review.reviewTextKey] as? String else { return nil }
+        guard let reviewDictionary = dictionary[Review.reviewDictionaryKey] as? [String:Any],
+            let rating = reviewDictionary[Review.ratingKey] as? Int32,
+            let ratingText = reviewDictionary[Review.ratingTextKey] as? String,
+            let reviewPostTime = reviewDictionary[Review.reviewPostTimeKey] as? String,
+            let reviewText = reviewDictionary[Review.reviewTextKey] as? String else { return nil }
         
         self.init(context: context)
         self.rating = rating
