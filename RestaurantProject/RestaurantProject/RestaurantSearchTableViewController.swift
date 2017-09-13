@@ -18,6 +18,8 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
+        
     }
     
     //MARK: - Actions
