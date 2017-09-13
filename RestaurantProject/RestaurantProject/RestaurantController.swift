@@ -12,14 +12,38 @@ import CoreData
 
 class RestaurantController {
     
-    static let shared = RestaurantController()
-    
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
+    private var nearbyRestaurantsKey: String { return "nearby_restaurants" }
     private var mockLatKey: String { return "40.7608" }
     private var mockLonKey: String { return "-111.8910" }
     
+    static let shared = RestaurantController()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
+    
+    var restaurants: [Restaurant] {
+        let moc = CoreDataStack.context
+        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        
+        do {
+            return try moc.fetch(request)
+        } catch {
+            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+        }
+        return []
+    }
+    
+//    var thumbsDownedRestaurants: [Restaurant] {
+//        let moc = CoreDataStack.context
+//        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+//        
+//        do {
+//            return try moc.fetch(request)
+//        } catch {
+//            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+//        }
+//        return []
+//    }
     
     func fetchRestaurantInfo(/*latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
         
@@ -51,13 +75,37 @@ class RestaurantController {
             guard let data = data, let responseDataString = String(data: data, encoding: .utf8) else { completion([]); return }
             
             guard let jsonDictionary = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any],
-                let restaurantsDicts = jsonDictionary["nearby_restaurants"] as? [[String:Any]] else { NSLog("unable to serialize JSON. n\(responseDataString)"); completion([]); return }
+                let restaurantsDicts = jsonDictionary[self.nearbyRestaurantsKey] as? [[String:Any]] else { NSLog("unable to serialize JSON. n\(responseDataString)"); completion([]); return }
             
             let restaurants = restaurantsDicts.flatMap { Restaurant(dictionary: $0) }
             
             completion(restaurants)
         }
         dataTask.resume()
+    }
+    
+    func isFavoritedToggle(restaurant: Restaurant) {
+        restaurant.isFavorited = !restaurant.isFavorited
+        saveToStorage()
+    }
+    
+    func isThumbsDownToggle(restaurant: Restaurant) {
+        restaurant.isThumbsDown = !restaurant.isThumbsDown
+        saveToStorage()
+    }
+    
+    func removeRestaurantFromList(restaurant: Restaurant) {
+        restaurant.managedObjectContext?.delete(restaurant)
+        saveToStorage()
+    }
+    
+    func saveToStorage() {
+        let moc = CoreDataStack.context
+        do {
+            try moc.save()
+        } catch {
+            NSLog("Unable to save restaurant. Error: \(error.localizedDescription)")
+        }
     }
 }
 

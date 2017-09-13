@@ -5,6 +5,7 @@
         <attribute name="averageRating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cuisine" attributeType="String" syncable="YES"/>
         <attribute name="deliveryOption" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageURL" attributeType="String" syncable="YES"/>
         <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isThumbsDown" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
@@ -23,7 +24,7 @@
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="255"/>
         <element name="Review" positionX="-54" positionY="63" width="128" height="120"/>
     </elements>
 </model>

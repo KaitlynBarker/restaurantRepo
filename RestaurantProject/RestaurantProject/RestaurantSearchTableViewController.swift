@@ -1,0 +1,57 @@
+//
+//  RestaurantSearchTableViewController.swift
+//  RestaurantProject
+//
+//  Created by Kaitlyn Barker on 9/13/17.
+//  Copyright © 2017 Kaitlyn Barker. All rights reserved.
+//
+
+import UIKit
+
+class RestaurantSearchTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    //MARK: - Outlets
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterButton: UIButton!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    //MARK: - Actions
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+
+    // MARK: - Table view data source
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
+
+        
+
+        return cell
+    }
+
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+
+}

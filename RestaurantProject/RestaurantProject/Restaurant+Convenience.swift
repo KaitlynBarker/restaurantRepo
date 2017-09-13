@@ -24,6 +24,7 @@ extension Restaurant {
     private static var priceRangeKey: String { return "price_range" }
     private static var deliveryOptionKey: String { return "is_delivering_now" }
     private static var reservableKey: String { return "has_table_booking" }
+    private static var featuredImageKey: String { return "featured_image" }
     
     // location dictionary keys
     
@@ -51,6 +52,7 @@ extension Restaurant {
             let priceRange = restaurantDictionary[Restaurant.priceRangeKey] as? Int32,
             let deliveryOption = restaurantDictionary[Restaurant.deliveryOptionKey] as? Int32,
             let reservable = restaurantDictionary[Restaurant.reservableKey] as? Int32,
+            let featuredImage = restaurantDictionary[Restaurant.featuredImageKey] as? String,
             let locationDictionary = restaurantDictionary[Restaurant.locationDictionaryKey] as? [String:Any],
             let address = locationDictionary[Restaurant.addressKey] as? String,
             let userRatingDictionary = restaurantDictionary[Restaurant.userRatingDictionaryKey] as? [String:Any],
@@ -64,6 +66,7 @@ extension Restaurant {
         self.address = address
         self.priceRange = priceRange
         self.reservable = reservable
+        self.imageURL = featuredImage
         self.deliveryOption = deliveryOption
         self.cuisine = cuisine
         self.averageRating = averageRating
