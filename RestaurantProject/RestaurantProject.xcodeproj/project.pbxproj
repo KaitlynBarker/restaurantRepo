@@ -15,6 +15,8 @@
 		7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */; };
 		7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */; };
 		7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7581F687A5500E90CB9 /* Review+Convenience.swift */; };
+		7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E75A1F69810000E90CB9 /* RestaurantController.swift */; };
+		7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E75C1F69810A00E90CB9 /* ReviewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7144E7541F68458700E90CB9 /* RestaurantProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantProject.xcdatamodel; sourceTree = "<group>"; };
 		7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Restaurant+Convenience.swift"; sourceTree = "<group>"; };
 		7144E7581F687A5500E90CB9 /* Review+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Review+Convenience.swift"; sourceTree = "<group>"; };
+		7144E75A1F69810000E90CB9 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
+		7144E75C1F69810A00E90CB9 /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		7144E74B1F683B9C00E90CB9 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7144E75A1F69810000E90CB9 /* RestaurantController.swift */,
+				7144E75C1F69810A00E90CB9 /* ReviewController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -203,7 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */,
+				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
+				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */,
 				7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */,
