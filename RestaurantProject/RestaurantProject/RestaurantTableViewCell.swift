@@ -33,7 +33,18 @@ class RestaurantTableViewCell: UITableViewCell {
                 self.restaurantImageView.image = image
                 self.restaurantNameLabel.text = restaurant.restaurantName
                 self.restaurantDistanceLabel.text = "Approx. " // i should be able to figure this out after i do map kit
-                self.averagePriceLabel.text = "" // this is where the dollar signs would go
+                
+                if restaurant.priceRange == 1 {
+                    self.averagePriceLabel.text = "Expected Price: 💲"
+                } else if restaurant.priceRange == 2 {
+                    self.averagePriceLabel.text = "Expected Price: 💲💲"
+                } else if restaurant.priceRange == 3 {
+                    self.averagePriceLabel.text = "Expected Price: 💲💲💲"
+                } else if restaurant.priceRange == 4 {
+                    self.averagePriceLabel.text = "Expected Price: 💲💲💲💲"
+                } else {
+                    self.averagePriceLabel.text = "Expected Price: 💲💲💲💲💲"
+                }
             }
         }
     }

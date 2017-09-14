@@ -12,6 +12,7 @@ import CoreData
 class ReviewController {
     
     static let shared = ReviewController()
+    var reviews: [Review] = []
     
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
@@ -54,6 +55,7 @@ class ReviewController {
             }
             
             let reviews = reviewsDict.flatMap { Review(dictionary: $0) }
+            self.reviews = reviews
             
             completion (reviews)
         }

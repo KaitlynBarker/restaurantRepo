@@ -14,6 +14,8 @@ class RestaurantDetailsViewController: UIViewController {
     
     //MARK: - Outlets
 
+    @IBOutlet weak var restaurantImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

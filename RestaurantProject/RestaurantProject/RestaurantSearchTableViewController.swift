@@ -57,7 +57,13 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ToRestaurantDetailVC" {
+            guard let destinationVC = segue.destination as? RestaurantDetailsViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let restaurant = RestaurantController.shared.restaurants[indexPath.row]
+            
+            destinationVC.restuarant = restaurant
+        }
     }
 
 }

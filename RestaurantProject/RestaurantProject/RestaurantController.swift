@@ -46,7 +46,7 @@ class RestaurantController {
 //        return []
 //    }
     
-    func fetchRestaurantInfo(/*latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
+    func fetchRestaurantInfo(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
         
         guard let baseURL = self.baseURL else { completion([]); return }
         
