@@ -136,8 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */,
-				711705921F6AF89600BB107F /* ReviewTableView.swift */,
 				711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */,
+				711705921F6AF89600BB107F /* ReviewTableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

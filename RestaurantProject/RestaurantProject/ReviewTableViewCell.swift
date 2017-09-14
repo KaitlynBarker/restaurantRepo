@@ -9,16 +9,44 @@
 import UIKit
 
 class ReviewTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    //MARK: - Outlets
+    
+    @IBOutlet weak var ratingTextLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var ratingTimeLabel: UILabel!
+    @IBOutlet weak var reviewTextLabel: UILabel!
+    
+    var review: Review? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func updateViews() {
+        guard let review = review else { return }
+        
+        calculateRating()
+        
+        self.ratingTextLabel.text = review.ratingText
+        self.ratingTimeLabel.text = review.reviewPostTime
+        self.reviewTextLabel.text = review.reviewText
     }
-
+    
+    func calculateRating() {
+        guard let review = review else { return }
+        
+        if review.rating == 1 {
+            self.ratingLabel.text = "Rating: ★"
+        } else if review.rating == 2 {
+            self.ratingLabel.text = "Rating: ★★"
+        } else if review.rating == 3 {
+            self.ratingLabel.text = "Rating: ★★★"
+        } else if review.rating == 4 {
+            self.ratingLabel.text = "Rating: ★★★★"
+        } else {
+            self.ratingLabel.text = "Rating: ★★★★★"
+        }
+    }
+    
 }

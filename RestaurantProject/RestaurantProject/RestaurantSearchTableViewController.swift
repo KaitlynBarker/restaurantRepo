@@ -62,7 +62,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let restaurant = RestaurantController.shared.restaurants[indexPath.row]
             
-            destinationVC.restuarant = restaurant
+            destinationVC.restaurant = restaurant
         }
     }
 

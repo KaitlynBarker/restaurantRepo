@@ -34,18 +34,24 @@ class RestaurantTableViewCell: UITableViewCell {
                 self.restaurantNameLabel.text = restaurant.restaurantName
                 self.restaurantDistanceLabel.text = "Approx. " // i should be able to figure this out after i do map kit
                 
-                if restaurant.priceRange == 1 {
-                    self.averagePriceLabel.text = "Expected Price: 💲"
-                } else if restaurant.priceRange == 2 {
-                    self.averagePriceLabel.text = "Expected Price: 💲💲"
-                } else if restaurant.priceRange == 3 {
-                    self.averagePriceLabel.text = "Expected Price: 💲💲💲"
-                } else if restaurant.priceRange == 4 {
-                    self.averagePriceLabel.text = "Expected Price: 💲💲💲💲"
-                } else {
-                    self.averagePriceLabel.text = "Expected Price: 💲💲💲💲💲"
-                }
+                self.calculateAvePrice()
             }
+        }
+    }
+    
+    func calculateAvePrice() {
+        guard let restaurant = restaurant else { return }
+        
+        if restaurant.priceRange == 1 {
+            self.averagePriceLabel.text = "Expected Price: 💲"
+        } else if restaurant.priceRange == 2 {
+            self.averagePriceLabel.text = "Expected Price: 💲💲"
+        } else if restaurant.priceRange == 3 {
+            self.averagePriceLabel.text = "Expected Price: 💲💲💲"
+        } else if restaurant.priceRange == 4 {
+            self.averagePriceLabel.text = "Expected Price: 💲💲💲💲"
+        } else {
+            self.averagePriceLabel.text = "Expected Price: 💲💲💲💲💲"
         }
     }
     

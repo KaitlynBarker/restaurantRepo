@@ -17,9 +17,11 @@ class ReviewTableView: UITableView {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewTableViewCell else { return UITableViewCell() }
         
         let review = ReviewController.shared.reviews[indexPath.row]
+        
+        cell.review = review
         
         return cell
     }
