@@ -21,6 +21,8 @@
 		711705A31F6C357000BB107F /* EstablishmentTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A21F6C357000BB107F /* EstablishmentTypeController.swift */; };
 		711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */; };
 		711705A71F6C403800BB107F /* CuisineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A61F6C403800BB107F /* CuisineController.swift */; };
+		711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */; };
+		711705AB1F6C7C2E00BB107F /* DislikeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705AA1F6C7C2E00BB107F /* DislikeListTableViewController.swift */; };
 		7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7361F68303A00E90CB9 /* AppDelegate.swift */; };
 		7144E73C1F68303A00E90CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73A1F68303A00E90CB9 /* Main.storyboard */; };
 		7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73D1F68303A00E90CB9 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		711705A21F6C357000BB107F /* EstablishmentTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentTypeController.swift; sourceTree = "<group>"; };
 		711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cuisine+Convenience.swift"; sourceTree = "<group>"; };
 		711705A61F6C403800BB107F /* CuisineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineController.swift; sourceTree = "<group>"; };
+		711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListTableViewController.swift; sourceTree = "<group>"; };
+		711705AA1F6C7C2E00BB107F /* DislikeListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DislikeListTableViewController.swift; sourceTree = "<group>"; };
 		7144E7331F68303A00E90CB9 /* RestaurantProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7144E7361F68303A00E90CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7144E73B1F68303A00E90CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */,
 				7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */,
 				711705961F6C281C00BB107F /* FilterViewController.swift */,
+				711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */,
+				711705AA1F6C7C2E00BB107F /* DislikeListTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -255,12 +261,14 @@
 				711705A31F6C357000BB107F /* EstablishmentTypeController.swift in Sources */,
 				711705991F6C2F1800BB107F /* EstablishmentTypeTableView.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
+				711705AB1F6C7C2E00BB107F /* DislikeListTableViewController.swift in Sources */,
 				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
 				711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */,
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */,
 				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
 				7117059D1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift in Sources */,
+				711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */,
 				711705A11F6C308600BB107F /* EstablishmentType+Convenience.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				711705971F6C281C00BB107F /* FilterViewController.swift in Sources */,
