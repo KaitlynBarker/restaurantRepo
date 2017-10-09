@@ -15,13 +15,17 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var priceRangeSlider: UISlider!
     @IBOutlet weak var establishmentTableView: UITableView!
     @IBOutlet weak var cuisineTableView: UITableView!
+    @IBOutlet weak var doneButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //MARK: - Actions
+    
+    @IBAction func doneButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: - Table view data source
     

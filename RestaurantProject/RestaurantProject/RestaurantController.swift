@@ -34,17 +34,17 @@ class RestaurantController {
         return []
     }
     
-//    var thumbsDownedRestaurants: [Restaurant] {
-//        let moc = CoreDataStack.context
-//        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
-//        
-//        do {
-//            return try moc.fetch(request)
-//        } catch {
-//            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
-//        }
-//        return []
-//    }
+    var thumbsDownedRestaurants: [Restaurant] {
+        let moc = CoreDataStack.context
+        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        
+        do {
+            return try moc.fetch(request)
+        } catch {
+            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+        }
+        return []
+    }
     
     func fetchRestaurantInfo(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
         
