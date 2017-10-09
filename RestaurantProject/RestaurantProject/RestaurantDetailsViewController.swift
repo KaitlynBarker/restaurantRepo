@@ -8,13 +8,14 @@
 
 import UIKit
 
-class RestaurantDetailsViewController: UIViewController {
+class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var restaurant: Restaurant?
     
     //MARK: - Outlets
     
     @IBOutlet weak var restaurantImageView: UIImageView!
+    @IBOutlet weak var reviewTableView: UITableView!
     
     // buttons
     
@@ -36,6 +37,31 @@ class RestaurantDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = restaurant?.restaurantName
+    }
+    
+    // MARK: - Table view data source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ReviewController.shared.reviews.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewTableViewCell else { return UITableViewCell() }
+        
+        let review = ReviewController.shared.reviews[indexPath.row]
+        
+        cell.review = review
+        
+        return cell
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
     }
     
     //MARK: - Actions

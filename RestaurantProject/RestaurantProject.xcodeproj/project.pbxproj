@@ -10,11 +10,8 @@
 		711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */; };
 		711705841F69B0C100BB107F /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */; };
 		7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */; };
-		711705931F6AF89600BB107F /* ReviewTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705921F6AF89600BB107F /* ReviewTableView.swift */; };
 		711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */; };
 		711705971F6C281C00BB107F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705961F6C281C00BB107F /* FilterViewController.swift */; };
-		711705991F6C2F1800BB107F /* EstablishmentTypeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705981F6C2F1800BB107F /* EstablishmentTypeTableView.swift */; };
-		7117059B1F6C2F3D00BB107F /* CuisineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059A1F6C2F3D00BB107F /* CuisineTableView.swift */; };
 		7117059D1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */; };
 		7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */; };
 		711705A11F6C308600BB107F /* EstablishmentType+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A01F6C308600BB107F /* EstablishmentType+Convenience.swift */; };
@@ -39,11 +36,8 @@
 		711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
-		711705921F6AF89600BB107F /* ReviewTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableView.swift; sourceTree = "<group>"; };
 		711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		711705961F6C281C00BB107F /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		711705981F6C2F1800BB107F /* EstablishmentTypeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentTypeTableView.swift; sourceTree = "<group>"; };
-		7117059A1F6C2F3D00BB107F /* CuisineTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableView.swift; sourceTree = "<group>"; };
 		7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentTypeTableViewCell.swift; sourceTree = "<group>"; };
 		7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 		711705A01F6C308600BB107F /* EstablishmentType+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EstablishmentType+Convenience.swift"; sourceTree = "<group>"; };
@@ -166,10 +160,7 @@
 			children = (
 				711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */,
 				711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */,
-				711705921F6AF89600BB107F /* ReviewTableView.swift */,
-				711705981F6C2F1800BB107F /* EstablishmentTypeTableView.swift */,
 				7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */,
-				7117059A1F6C2F3D00BB107F /* CuisineTableView.swift */,
 				7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */,
 			);
 			name = Views;
@@ -260,7 +251,6 @@
 				7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */,
 				711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */,
 				711705A31F6C357000BB107F /* EstablishmentTypeController.swift in Sources */,
-				711705991F6C2F1800BB107F /* EstablishmentTypeTableView.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
 				711705AB1F6C7C2E00BB107F /* DislikeListTableViewController.swift in Sources */,
 				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
@@ -273,11 +263,9 @@
 				711705A11F6C308600BB107F /* EstablishmentType+Convenience.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				711705971F6C281C00BB107F /* FilterViewController.swift in Sources */,
-				7117059B1F6C2F3D00BB107F /* CuisineTableView.swift in Sources */,
 				711705A71F6C403800BB107F /* CuisineController.swift in Sources */,
 				7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */,
 				7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */,
-				711705931F6AF89600BB107F /* ReviewTableView.swift in Sources */,
 				711705841F69B0C100BB107F /* RestaurantTableViewCell.swift in Sources */,
 				7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */,
 			);
