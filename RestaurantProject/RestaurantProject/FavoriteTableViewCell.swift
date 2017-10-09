@@ -21,7 +21,7 @@ class FavoriteTableViewCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-        
+//        RestaurantController.shared.isFavoritedToggle(restaurant: <#T##Restaurant#>)
     }
     
     var favoriteRes: Restaurant? {
@@ -31,6 +31,40 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
+        guard let favRestaurant = self.favoriteRes, let image = favRestaurant.imageURL else { return }
         
+        RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
+            guard let image = image else { return }
+            
+            DispatchQueue.main.async {
+                self.restaurantImageView.image = image
+                self.restaurantNameLabel.text = favRestaurant.restaurantName
+                self.resDistanceLabel.text = "" // will find this out after i incorporate map kit
+                
+                self.calculateAvePrice()
+            }
+        }
     }
+    
+    func calculateAvePrice() {
+        guard let favRestaurant = self.favoriteRes else { return }
+        
+        if favRestaurant.priceRange == 1 {
+            self.avePriceLabel.text = "Expected Price: 💲"
+        } else if favRestaurant.priceRange == 2 {
+            self.avePriceLabel.text = "Expected Price: 💲💲"
+        } else if favRestaurant.priceRange == 3 {
+            self.avePriceLabel.text = "Expected Price: 💲💲💲"
+        } else if favRestaurant.priceRange == 4 {
+            self.avePriceLabel.text = "Expected Price: 💲💲💲💲"
+        } else {
+            self.avePriceLabel.text = "Expected Price: 💲💲💲💲💲"
+        }
+    }
+}
+
+// FIXME: - incorporate protocol properly.
+
+protocol FavoriteTableViewCellDelegate: class {
+    func restaurantStatusWasUpdated(cell: FavoriteTableViewCell)
 }

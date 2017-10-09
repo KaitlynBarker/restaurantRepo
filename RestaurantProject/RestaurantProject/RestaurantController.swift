@@ -34,6 +34,18 @@ class RestaurantController {
         return []
     }
     
+    var favoritedRestaurants: [Restaurant] {
+        let moc = CoreDataStack.context
+        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        
+        do {
+            return try moc.fetch(request)
+        } catch {
+            NSLog("Unable to fetch favorited restaurants. \(#file) \(#function) \n\(error.localizedDescription)")
+        }
+        return []
+    }
+    
     var thumbsDownedRestaurants: [Restaurant] {
         let moc = CoreDataStack.context
         let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
@@ -45,6 +57,8 @@ class RestaurantController {
         }
         return []
     }
+    
+    // MARK: - Retreive/Fetch
     
     func fetchRestaurantInfo(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
         
