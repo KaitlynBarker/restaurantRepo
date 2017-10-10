@@ -34,29 +34,29 @@ class RestaurantController {
         return []
     }
     
-    var favoritedRestaurants: [Restaurant] {
-        let moc = CoreDataStack.context
-        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
-        
-        do {
-            return try moc.fetch(request)
-        } catch {
-            NSLog("Unable to fetch favorited restaurants. \(#file) \(#function) \n\(error.localizedDescription)")
-        }
-        return []
-    }
-    
-    var thumbsDownedRestaurants: [Restaurant] {
-        let moc = CoreDataStack.context
-        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
-        
-        do {
-            return try moc.fetch(request)
-        } catch {
-            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
-        }
-        return []
-    }
+//    var favoritedRestaurants: [Restaurant] {
+//        let moc = CoreDataStack.context
+//        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+//
+//        do {
+//            return try moc.fetch(request)
+//        } catch {
+//            NSLog("Unable to fetch favorited restaurants. \(#file) \(#function) \n\(error.localizedDescription)")
+//        }
+//        return []
+//    }
+//
+//    var thumbsDownedRestaurants: [Restaurant] {
+//        let moc = CoreDataStack.context
+//        let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+//
+//        do {
+//            return try moc.fetch(request)
+//        } catch {
+//            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+//        }
+//        return []
+//    }
     
     // MARK: - Retreive/Fetch
     
@@ -117,10 +117,10 @@ class RestaurantController {
         saveToStorage()
     }
     
-    func isThumbsDownToggle(restaurant: Restaurant) {
-        restaurant.isThumbsDown = !restaurant.isThumbsDown
-        saveToStorage()
-    }
+//    func isThumbsDownToggle(restaurant: Restaurant) {
+//        restaurant.isThumbsDown = !restaurant.isThumbsDown
+//        saveToStorage()
+//    }
     
     func removeRestaurantFromList(restaurant: Restaurant) {
         restaurant.managedObjectContext?.delete(restaurant)

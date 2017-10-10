@@ -20,7 +20,7 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RestaurantController.shared.favoritedRestaurants.count
+        return RestaurantController.shared.restaurants.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,7 +28,7 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
 
         cell.delegate = self
         
-        let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
+        let favRestaurant = RestaurantController.shared.restaurants[indexPath.row]
         
         cell.favoriteRes = favRestaurant
 
@@ -53,7 +53,7 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
     
     func restaurantStatusWasUpdated(cell: FavoriteTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
+        let favRestaurant = RestaurantController.shared.restaurants[indexPath.row]
         
         RestaurantController.shared.isFavoritedToggle(restaurant: favRestaurant)
         cell.updateViews()

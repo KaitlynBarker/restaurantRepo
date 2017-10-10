@@ -11,11 +11,6 @@ import CoreData
 
 extension Restaurant {
     
-    // keys that aren't in the api
-    
-    private static var isFavoritedKey: String { return "isFavorited" }
-    private static var isThumbsDownKey: String { return "isThumbsDown" }
-    
     // first layer keys
     
     private static var resIDKey: String { return "id" }
@@ -45,11 +40,11 @@ extension Restaurant {
     
     // convenience inits
     
-    convenience init(isFavorited: Bool = false, isThumbsDown: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(isFavorited: Bool = false, /*isThumbsDown: Bool = false*/ context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         self.isFavorited = isFavorited
-        self.isThumbsDown = isThumbsDown
+//        self.isThumbsDown = isThumbsDown
     }
     
     convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {
@@ -83,5 +78,4 @@ extension Restaurant {
         self.numberOfVotes = numberOfVotes
         self.ratingText = ratingText
     }
-    
 }

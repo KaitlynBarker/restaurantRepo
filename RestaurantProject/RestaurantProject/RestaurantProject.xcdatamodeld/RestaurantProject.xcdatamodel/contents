@@ -13,7 +13,6 @@
         <attribute name="deliveryOption" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageURL" attributeType="String" syncable="YES"/>
         <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isThumbsDown" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
         <attribute name="priceRange" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ratingText" attributeType="String" syncable="YES"/>
@@ -32,7 +31,7 @@
     </entity>
     <elements>
         <element name="Cuisine" positionX="-45" positionY="162" width="128" height="88"/>
-        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="283"/>
+        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="268"/>
         <element name="Review" positionX="-72" positionY="-216" width="137" height="118"/>
     </elements>
 </model>

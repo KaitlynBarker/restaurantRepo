@@ -20,8 +20,6 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     // buttons
     
     @IBOutlet weak var favoriteButton: UIButton!
-    @IBOutlet weak var thumbsDownButton: UIButton!
-    @IBOutlet weak var addToTryListButton: UIButton!
     @IBOutlet weak var callRestaurantButton: UIButton!
     
     // description labels
@@ -58,14 +56,6 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     //MARK: - Actions
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        
-    }
-
-    @IBAction func thumbsDownButtonTapped(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func addToTryListButtonTapped(_ sender: UIButton) {
         
     }
     
@@ -113,11 +103,4 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
             self.reservableLabel.text = "Takes Reservations"
         }
     }
-    
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-
 }
