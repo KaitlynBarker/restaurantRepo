@@ -46,7 +46,13 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ToRestaurantDetailFromFavs" {
+            guard let destinationVC = segue.destination as? RestaurantDetailsViewController else { return }
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let favRestaurant = RestaurantController.shared.restaurants[indexPath.row]
+            
+            destinationVC.restaurant = favRestaurant
+        }
     }
     
     // MARK: - FavoriteTableViewCellDelegate
