@@ -30,6 +30,7 @@
 		7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512B1F8C18F00016E2A6 /* MapViewController.swift */; };
 		7165512E1F8C19530016E2A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512D1F8C19530016E2A6 /* Color.swift */; };
 		716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */; };
+		716551321F8D44CC0016E2A6 /* DislikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716551311F8D44CC0016E2A6 /* DislikeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		7165512B1F8C18F00016E2A6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7165512D1F8C19530016E2A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		716551311F8D44CC0016E2A6 /* DislikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DislikeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */,
 				7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */,
 				7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */,
+				716551311F8D44CC0016E2A6 /* DislikeTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */,
 				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
+				716551321F8D44CC0016E2A6 /* DislikeTableViewCell.swift in Sources */,
 				711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */,
 				716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */,
 				7165512E1F8C19530016E2A6 /* Color.swift in Sources */,

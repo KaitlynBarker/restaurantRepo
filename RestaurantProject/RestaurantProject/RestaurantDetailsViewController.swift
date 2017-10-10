@@ -55,15 +55,6 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         return cell
     }
     
-    // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
-    }
-    
     //MARK: - Actions
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {

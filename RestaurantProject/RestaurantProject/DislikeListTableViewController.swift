@@ -21,9 +21,11 @@ class DislikeListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DislikeCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DislikeCell", for: indexPath) as? DislikeTableViewCell else { return UITableViewCell() }
         
+        let dislikedRestaurant = RestaurantController.shared.thumbsDownedRestaurants[indexPath.row]
         
+        cell.dislikeRes = dislikedRestaurant
         
         return cell
     }
