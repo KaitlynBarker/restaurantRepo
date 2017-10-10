@@ -21,8 +21,10 @@ class FavoriteTableViewCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func likeButtonTapped(_ sender: UIButton) {
-//        RestaurantController.shared.isFavoritedToggle(restaurant: <#T##Restaurant#>)
+        delegate?.restaurantStatusWasUpdated(cell: self)
     }
+    
+    weak var delegate: FavoriteTableViewCellDelegate?
     
     var favoriteRes: Restaurant? {
         didSet {
@@ -42,6 +44,12 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.resDistanceLabel.text = "" // will find this out after i incorporate map kit
                 
                 self.calculateAvePrice()
+                
+                if favRestaurant.isFavorited {
+                    self.likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+                } else {
+                    self.likeButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+                }
             }
         }
     }

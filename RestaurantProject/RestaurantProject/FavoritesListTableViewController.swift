@@ -8,11 +8,14 @@
 
 import UIKit
 
-class FavoritesListTableViewController: UITableViewController {
+class FavoritesListTableViewController: UITableViewController, FavoriteTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    var favRestaurant: Restaurant?
+//    var favRestaurants: [Restaurant] = []
 
     // MARK: - Table view data source
 
@@ -23,7 +26,11 @@ class FavoritesListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
 
+        cell.delegate = self
         
+        let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
+        
+        cell.favoriteRes = favRestaurant
 
         return cell
     }
@@ -35,11 +42,20 @@ class FavoritesListTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-
+    
+    // MARK: - FavoriteTableViewCellDelegate
+    
+    func restaurantStatusWasUpdated(cell: FavoriteTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
+        
+        RestaurantController.shared.isFavoritedToggle(restaurant: favRestaurant)
+        cell.updateViews()
+    }
 }

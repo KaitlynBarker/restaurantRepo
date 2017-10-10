@@ -43,7 +43,14 @@ extension Restaurant {
     private static var locationDictionaryKey: String { return "location" }
     private static var userRatingDictionaryKey: String { return "user_rating" }
     
-    // convenience init
+    // convenience inits
+    
+    convenience init(isFavorited: Bool = false, isThumbsDown: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+        
+        self.init(context: context)
+        self.isFavorited = isFavorited
+        self.isThumbsDown = isThumbsDown
+    }
     
     convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {
         guard let restaurantDictionary = dictionary[Restaurant.restaurantDictionaryKey] as? [String:Any],

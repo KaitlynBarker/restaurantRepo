@@ -12,10 +12,7 @@
 		7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */; };
 		711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */; };
 		711705971F6C281C00BB107F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705961F6C281C00BB107F /* FilterViewController.swift */; };
-		7117059D1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */; };
 		7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */; };
-		711705A11F6C308600BB107F /* EstablishmentType+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A01F6C308600BB107F /* EstablishmentType+Convenience.swift */; };
-		711705A31F6C357000BB107F /* EstablishmentTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A21F6C357000BB107F /* EstablishmentTypeController.swift */; };
 		711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */; };
 		711705A71F6C403800BB107F /* CuisineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A61F6C403800BB107F /* CuisineController.swift */; };
 		711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */; };
@@ -41,10 +38,7 @@
 		7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		711705961F6C281C00BB107F /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentTypeTableViewCell.swift; sourceTree = "<group>"; };
 		7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
-		711705A01F6C308600BB107F /* EstablishmentType+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EstablishmentType+Convenience.swift"; sourceTree = "<group>"; };
-		711705A21F6C357000BB107F /* EstablishmentTypeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishmentTypeController.swift; sourceTree = "<group>"; };
 		711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cuisine+Convenience.swift"; sourceTree = "<group>"; };
 		711705A61F6C403800BB107F /* CuisineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineController.swift; sourceTree = "<group>"; };
 		711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListTableViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +127,6 @@
 				7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */,
 				7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */,
 				7144E7581F687A5500E90CB9 /* Review+Convenience.swift */,
-				711705A01F6C308600BB107F /* EstablishmentType+Convenience.swift */,
 				711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */,
 			);
 			name = Models;
@@ -142,7 +135,6 @@
 		7144E74B1F683B9C00E90CB9 /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
-				711705A21F6C357000BB107F /* EstablishmentTypeController.swift */,
 				7144E75A1F69810000E90CB9 /* RestaurantController.swift */,
 				7144E75C1F69810A00E90CB9 /* ReviewController.swift */,
 				711705A61F6C403800BB107F /* CuisineController.swift */,
@@ -168,7 +160,6 @@
 			children = (
 				711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */,
 				711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */,
-				7117059C1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift */,
 				7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */,
 				7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */,
 			);
@@ -259,7 +250,6 @@
 			files = (
 				7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */,
 				711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */,
-				711705A31F6C357000BB107F /* EstablishmentTypeController.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
 				711705AB1F6C7C2E00BB107F /* DislikeListTableViewController.swift in Sources */,
 				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
@@ -267,9 +257,7 @@
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */,
 				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
-				7117059D1F6C2FAA00BB107F /* EstablishmentTypeTableViewCell.swift in Sources */,
 				711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */,
-				711705A11F6C308600BB107F /* EstablishmentType+Convenience.swift in Sources */,
 				716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */,
 				7165512E1F8C19530016E2A6 /* Color.swift in Sources */,
 				7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */,

@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Cuisine" representedClassName="Cuisine" syncable="YES" codeGenerationType="class">
         <attribute name="cuisineName" attributeType="String" syncable="YES"/>
         <attribute name="isCuisineChosen" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="cuisines" inverseEntity="Restaurant" syncable="YES"/>
-    </entity>
-    <entity name="EstablishmentType" representedClassName="EstablishmentType" syncable="YES" codeGenerationType="class">
-        <attribute name="isEstablishmentTypeChosen" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="typeName" attributeType="String" syncable="YES"/>
-        <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="establishmentType" inverseEntity="Restaurant" syncable="YES"/>
     </entity>
     <entity name="Restaurant" representedClassName="Restaurant" syncable="YES" codeGenerationType="class">
         <attribute name="address" attributeType="String" syncable="YES"/>
@@ -26,8 +21,7 @@
         <attribute name="resID" attributeType="String" syncable="YES"/>
         <attribute name="restaurantName" attributeType="String" syncable="YES"/>
         <relationship name="cuisines" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cuisine" inverseName="restaurant" inverseEntity="Cuisine" syncable="YES"/>
-        <relationship name="establishmentType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EstablishmentType" inverseName="restaurant" inverseEntity="EstablishmentType" syncable="YES"/>
-        <relationship name="reviews" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="restaurant" inverseEntity="Review" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="restaurant" inverseEntity="Review" syncable="YES"/>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
         <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -37,9 +31,8 @@
         <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Restaurant" positionX="-63" positionY="-18" width="128" height="300"/>
-        <element name="Review" positionX="-54" positionY="63" width="128" height="120"/>
-        <element name="EstablishmentType" positionX="-54" positionY="99" width="128" height="90"/>
-        <element name="Cuisine" positionX="-45" positionY="117" width="128" height="90"/>
+        <element name="Cuisine" positionX="-45" positionY="162" width="128" height="90"/>
+        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="283"/>
+        <element name="Review" positionX="-72" positionY="-216" width="137" height="118"/>
     </elements>
 </model>

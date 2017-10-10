@@ -13,7 +13,6 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - Outlets
     
     @IBOutlet weak var priceRangeSlider: UISlider!
-    @IBOutlet weak var establishmentTableView: UITableView!
     @IBOutlet weak var cuisineTableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     
@@ -30,34 +29,30 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == establishmentTableView {
-            return EstablishmentTypeController.shared.establishmentTypes.count
-        } else if tableView == cuisineTableView {
-            return CuisineController.shared.cuisines.count
-        } else {
-            return 0
-        }
+        return CuisineController.shared.cuisines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let establishmentCell = tableView.dequeueReusableCell(withIdentifier: "EstablishmentTypeCell", for: indexPath) as? EstablishmentTypeTableViewCell, let cuisineCell = tableView.dequeueReusableCell(withIdentifier: "CuisineCell") as? CuisineTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CuisineCell", for: indexPath) as? CuisineTableViewCell else { return UITableViewCell() }
         
-        let establishment = EstablishmentTypeController.shared.establishmentTypes[indexPath.row]
         let cuisine = CuisineController.shared.cuisines[indexPath.row]
         
-        if tableView == establishmentTableView {
-            establishmentCell.establishmentType = establishment
-            return establishmentCell
-        } else if tableView == cuisineTableView {
-            cuisineCell.cuisine = cuisine
-            return cuisineCell
-        } else {
-            return UITableViewCell()
+        cell.cuisine = cuisine
+        
+        return cell
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        
     }
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
