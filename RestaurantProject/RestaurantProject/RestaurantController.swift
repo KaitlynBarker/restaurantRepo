@@ -22,6 +22,8 @@ class RestaurantController {
     static let shared = RestaurantController()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
     
+    var restaurant: Restaurant?
+    
     var restaurants: [Restaurant] {
         let moc = CoreDataStack.context
         let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()

@@ -29,6 +29,7 @@
 		7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512B1F8C18F00016E2A6 /* MapViewController.swift */; };
 		7165512E1F8C19530016E2A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512D1F8C19530016E2A6 /* Color.swift */; };
 		716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */; };
+		7165519B1F8E742F0016E2A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7165519A1F8E742F0016E2A6 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		7165512B1F8C18F00016E2A6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7165512D1F8C19530016E2A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		7165519A1F8E742F0016E2A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7165519B1F8E742F0016E2A6 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +77,7 @@
 			children = (
 				7144E7351F68303A00E90CB9 /* RestaurantProject */,
 				7144E7341F68303A00E90CB9 /* Products */,
+				716551991F8E742F0016E2A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,6 +175,14 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		716551991F8E742F0016E2A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7165519A1F8E742F0016E2A6 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,6 +218,11 @@
 						DevelopmentTeam = RNFZPCD4YL;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
