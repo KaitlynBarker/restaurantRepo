@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
-//import MapKit
+import CoreLocation
 
 class RestaurantController {
     
@@ -21,8 +21,6 @@ class RestaurantController {
     
     static let shared = RestaurantController()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
-    
-    var restaurant: Restaurant?
     
     var restaurants: [Restaurant] {
         let moc = CoreDataStack.context
@@ -40,7 +38,7 @@ class RestaurantController {
     
     // MARK: - Retreive/Fetch
     
-    func fetchRestaurantInfo(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
+    func fetchNearbyRestaurants(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
         
         guard let baseURL = self.baseURL else { completion([]); return }
         
@@ -120,3 +118,7 @@ class RestaurantController {
 }
 
 // import the information pulled from mapkit into the fetchRestaurant info function. so that we can get the latitude and longitude
+
+
+// developers.zomato.com/api/v2.1/geocode?lat=40.7608&lon=-111.8910
+

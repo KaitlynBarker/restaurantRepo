@@ -15,6 +15,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var mapView: MKMapView!
     
+    static let shared = MapViewController()
+    
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -25,10 +27,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.showsPointsOfInterest = true
         self.mapView.showsUserLocation = true
         
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-        
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -37,7 +35,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func calculateDirections() {
-//        guard let sourceCoordinates = locationManager.location?.coordinate else { return }
+        
     }
     
     // MARK: - Navigation

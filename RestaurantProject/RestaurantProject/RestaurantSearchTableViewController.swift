@@ -25,9 +25,9 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Actions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        RestaurantController.shared.fetchRestaurantInfo { (restaurant) in
-            // i will fill this in properly after i do map kit
-        }
+//        RestaurantController.shared.fetchRestaurantInfo { (restaurant) in
+//            // i will fill this in properly after i do map kit
+//        }
     }
 
     // MARK: - Table view data source
