@@ -13,7 +13,6 @@ class CuisineController {
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var cuisinesKey: String { return "cuisines" }
-    private var mockCityID: String { return "1213" }
     
     static let shared = CuisineController()
     let baseURL = RestaurantController.shared.baseURL
@@ -22,12 +21,16 @@ class CuisineController {
     
     func fetchCuisines(completion: @escaping ([Cuisine]) -> Void) {
         guard let baseURL = self.baseURL else { completion([]); return }
-        let url = baseURL.appendingPathComponent("cuisines")
+        
+        let coordinate = LocationManager.shared.fetchCurrentLocation()
+        
+        let url = baseURL.appendingPathComponent(self.cuisinesKey)
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        let cityIDQueryItem = URLQueryItem(name: "city_id", value: self.mockCityID)
+        let latQueryItem = URLQueryItem(name: "lat", value: coordinate.latitude.description)
+        let lonQueryItem = URLQueryItem(name: "lon", value: coordinate.longitude.description)
         
-        components?.queryItems = [cityIDQueryItem]
+        components?.queryItems = [latQueryItem, lonQueryItem]
         
         guard let requestURL = components?.url else { completion([]); return }
         
@@ -53,3 +56,4 @@ class CuisineController {
         dataTask.resume()
     }
 }
+

@@ -16,8 +16,6 @@ class RestaurantController {
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var nearbyRestaurantsKey: String { return "nearby_restaurants" }
-    private var mockLatKey: String { return "40.7608" }
-    private var mockLonKey: String { return "-111.8910" }
     
     static let shared = RestaurantController()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
@@ -39,6 +37,13 @@ class RestaurantController {
             return restaurant.isFavorited == true
         })
     }
+    
+    var thumbsDownRestaurants: [Restaurant] {
+        return restaurants.filter({ (restaurant) -> Bool in
+            return restaurant.isThumbsDown == true
+        })
+    }
+    
     var restaurant: Restaurant?
     
     // MARK: - Retreive/Fetch
@@ -84,8 +89,6 @@ class RestaurantController {
         dataTask.resume()
     }
     
-    
-    
     func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL) else { completion(nil); return }
         
@@ -119,6 +122,11 @@ class RestaurantController {
         saveToStorage()
     }
     
+    func isThumbsDownToggle(restaurant: Restaurant) {
+        restaurant.isThumbsDown = !restaurant.isThumbsDown
+        saveToStorage()
+    }
+    
     func removeRestaurantFromList(restaurant: Restaurant) {
         restaurant.managedObjectContext?.delete(restaurant)
         saveToStorage()
@@ -133,9 +141,6 @@ class RestaurantController {
         }
     }
 }
-
-// import the information pulled from mapkit into the fetchRestaurant info function. so that we can get the latitude and longitude
-
 
 // developers.zomato.com/api/v2.1/geocode?lat=40.7608&lon=-111.8910
 

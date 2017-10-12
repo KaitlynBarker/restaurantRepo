@@ -40,11 +40,11 @@ extension Restaurant {
     
     // convenience inits
     
-    convenience init(isFavorited: Bool = false, /*isThumbsDown: Bool = false*/ context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(isFavorited: Bool = false, isThumbsDown: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         self.isFavorited = isFavorited
-//        self.isThumbsDown = isThumbsDown
+        self.isThumbsDown = isThumbsDown
     }
     
     convenience init?(dictionary: [String:Any], context: NSManagedObjectContext = CoreDataStack.context) {

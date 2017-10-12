@@ -16,11 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        RestaurantController.shared.convertAddressToCoordinates { (coordinates) in
-            //
-        }
-        
-//        LocationManager.shared.requestAuthorization()
+        LocationManager.shared.requestAuthorization()
         
 //        RestaurantController.shared.fetchRestaurantInfo { (restaurants) in
 //            //

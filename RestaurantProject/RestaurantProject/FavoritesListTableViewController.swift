@@ -13,9 +13,6 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    var favRestaurant: Restaurant?
-//    var favRestaurants: [Restaurant] = []
 
     // MARK: - Table view data source
 
@@ -33,14 +30,6 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
         cell.favoriteRes = favRestaurant
 
         return cell
-    }
-
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     // MARK: - Navigation
