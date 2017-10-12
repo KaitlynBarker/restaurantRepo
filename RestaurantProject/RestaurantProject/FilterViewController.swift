@@ -13,8 +13,6 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - Outlets
     
     @IBOutlet weak var priceRangeSlider: UISlider!
-    @IBOutlet weak var cuisineTableView: UITableView!
-    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +39,4 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     // MARK: - Outlets
     
@@ -26,6 +27,44 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func calculateDirections() {
+        let startCoordinates = LocationManager.shared.fetchCurrentLocation()
+//        let endCoordinates = RestaurantController.shared.convertAddressToCoordinates()
+        let endCoordinates = CLLocationCoordinate2DMake(40.547111, -111.920358)
         
+        let startPlacemark = MKPlacemark(coordinate: startCoordinates)
+        let endPlacemark = MKPlacemark(coordinate: endCoordinates)
+        
+        let startItem = MKMapItem(placemark: startPlacemark)
+        let endItem = MKMapItem(placemark: endPlacemark)
+        
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = startItem
+        directionRequest.destination = endItem
+        directionRequest.transportType = .any
+        
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate { (response, error) in
+            guard let response = response else { return }
+            
+            if let error = error {
+                NSLog("Error found. \(error.localizedDescription)")
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapView.add(route.polyline, level: .aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            let region = MKCoordinateRegionForMapRect(rect)
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 2.5
+        
+        return renderer
     }
 }
