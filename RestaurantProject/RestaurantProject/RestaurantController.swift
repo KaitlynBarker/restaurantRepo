@@ -34,20 +34,27 @@ class RestaurantController {
         return []
     }
     
-    var favoritedRestaurants: [Restaurant] = []
+    var favoritedRestaurants: [Restaurant] {
+        return restaurants.filter({ (restaurant) -> Bool in
+            return restaurant.isFavorited == true
+        })
+    }
+    var restaurant: Restaurant?
     
     // MARK: - Retreive/Fetch
     
-    func fetchNearbyRestaurants(/* basedOn latitude: MKMapItem, longitude: MKMapItem,*/ completion: @escaping ([Restaurant]) -> Void) {
+    func fetchNearbyRestaurants(completion: @escaping ([Restaurant]) -> Void) {
         
         guard let baseURL = self.baseURL else { completion([]); return }
+        
+        let coordinate = LocationManager.shared.fetchCurrentLocation() // if it doesn't work, talk to michael
         
         let url = baseURL.appendingPathComponent("geocode")
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        let latQueryItem = URLQueryItem(name: "lat", value: self.mockLatKey)
-        let lonQueryItem = URLQueryItem(name: "lon", value: self.mockLonKey)
+        let latQueryItem = URLQueryItem(name: "lat", value: coordinate.latitude.description)
+        let lonQueryItem = URLQueryItem(name: "lon", value: coordinate.longitude.description)
         
         components?.queryItems = [latQueryItem, lonQueryItem]
         
@@ -77,6 +84,8 @@ class RestaurantController {
         dataTask.resume()
     }
     
+    
+    
     func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL) else { completion(nil); return }
         
@@ -90,14 +99,22 @@ class RestaurantController {
         dataTask.resume()
     }
     
-    func isFavoritedToggle(restaurant: Restaurant) {
-        if restaurant.isFavorited == true {
-            self.favoritedRestaurants.append(restaurant)
-        } else if restaurant.isFavorited == false {
-            guard let index = favoritedRestaurants.index(of: restaurant) else { return }
-            self.favoritedRestaurants.remove(at: index)
-        }
+    func convertAddressToCoordinates(completion: @escaping (CLLocationCoordinate2D) -> Void = { _ in }) {
+        guard let address = restaurant?.address else { return }
         
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            if let error = error {
+                NSLog("error found. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+            guard let coordinates = placemarks?.first?.location?.coordinate else { return }
+            print(coordinates)
+            completion(coordinates)
+        }
+    }
+    
+    func isFavoritedToggle(restaurant: Restaurant) {
         restaurant.isFavorited = !restaurant.isFavorited
         saveToStorage()
     }

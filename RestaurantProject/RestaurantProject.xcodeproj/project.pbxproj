@@ -30,6 +30,7 @@
 		7165512E1F8C19530016E2A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512D1F8C19530016E2A6 /* Color.swift */; };
 		716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */; };
 		7165519B1F8E742F0016E2A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7165519A1F8E742F0016E2A6 /* MapKit.framework */; };
+		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		7165512D1F8C19530016E2A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		7165519A1F8E742F0016E2A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		7144E7351F68303A00E90CB9 /* RestaurantProject */ = {
 			isa = PBXGroup;
 			children = (
+				71B12BF51F8ED3DD003C2398 /* Helpers */,
 				7144E7501F68452700E90CB9 /* CoreData */,
 				7144E74A1F683B9800E90CB9 /* Models */,
 				7144E74B1F683B9C00E90CB9 /* ModelControllers */,
@@ -110,7 +113,6 @@
 				7144E73D1F68303A00E90CB9 /* Assets.xcassets */,
 				7144E73F1F68303A00E90CB9 /* LaunchScreen.storyboard */,
 				7144E7421F68303A00E90CB9 /* Info.plist */,
-				7165512D1F8C19530016E2A6 /* Color.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -181,6 +183,15 @@
 				7165519A1F8E742F0016E2A6 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71B12BF51F8ED3DD003C2398 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7165512D1F8C19530016E2A6 /* Color.swift */,
+				71B12BF61F8ED406003C2398 /* LocationManager.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 				716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */,
 				7165512E1F8C19530016E2A6 /* Color.swift in Sources */,
 				7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */,
+				71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				711705971F6C281C00BB107F /* FilterViewController.swift in Sources */,
 				711705A71F6C403800BB107F /* CuisineController.swift in Sources */,
