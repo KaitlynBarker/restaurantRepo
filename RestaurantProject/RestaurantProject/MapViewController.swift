@@ -28,35 +28,35 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func calculateDirections() {
         let startCoordinates = LocationManager.shared.fetchCurrentLocation()
-//        let endCoordinates = RestaurantController.shared.convertAddressToCoordinates()
-        let endCoordinates = CLLocationCoordinate2DMake(40.547111, -111.920358)
         
-        let startPlacemark = MKPlacemark(coordinate: startCoordinates)
-        let endPlacemark = MKPlacemark(coordinate: endCoordinates)
-        
-        let startItem = MKMapItem(placemark: startPlacemark)
-        let endItem = MKMapItem(placemark: endPlacemark)
-        
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = startItem
-        directionRequest.destination = endItem
-        directionRequest.transportType = .any
-        
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate { (response, error) in
-            guard let response = response else { return }
+        RestaurantController.shared.convertAddressToCoordinates { (coordinates) in
+            let startPlacemark = MKPlacemark(coordinate: startCoordinates)
+            let endPlacemark = MKPlacemark(coordinate: coordinates)
             
-            if let error = error {
-                NSLog("Error found. \(error.localizedDescription)")
-                return
+            let startItem = MKMapItem(placemark: startPlacemark)
+            let endItem = MKMapItem(placemark: endPlacemark)
+            
+            let directionRequest = MKDirectionsRequest()
+            directionRequest.source = startItem
+            directionRequest.destination = endItem
+            directionRequest.transportType = .any
+            
+            let directions = MKDirections(request: directionRequest)
+            directions.calculate { (response, error) in
+                guard let response = response else { return }
+                
+                if let error = error {
+                    NSLog("Error found. \(error.localizedDescription)")
+                    return
+                }
+                
+                let route = response.routes[0]
+                self.mapView.add(route.polyline, level: .aboveRoads)
+                
+                let rect = route.polyline.boundingMapRect
+                let region = MKCoordinateRegionForMapRect(rect)
+                self.mapView.setRegion(region, animated: true)
             }
-            
-            let route = response.routes[0]
-            self.mapView.add(route.polyline, level: .aboveRoads)
-            
-            let rect = route.polyline.boundingMapRect
-            let region = MKCoordinateRegionForMapRect(rect)
-            self.mapView.setRegion(region, animated: true)
         }
     }
     

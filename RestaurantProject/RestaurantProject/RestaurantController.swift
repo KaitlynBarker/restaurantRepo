@@ -16,6 +16,7 @@ class RestaurantController {
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var nearbyRestaurantsKey: String { return "nearby_restaurants" }
+    private var restaurantsKey: String { return "restaurants" }
     
     static let shared = RestaurantController()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
@@ -87,6 +88,49 @@ class RestaurantController {
             completion(restaurants)
         }
         dataTask.resume()
+    }
+    
+    func fetchRestaurants(bySearchTerm searchTerm: String?, selectedCuisines: [String], location: CLLocation?, cuisines: Cuisine?, completion: @escaping ([Restaurant]) -> Void = { _ in }) {
+        guard let baseURL = self.baseURL else { completion([]); return }
+        
+        let coordinate = LocationManager.shared.fetchCurrentLocation()
+        
+        let url = baseURL.appendingPathComponent("search")
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        
+        let searchQueryItem = URLQueryItem(name: "q", value: searchTerm)
+        let latQueryItem = URLQueryItem(name: "lat", value: coordinate.latitude.description)
+        let lonQueryItem = URLQueryItem(name: "lon", value: coordinate.latitude.description)
+        let cuisineQueryItem = URLQueryItem(name: "cuisines", value: selectedCuisines.description) // might need to remove the cuisines
+        
+        components?.queryItems = [searchQueryItem, latQueryItem, lonQueryItem, cuisineQueryItem]
+        
+        guard let requestURL = components?.url else { completion([]); return }
+        
+        var request = URLRequest(url: requestURL)
+        request.setValue(self.apiKey, forHTTPHeaderField: self.headerKey)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Error found. \(#file) \(#function) \n\(error.localizedDescription)")
+                completion([])
+                return
+            }
+            
+            guard let data = data, let responseDataString = String(data: data, encoding: .utf8) else { completion([]); return }
+            
+            guard let jsonDict = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any], let restaurantDicts = jsonDict[self.restaurantsKey] as? [[String:Any]] else { NSLog("unable to serialize JSON. \n\(responseDataString)"); completion([]); return }
+            
+            let restaurants = restaurantDicts.flatMap { Restaurant(dictionary: $0) }
+            completion(restaurants)
+        }
+        dataTask.resume()
+        
+        // search?q=ruth&lat=40.7608&lon=-111.8910&cuisines=chinese
+        // search?q=ruth&lat=40.7608&lon=-111.8910&cuisines=chinese%2C%20mexican
     }
     
     func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
