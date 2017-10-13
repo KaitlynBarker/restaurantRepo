@@ -25,9 +25,12 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Actions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        RestaurantController.shared.fetchRestaurantInfo { (restaurant) in
-//            // i will fill this in properly after i do map kit
-//        }
+        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
+        
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: CuisineController.shared.selectedCuisines, location: LocationManager.shared.fetchCurrentLocation()) { (restaurants) in
+            
+            //
+        }
     }
 
     // MARK: - Table view data source

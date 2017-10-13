@@ -18,8 +18,10 @@ class CuisineTableViewCell: UITableViewCell {
     //MARK: - Actions
     
     @IBAction func cuisineCheckBoxButtonTapped(_ sender: UIButton) {
-        
+        delegate?.cuisineCellWasUpdated(cell: self)
     }
+    
+    weak var delegate: CuisineTableViewCellDelegate?
     
     var cuisine: Cuisine? {
         didSet {
@@ -37,4 +39,8 @@ class CuisineTableViewCell: UITableViewCell {
             cuisineCheckBoxButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
         }
     }
+}
+
+protocol CuisineTableViewCellDelegate: class {
+    func cuisineCellWasUpdated(cell: CuisineTableViewCell)
 }

@@ -39,9 +39,9 @@ class RestaurantController {
         })
     }
     
-    var thumbsDownRestaurants: [Restaurant] {
+    var toTryRestaurants: [Restaurant] {
         return restaurants.filter({ (restaurant) -> Bool in
-            return restaurant.isThumbsDown == true
+            return restaurant.isOnToTryList == true
         })
     }
     
@@ -90,7 +90,7 @@ class RestaurantController {
         dataTask.resume()
     }
     
-    func fetchRestaurants(bySearchTerm searchTerm: String?, selectedCuisines: [String], location: CLLocation?, cuisines: Cuisine?, completion: @escaping ([Restaurant]) -> Void = { _ in }) {
+    func fetchRestaurants(bySearchTerm searchTerm: String?, selectedCuisines: [Cuisine], location: CLLocationCoordinate2D?, completion: @escaping ([Restaurant]) -> Void = { _ in }) {
         guard let baseURL = self.baseURL else { completion([]); return }
         
         let coordinate = LocationManager.shared.fetchCurrentLocation()
@@ -102,9 +102,13 @@ class RestaurantController {
         let searchQueryItem = URLQueryItem(name: "q", value: searchTerm)
         let latQueryItem = URLQueryItem(name: "lat", value: coordinate.latitude.description)
         let lonQueryItem = URLQueryItem(name: "lon", value: coordinate.latitude.description)
-        let cuisineQueryItem = URLQueryItem(name: "cuisines", value: selectedCuisines.description) // might need to remove the cuisines
         
-        components?.queryItems = [searchQueryItem, latQueryItem, lonQueryItem, cuisineQueryItem]
+        components?.queryItems = [searchQueryItem, latQueryItem, lonQueryItem]
+        
+        if selectedCuisines.count > 0 {
+            let cuisineQueryItem = URLQueryItem(name: "cuisines", value: convertCuisineArrayToString(cuisines: selectedCuisines))
+            components?.queryItems?.append(cuisineQueryItem)
+        }
         
         guard let requestURL = components?.url else { completion([]); return }
         
@@ -161,13 +165,24 @@ class RestaurantController {
         }
     }
     
+    func convertCuisineArrayToString(cuisines: [Cuisine]) -> String {
+        var cuisinesString = ""
+        
+        for cuisine in cuisines {
+            cuisinesString.append(cuisine.description + ", ")
+        }
+        
+        cuisinesString.removeLast(2)
+        return cuisinesString
+    }
+    
     func isFavoritedToggle(restaurant: Restaurant) {
         restaurant.isFavorited = !restaurant.isFavorited
         saveToStorage()
     }
     
-    func isThumbsDownToggle(restaurant: Restaurant) {
-        restaurant.isThumbsDown = !restaurant.isThumbsDown
+    func toTryListToggle(restaurant: Restaurant) {
+        restaurant.isOnToTryList = !restaurant.isOnToTryList
         saveToStorage()
     }
     

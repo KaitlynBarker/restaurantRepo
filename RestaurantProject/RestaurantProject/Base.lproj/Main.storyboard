@@ -245,8 +245,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cuisineTableView" destination="q1z-8k-vGP" id="yX3-we-e6s"/>
-                        <outlet property="doneButton" destination="O3c-Ji-2og" id="OHW-qU-awe"/>
+                        <outlet property="cuisineTableView" destination="q1z-8k-vGP" id="WRq-Z4-T9m"/>
                         <outlet property="priceRangeSlider" destination="HHs-gc-mHt" id="8Vn-Ff-Dt6"/>
                     </connections>
                 </viewController>

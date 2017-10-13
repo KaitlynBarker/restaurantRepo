@@ -1,14 +1,14 @@
 //
-//  ThumbsDownTableViewCell.swift
+//  ToTryListTableViewCell.swift
 //  RestaurantProject
 //
-//  Created by Kaitlyn Barker on 10/12/17.
+//  Created by Kaitlyn Barker on 10/13/17.
 //  Copyright © 2017 Kaitlyn Barker. All rights reserved.
 //
 
 import UIKit
 
-class ThumbsDownTableViewCell: UITableViewCell {
+class ToTryListTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
@@ -24,28 +24,28 @@ class ThumbsDownTableViewCell: UITableViewCell {
         delegate?.restaurantStatusWasUpdate(cell: self)
     }
     
-    weak var delegate: ThumbsDownTableViewCellDelegate?
+    weak var delegate: ToTryListTableViewCellDelegate?
     
-    var thumbsDownRes: Restaurant? {
+    var toTryRes: Restaurant? {
         didSet {
             updateViews()
         }
     }
     
     func updateViews() {
-        guard let thumbsDownRes = self.thumbsDownRes, let image = thumbsDownRes.imageURL else { return }
+        guard let toTryRes = self.toTryRes, let image = toTryRes.imageURL else { return }
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
             DispatchQueue.main.async {
                 self.restaurantImageView.image = image
-                self.nameLabel.text = thumbsDownRes.restaurantName
+                self.nameLabel.text = toTryRes.restaurantName
                 self.distanceLabel.text = "" // map kit will help figure this out
                 
                 self.calculateAvePrice()
                 
-                if thumbsDownRes.isThumbsDown {
+                if toTryRes.isOnToTryList {
                     // set image
                 } else {
                     // set image
@@ -55,15 +55,15 @@ class ThumbsDownTableViewCell: UITableViewCell {
     }
     
     func calculateAvePrice() {
-        guard let thumbsDownRes = self.thumbsDownRes else { return }
+        guard let toTryRes = self.toTryRes else { return }
         
-        if thumbsDownRes.priceRange == 1 {
+        if toTryRes.priceRange == 1 {
             self.avePriceLabel.text = "Expected Price: 💲"
-        } else if thumbsDownRes.priceRange == 2 {
+        } else if toTryRes.priceRange == 2 {
             self.avePriceLabel.text = "Expected Price: 💲💲"
-        } else if thumbsDownRes.priceRange == 3 {
+        } else if toTryRes.priceRange == 3 {
             self.avePriceLabel.text = "Expected Price: 💲💲💲"
-        } else if thumbsDownRes.priceRange == 4 {
+        } else if toTryRes.priceRange == 4 {
             self.avePriceLabel.text = "Expected Price: 💲💲💲💲"
         } else {
             self.avePriceLabel.text = "Expected Price: 💲💲💲💲💲"
@@ -71,6 +71,6 @@ class ThumbsDownTableViewCell: UITableViewCell {
     }
 }
 
-protocol ThumbsDownTableViewCellDelegate: class {
-    func restaurantStatusWasUpdate(cell: ThumbsDownTableViewCell)
+protocol ToTryListTableViewCellDelegate: class {
+    func restaurantStatusWasUpdate(cell: ToTryListTableViewCell)
 }

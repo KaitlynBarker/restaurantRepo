@@ -17,9 +17,25 @@ class CuisineController {
     static let shared = CuisineController()
     let baseURL = RestaurantController.shared.baseURL
     
-    var cuisines: [Cuisine] = []
+    var cuisines: [Cuisine] {
+        let moc = CoreDataStack.context
+        let request: NSFetchRequest<Cuisine> = Cuisine.fetchRequest()
+        
+        do {
+            return try moc.fetch(request)
+        } catch {
+            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+        }
+        return []
+    }
     
-    func fetchCuisines(completion: @escaping ([Cuisine]) -> Void) {
+    var selectedCuisines: [Cuisine] {
+        return cuisines.filter({ (cuisine) -> Bool in
+            return cuisine.isCuisineChosen == true
+        })
+    }
+    
+    func fetchCuisines(completion: @escaping ([Cuisine]) -> Void = { _ in }) {
         guard let baseURL = self.baseURL else { completion([]); return }
         
         let coordinate = LocationManager.shared.fetchCurrentLocation()
@@ -54,6 +70,20 @@ class CuisineController {
             completion(cuisines)
         }
         dataTask.resume()
+    }
+    
+    func isCuisineChosenToggle(cuisine: Cuisine) {
+        cuisine.isCuisineChosen = !cuisine.isCuisineChosen
+        saveToStorage()
+    }
+    
+    func saveToStorage() {
+        let moc = CoreDataStack.context
+        do {
+            try moc.save()
+        } catch {
+            NSLog("Unable to save cuisine. Error: \(error.localizedDescription)")
+        }
     }
 }
 
