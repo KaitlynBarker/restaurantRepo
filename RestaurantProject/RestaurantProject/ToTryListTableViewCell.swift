@@ -16,11 +16,13 @@ class ToTryListTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var avePriceLabel: UILabel!
-    @IBOutlet weak var thumbsDownButton: UIButton!
+    @IBOutlet weak var toTryButton: UIButton!
+    
+    
     
     // MARK: - Actions
     
-    @IBAction func thumbsDownButtonTapped(_ sender: UIButton) {
+    @IBAction func toTryButtonTapped(_ sender: UIButton) {
         delegate?.restaurantStatusWasUpdate(cell: self)
     }
     

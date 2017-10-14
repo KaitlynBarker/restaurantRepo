@@ -478,13 +478,13 @@
         <!--Item-->
         <scene sceneID="75e-rF-Fyz">
             <objects>
-                <tableViewController id="8h5-Yd-ySv" customClass="ThumbsDownTableViewController" customModule="RestaurantProject" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="8h5-Yd-ySv" customClass="ToTryListTableViewController" customModule="RestaurantProject" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Szj-Wy-SUp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThumbsDownCell" rowHeight="100" id="ssU-Bn-z28" customClass="ThumbsDownTableViewCell" customModule="RestaurantProject" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToTryCell" rowHeight="100" id="ssU-Bn-z28" customClass="ToTryListTableViewCell" customModule="RestaurantProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ssU-Bn-z28" id="Bs8-1q-dNR">
@@ -527,7 +527,7 @@
                                             </constraints>
                                             <state key="normal" image="filledHeart"/>
                                             <connections>
-                                                <action selector="thumbsDownButtonTapped:" destination="ssU-Bn-z28" eventType="touchUpInside" id="h9C-kx-2Eq"/>
+                                                <action selector="toTryButtonTapped:" destination="ssU-Bn-z28" eventType="touchUpInside" id="f3v-kR-f3j"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -550,7 +550,7 @@
                                     <outlet property="distanceLabel" destination="1we-NR-gXR" id="65w-uP-wYw"/>
                                     <outlet property="nameLabel" destination="Edg-kn-kxj" id="gUM-06-qt2"/>
                                     <outlet property="restaurantImageView" destination="IXv-iL-ET1" id="Z91-65-s01"/>
-                                    <outlet property="thumbsDownButton" destination="trt-sx-Lp1" id="cpP-at-NlL"/>
+                                    <outlet property="toTryButton" destination="trt-sx-Lp1" id="1Yc-dJ-HIa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

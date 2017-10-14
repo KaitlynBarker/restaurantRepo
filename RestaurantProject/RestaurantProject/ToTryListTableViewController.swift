@@ -21,7 +21,7 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ThumbsDownCell", for: indexPath) as? ToTryListTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToTryCell", for: indexPath) as? ToTryListTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
         
