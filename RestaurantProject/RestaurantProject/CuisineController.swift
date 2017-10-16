@@ -67,7 +67,11 @@ class CuisineController {
             guard let jsonDict = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any], let cuisinesDicts = jsonDict[self.cuisinesKey] as? [[String:Any]] else { NSLog("unable to serialize JSON. n\(responseDataString)"); completion([]); return }
             
             let cuisines = cuisinesDicts.flatMap { Cuisine(dictionary: $0) }
-            completion(cuisines)
+            let sortedCuisines = cuisines.sorted(by: { (_ cuisine1, _ cuisine2) -> Bool in
+                guard let cuisine1 = cuisine1.cuisineName, let cuisine2 = cuisine2.cuisineName else { return false }
+                return cuisine1 < cuisine2
+            })
+            completion(sortedCuisines)
         }
         dataTask.resume()
     }

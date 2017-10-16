@@ -13,15 +13,15 @@ extension UIColor {
     
     // MARK: - first choice
     
-    class var peach: UIColor {
+    class var peach60: UIColor {
         return UIColor(hex: "FFE3D9")
     }
     
-    class var lipstick: UIColor {
+    class var lipstick30: UIColor {
         return UIColor(hex: "B53F33")
     }
     
-    class var wine: UIColor {
+    class var wine10: UIColor {
         return UIColor(hex: "3D0B07")
     }
     

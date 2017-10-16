@@ -28,14 +28,25 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text, searchTerm != "" else { return }
         
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: CuisineController.shared.selectedCuisines, location: LocationManager.shared.fetchCurrentLocation()) { (restaurants) in
+        let selectedCuisines = CuisineController.shared.selectedCuisines
+        let location = LocationManager.shared.fetchCurrentLocation()
+        
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
             
             //
         }
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
+        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
         
+        let selectedCuisines = CuisineController.shared.selectedCuisines
+        let location = LocationManager.shared.fetchCurrentLocation()
+        
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
+            
+            //
+        }
     }
     
     // MARK: - Table view data source
