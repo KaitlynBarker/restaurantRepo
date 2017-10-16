@@ -12,6 +12,15 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.blueGrey60
+        
+        self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 100
+        self.tableView.backgroundColor = UIColor.blueGrey60
+        
+        
     }
 
     // MARK: - Table view data source

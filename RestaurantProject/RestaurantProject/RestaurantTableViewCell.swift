@@ -26,6 +26,11 @@ class RestaurantTableViewCell: UITableViewCell {
     func updateViews() {
         guard let restaurant = restaurant, let image = restaurant.imageURL else { return }
         
+        self.backgroundColor = UIColor.blueGrey60
+        self.restaurantNameLabel.textColor = UIColor.peach30
+        self.restaurantDistanceLabel.textColor = UIColor.peach30
+        self.averagePriceLabel.textColor = UIColor.peach30
+        
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
@@ -43,15 +48,15 @@ class RestaurantTableViewCell: UITableViewCell {
         guard let restaurant = restaurant else { return }
         
         if restaurant.priceRange == 1 {
-            self.averagePriceLabel.text = "Expected Price: 💲"
+            self.averagePriceLabel.text = "Average Price: 💲"
         } else if restaurant.priceRange == 2 {
-            self.averagePriceLabel.text = "Expected Price: 💲💲"
+            self.averagePriceLabel.text = "Average Price: 💲💲"
         } else if restaurant.priceRange == 3 {
-            self.averagePriceLabel.text = "Expected Price: 💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💲💲💲"
         } else if restaurant.priceRange == 4 {
-            self.averagePriceLabel.text = "Expected Price: 💲💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💲💲💲💲"
         } else {
-            self.averagePriceLabel.text = "Expected Price: 💲💲💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💲💲💲💲💲"
         }
     }
     

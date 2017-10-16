@@ -37,6 +37,12 @@ class ToTryListTableViewCell: UITableViewCell {
     func updateViews() {
         guard let toTryRes = self.toTryRes, let image = toTryRes.imageURL else { return }
         
+        self.backgroundColor = UIColor.blueGrey60
+        self.toTryButton.backgroundColor = UIColor.blueGrey60
+        self.nameLabel.textColor = UIColor.peach30
+        self.distanceLabel.textColor = UIColor.peach30
+        self.avePriceLabel.textColor = UIColor.peach30
+        
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             

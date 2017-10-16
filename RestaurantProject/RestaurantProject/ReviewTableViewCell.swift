@@ -26,6 +26,12 @@ class ReviewTableViewCell: UITableViewCell {
     func updateViews() {
         guard let review = review else { return }
         
+        self.backgroundColor = UIColor.blueGrey60
+        self.ratingTextLabel.textColor = UIColor.peach30
+        self.ratingLabel.textColor = UIColor.peach30
+        self.ratingTimeLabel.textColor = UIColor.peach30
+        self.reviewTextLabel.textColor = UIColor.peach30
+        
         calculateRating()
         
         self.ratingTextLabel.text = review.ratingText

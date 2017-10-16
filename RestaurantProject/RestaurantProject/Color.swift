@@ -13,38 +13,34 @@ extension UIColor {
     
     // MARK: - first choice
     
-    class var peach60: UIColor {
-        return UIColor(hex: "FFE3D9")
+    class var bloodOrange10: UIColor {
+        return UIColor(hex: "EF552B")
     }
     
-    class var lipstick30: UIColor {
-        return UIColor(hex: "B53F33")
+    class var babyBlue: UIColor {
+        return UIColor(hex: "65B7E2")
     }
     
-    class var wine10: UIColor {
-        return UIColor(hex: "3D0B07")
+    class var blueGrey60: UIColor {
+        return UIColor(hex: "DAE3EC")
     }
     
-    // MARK: - Other colors to mix
+    // MARK: - Other Colors From Pallette
     
-    class var palePink: UIColor {
-        return UIColor(hex: "FCF1ED")
+    class var customWhite: UIColor {
+        return UIColor(hex: "FFFFFF")
     }
     
-    class var cherryRed: UIColor {
-        return UIColor(hex: "C54938")
+    class var brightBabyBlue: UIColor {
+        return UIColor(hex: "34A0D9")
     }
     
-    class var candyAppleRed: UIColor {
-        return UIColor(hex: "D53D2D")
+    class var dullBabyBlue: UIColor {
+        return UIColor(hex: "94CCEB")
     }
     
-    class var blushPink: UIColor {
-        return UIColor(hex: "EC9C8F")
-    }
-    
-    class var dullPeach: UIColor {
-        return UIColor(hex: "DDBDB7")
+    class var peach30: UIColor {
+        return UIColor(hex: "F6A38B")
     }
     
     convenience init(hex: String) {

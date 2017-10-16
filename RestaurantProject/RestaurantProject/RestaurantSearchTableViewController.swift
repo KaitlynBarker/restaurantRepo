@@ -20,6 +20,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         super.viewDidLoad()
         
         searchBar.delegate = self
+        self.view.backgroundColor = UIColor.blueGrey60
         
     }
     

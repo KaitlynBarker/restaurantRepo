@@ -35,6 +35,12 @@ class FavoriteTableViewCell: UITableViewCell {
     func updateViews() {
         guard let favRestaurant = self.favoriteRes, let image = favRestaurant.imageURL else { return }
         
+        self.backgroundColor = UIColor.blueGrey60
+        self.favoriteButton.backgroundColor = UIColor.blueGrey60
+        self.restaurantNameLabel.textColor = UIColor.peach30
+        self.resDistanceLabel.textColor = UIColor.peach30
+        self.avePriceLabel.textColor = UIColor.peach30
+        
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
