@@ -16,11 +16,11 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var resDistanceLabel: UILabel!
     @IBOutlet weak var avePriceLabel: UILabel!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     // MARK: - Actions
     
-    @IBAction func likeButtonTapped(_ sender: UIButton) {
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         delegate?.restaurantStatusWasUpdated(cell: self)
     }
     
@@ -46,9 +46,9 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.calculateAvePrice()
                 
                 if favRestaurant.isFavorited {
-                    self.likeButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+                    self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
                 } else {
-                    self.likeButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+                    self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
                 }
             }
         }

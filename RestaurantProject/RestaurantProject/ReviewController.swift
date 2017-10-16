@@ -12,23 +12,32 @@ import CoreData
 class ReviewController {
     
     static let shared = ReviewController()
-    var reviews: [Review] = []
+    var reviews: [Review] {
+        let moc = CoreDataStack.context
+        let request: NSFetchRequest<Review> = Review.fetchRequest()
+        
+        do {
+            return try moc.fetch(request)
+        } catch {
+            NSLog("Unable to fetch request. Error: \(error.localizedDescription)")
+        }
+        return []
+    }
     
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var userReviewsKey: String { return "user_reviews" }
-    private var mockResIDKey: String { return "17234613" }
     
     let baseURL = RestaurantController.shared.baseURL
     
-    func fetchReviews(completion: @escaping ([Review]) -> Void) {
+    func fetchReviews(restaurant: Restaurant, completion: @escaping ([Review]) -> Void) {
         guard let baseURL = self.baseURL else { completion([]); return }
         
         let url = baseURL.appendingPathComponent("reviews")
         
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
-        let resIDQueryItem = URLQueryItem(name: "res_id", value: self.mockResIDKey)
+        let resIDQueryItem = URLQueryItem(name: "res_id", value: restaurant.resID)
         
         components?.queryItems = [resIDQueryItem]
         
@@ -55,7 +64,6 @@ class ReviewController {
             }
             
             let reviews = reviewsDict.flatMap { Review(dictionary: $0) }
-            self.reviews = reviews
             
             completion (reviews)
         }

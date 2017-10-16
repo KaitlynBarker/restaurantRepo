@@ -13,8 +13,9 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Outlets
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var filterButton: UIButton!
-
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    @IBOutlet weak var searchButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +33,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
             //
         }
     }
-
+    
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
