@@ -282,40 +282,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0q0-9L-MBO">
                                 <rect key="frame" x="8" y="300" width="359" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkI-GR-lEK">
-                                        <rect key="frame" x="8" y="4" width="35" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="XkI-GR-lEK" secondAttribute="height" multiplier="12:11" id="dMJ-zr-YPi"/>
-                                        </constraints>
-                                        <state key="normal" image="heart"/>
-                                        <connections>
-                                            <action selector="favoriteButtonTapped:" destination="hl5-3t-8tM" eventType="touchUpInside" id="DK7-Fv-9Xp"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmh-SO-Dbo">
-                                        <rect key="frame" x="313.5" y="4" width="37.5" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Vmh-SO-Dbo" secondAttribute="height" multiplier="7:6" id="ht9-Yx-eSy"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="✆">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="callRestaurantButtonTapped:" destination="hl5-3t-8tM" eventType="touchUpInside" id="MWm-tp-for"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PDi-6x-pRj">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeL-aa-avj">
+                                                <rect key="frame" x="0.0" y="0.0" width="116.5" height="40"/>
+                                                <state key="normal" image="heart"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nF-6h-evJ">
+                                                <rect key="frame" x="121.5" y="0.0" width="116" height="40"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-Et-Xpj">
+                                                <rect key="frame" x="242.5" y="0.0" width="116.5" height="40"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.40246723760000003" green="0.6060012521" blue="0.72414340099999996" alpha="0.91379494859999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Vmh-SO-Dbo" firstAttribute="top" secondItem="0q0-9L-MBO" secondAttribute="top" constant="4" id="2sa-BM-Eeh"/>
                                     <constraint firstAttribute="height" constant="40" id="HZT-bT-0ID"/>
-                                    <constraint firstAttribute="bottom" secondItem="Vmh-SO-Dbo" secondAttribute="bottom" constant="4" id="YB7-eo-Fpw"/>
-                                    <constraint firstItem="XkI-GR-lEK" firstAttribute="top" secondItem="0q0-9L-MBO" secondAttribute="top" constant="4" id="bpk-hX-rnx"/>
-                                    <constraint firstItem="XkI-GR-lEK" firstAttribute="leading" secondItem="0q0-9L-MBO" secondAttribute="leading" constant="8" id="mte-9D-020"/>
-                                    <constraint firstItem="Vmh-SO-Dbo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0q0-9L-MBO" secondAttribute="leading" constant="20" symbolic="YES" id="uOv-le-Kxm"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vmh-SO-Dbo" secondAttribute="trailing" constant="8" id="uU9-Aq-Uy1"/>
-                                    <constraint firstAttribute="bottom" secondItem="XkI-GR-lEK" secondAttribute="bottom" constant="4" id="x0A-fE-vqm"/>
+                                    <constraint firstItem="PDi-6x-pRj" firstAttribute="top" secondItem="0q0-9L-MBO" secondAttribute="top" id="MZr-s3-zbL"/>
+                                    <constraint firstAttribute="trailing" secondItem="PDi-6x-pRj" secondAttribute="trailing" id="U5r-UD-RMH"/>
+                                    <constraint firstAttribute="bottom" secondItem="PDi-6x-pRj" secondAttribute="bottom" id="lI3-zA-VdA"/>
+                                    <constraint firstItem="PDi-6x-pRj" firstAttribute="leading" secondItem="0q0-9L-MBO" secondAttribute="leading" id="q0J-bV-NTQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wH0-Kb-jlv">
@@ -450,9 +439,7 @@
                     </view>
                     <connections>
                         <outlet property="aveCostForTwoLabel" destination="lvc-Hy-BNM" id="xoT-In-VXp"/>
-                        <outlet property="callRestaurantButton" destination="Vmh-SO-Dbo" id="d5W-Km-9MP"/>
                         <outlet property="deliverableLabel" destination="lag-Xi-Ayo" id="0rS-7m-NC0"/>
-                        <outlet property="favoriteButton" destination="XkI-GR-lEK" id="1lV-XZ-hHd"/>
                         <outlet property="phoneNumberLabel" destination="2zF-YO-dJ6" id="xdI-bq-G6s"/>
                         <outlet property="reservableLabel" destination="Xnm-tf-h13" id="SjL-0E-zHK"/>
                         <outlet property="restaurantAddressLabel" destination="coS-uy-xxr" id="eUZ-v2-cXh"/>

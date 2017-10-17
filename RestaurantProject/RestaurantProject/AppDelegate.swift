@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationManager.shared.requestAuthorization()
         
-//        RestaurantController.shared.fetchRestaurantInfo { (restaurants) in
-//            //
-//        }
+        RestaurantController.shared.fetchNearbyRestaurants { (restaurants) in
+            //
+        }
         
 //        ReviewController.shared.fetchReviews { (reviews) in
 //            //
