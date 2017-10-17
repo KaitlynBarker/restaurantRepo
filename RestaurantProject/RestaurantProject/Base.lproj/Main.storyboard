@@ -482,41 +482,6 @@
             </objects>
             <point key="canvasLocation" x="3647" y="116"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="rsa-4Y-d8j">
-            <objects>
-                <viewController id="f5C-6g-YjC" customClass="MapViewController" customModule="RestaurantProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KKj-TI-9lo"/>
-                        <viewControllerLayoutGuide type="bottom" id="bgd-YN-K8A"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4V4-J8-RkK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ciu-nr-hL1">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ciu-nr-hL1" firstAttribute="leading" secondItem="4V4-J8-RkK" secondAttribute="leading" id="4lR-7G-UIe"/>
-                            <constraint firstItem="bgd-YN-K8A" firstAttribute="top" secondItem="Ciu-nr-hL1" secondAttribute="bottom" id="FYP-Hv-muy"/>
-                            <constraint firstItem="Ciu-nr-hL1" firstAttribute="top" secondItem="KKj-TI-9lo" secondAttribute="bottom" id="USE-6X-N0b"/>
-                            <constraint firstAttribute="trailing" secondItem="Ciu-nr-hL1" secondAttribute="trailing" id="a5Z-vb-TBD"/>
-                            <constraint firstItem="Ciu-nr-hL1" firstAttribute="top" secondItem="KKj-TI-9lo" secondAttribute="bottom" id="ao3-6v-JwU"/>
-                            <constraint firstItem="bgd-YN-K8A" firstAttribute="top" secondItem="Ciu-nr-hL1" secondAttribute="bottom" id="gX6-xq-znw"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ueh-n4-zGo"/>
-                    <connections>
-                        <outlet property="mapView" destination="Ciu-nr-hL1" id="b5S-6P-RzJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eZf-8w-vWq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4793" y="-685"/>
-        </scene>
     </scenes>
     <resources>
         <image name="heart" width="22" height="18"/>

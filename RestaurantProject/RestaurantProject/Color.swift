@@ -11,37 +11,7 @@ import UIKit
 
 extension UIColor {
     
-    // MARK: - first choice
-    
-    class var bloodOrange10: UIColor {
-        return UIColor(hex: "EF552B")
-    }
-    
-    class var babyBlue: UIColor {
-        return UIColor(hex: "65B7E2")
-    }
-    
-    class var blueGrey60: UIColor {
-        return UIColor(hex: "DAE3EC")
-    }
-    
-    // MARK: - Other Colors From Pallette
-    
-    class var customWhite: UIColor {
-        return UIColor(hex: "FFFFFF")
-    }
-    
-    class var brightBabyBlue: UIColor {
-        return UIColor(hex: "34A0D9")
-    }
-    
-    class var dullBabyBlue: UIColor {
-        return UIColor(hex: "94CCEB")
-    }
-    
-    class var peach30: UIColor {
-        return UIColor(hex: "F6A38B")
-    }
+    // MARK: - Color Pallette
     
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)

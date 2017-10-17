@@ -35,6 +35,7 @@
 		717EF81C1F9502BA0059292A /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81B1F9502BA0059292A /* TabBarController.storyboard */; };
 		717EF81E1F95034D0059292A /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81D1F95034D0059292A /* Favorites.storyboard */; };
 		717EF8201F9503550059292A /* ToTrys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81F1F9503550059292A /* ToTrys.storyboard */; };
+		717EF8221F9653FB0059292A /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF8211F9653FB0059292A /* MapView.storyboard */; };
 		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		717EF81B1F9502BA0059292A /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		717EF81D1F95034D0059292A /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		717EF81F1F9503550059292A /* ToTrys.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ToTrys.storyboard; sourceTree = "<group>"; };
+		717EF8211F9653FB0059292A /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				717EF81B1F9502BA0059292A /* TabBarController.storyboard */,
 				717EF81D1F95034D0059292A /* Favorites.storyboard */,
 				717EF81F1F9503550059292A /* ToTrys.storyboard */,
+				717EF8211F9653FB0059292A /* MapView.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7144E7411F68303A00E90CB9 /* LaunchScreen.storyboard in Resources */,
+				717EF8221F9653FB0059292A /* MapView.storyboard in Resources */,
 				7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */,
 				717EF81C1F9502BA0059292A /* TabBarController.storyboard in Resources */,
 				7144E73C1F68303A00E90CB9 /* Main.storyboard in Resources */,

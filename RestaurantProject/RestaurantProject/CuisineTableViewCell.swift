@@ -33,9 +33,9 @@ class CuisineTableViewCell: UITableViewCell {
         guard let cuisine = cuisine else { return }
         cuisineNameLabel.text = cuisine.cuisineName
         
-        self.cuisineNameLabel.textColor = UIColor.peach30
-        self.backgroundColor = UIColor.blueGrey60
-        self.cuisineCheckBoxButton.backgroundColor = UIColor.blueGrey60
+//        self.cuisineNameLabel.textColor = UIColor.peach30
+//        self.backgroundColor = UIColor.blueGrey60
+//        self.cuisineCheckBoxButton.backgroundColor = UIColor.blueGrey60
         
         if cuisine.isCuisineChosen {
             cuisineCheckBoxButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
