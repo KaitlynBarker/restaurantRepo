@@ -44,17 +44,21 @@ class FavoriteTableViewCell: UITableViewCell {
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            DispatchQueue.main.async {
-                self.restaurantImageView.image = image
-                self.restaurantNameLabel.text = favRestaurant.restaurantName
-                self.resDistanceLabel.text = "" // will find this out after i incorporate map kit
+            RestaurantController.shared.convertAddressToDistance { (distance) in
+                let distance = distance
                 
-                self.calculateAvePrice()
-                
-                if favRestaurant.isFavorited {
-                    self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
-                } else {
-                    self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+                DispatchQueue.main.async {
+                    self.restaurantImageView.image = image
+                    self.restaurantNameLabel.text = favRestaurant.restaurantName
+                    self.resDistanceLabel.text = "Approx \(distance) away"
+                    
+                    self.calculateAvePrice()
+                    
+                    if favRestaurant.isFavorited {
+                        self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+                    } else {
+                        self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+                    }
                 }
             }
         }

@@ -46,17 +46,21 @@ class ToTryListTableViewCell: UITableViewCell {
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            DispatchQueue.main.async {
-                self.restaurantImageView.image = image
-                self.nameLabel.text = toTryRes.restaurantName
-                self.distanceLabel.text = "" // map kit will help figure this out
+            RestaurantController.shared.convertAddressToDistance { (distance) in
+                let distance = distance
                 
-                self.calculateAvePrice()
-                
-                if toTryRes.isOnToTryList {
-                    // set image
-                } else {
-                    // set image
+                DispatchQueue.main.async {
+                    self.restaurantImageView.image = image
+                    self.nameLabel.text = toTryRes.restaurantName
+                    self.distanceLabel.text = "Approx \(distance) away"
+                    
+                    self.calculateAvePrice()
+                    
+                    if toTryRes.isOnToTryList {
+                        // set image
+                    } else {
+                        // set image
+                    }
                 }
             }
         }

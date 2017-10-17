@@ -166,6 +166,22 @@ class RestaurantController {
         }
     }
     
+    func convertAddressToDistance(completion: @escaping (CLLocationDistance) -> Void = { _ in }) {
+        guard let address = restaurant?.address else { return }
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            if let error = error {
+                NSLog("error found. \(#file) \(#function) \(error.localizedDescription)")
+                return
+            }
+            guard let restaurantLocation = placemarks?.first?.location else { return }
+            guard let currentLocation = LocationManager.shared.locationManager.location else { return }
+            let distance = currentLocation.distance(from: restaurantLocation)
+            completion(distance)
+        }
+    }
+    
     func fetchRestaurantPhoneNumber(completion: @escaping (String) -> Void = { _ in }) {
         guard let address = restaurant?.address else { return }
         

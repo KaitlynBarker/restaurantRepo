@@ -34,12 +34,16 @@ class RestaurantTableViewCell: UITableViewCell {
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            DispatchQueue.main.async {
-                self.restaurantImageView.image = image
-                self.restaurantNameLabel.text = restaurant.restaurantName
-                self.restaurantDistanceLabel.text = "Approx. " // i should be able to figure this out after i do map kit
+            RestaurantController.shared.convertAddressToDistance { (distance) in
+                let distance = distance
                 
-                self.calculateAvePrice()
+                DispatchQueue.main.async {
+                    self.restaurantImageView.image = image
+                    self.restaurantNameLabel.text = restaurant.restaurantName
+                    self.restaurantDistanceLabel.text = "Approx \(distance) away"
+                    
+                    self.calculateAvePrice()
+                }
             }
         }
     }
