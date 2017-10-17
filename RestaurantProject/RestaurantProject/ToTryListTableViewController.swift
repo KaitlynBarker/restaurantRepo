@@ -12,6 +12,10 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 60
     }
     
     // MARK: - Table view data source

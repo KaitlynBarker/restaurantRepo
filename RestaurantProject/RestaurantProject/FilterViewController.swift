@@ -26,6 +26,10 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.cuisineTableView.reloadData()
             }
         }
+        
+        self.cuisineTableView.separatorStyle = .none
+        self.cuisineTableView.rowHeight = UITableViewAutomaticDimension
+        self.cuisineTableView.estimatedRowHeight = 60
     }
     
     //MARK: - Actions

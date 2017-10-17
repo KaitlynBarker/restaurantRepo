@@ -22,6 +22,9 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         searchBar.delegate = self
 //        self.view.backgroundColor = UIColor.blueGrey60
         
+        self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 60
     }
     
     //MARK: - Actions

@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 import CoreLocation
+import MapKit
 
 class RestaurantController {
     
@@ -162,6 +163,23 @@ class RestaurantController {
             guard let coordinates = placemarks?.first?.location?.coordinate else { return }
             print(coordinates)
             completion(coordinates)
+        }
+    }
+    
+    func fetchRestaurantPhoneNumber(completion: @escaping (String) -> Void = { _ in }) {
+        guard let address = restaurant?.address else { return }
+        
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { (placemarks, error) in
+            if let error = error {
+                NSLog("error found. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+            guard let coordinates = placemarks?.first?.location?.coordinate else { return }
+            let placemark = MKPlacemark(coordinate: coordinates)
+            let mapItem = MKMapItem(placemark: placemark)
+            guard let phoneNumber = mapItem.phoneNumber else { return }
+            completion(phoneNumber)
         }
     }
     

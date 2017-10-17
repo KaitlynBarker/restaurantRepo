@@ -17,7 +17,7 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 100
+        self.tableView.estimatedRowHeight = 60
 //        self.tableView.backgroundColor = UIColor.blueGrey60
         
         

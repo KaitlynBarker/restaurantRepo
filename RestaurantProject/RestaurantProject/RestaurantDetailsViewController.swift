@@ -35,6 +35,10 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
 
         self.title = restaurant?.restaurantName
+        
+        self.reviewTableView.separatorStyle = .none
+        self.reviewTableView.rowHeight = UITableViewAutomaticDimension
+        self.reviewTableView.estimatedRowHeight = 60
     }
     
     // MARK: - Table view data source
@@ -56,11 +60,12 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     //MARK: - Actions
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        
+        guard let restaurant = self.restaurant else { return }
+        RestaurantController.shared.isFavoritedToggle(restaurant: restaurant)
     }
     
     @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {
-        
+        self.callRestaurantAlert()
     }
     
     //MARK: - Linking outlets to restaurant info
@@ -71,15 +76,16 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            DispatchQueue.main.async {
-                self.restaurantNameLabel.text = restaurant.restaurantName
-                self.restaurantAddressLabel.text = restaurant.address
-                self.phoneNumberLabel.text = "" // get phone number from map kit
-                self.aveCostForTwoLabel.text = "$\(restaurant.averageCostForTwo)"
-                self.restaurantImageView.image = image
-                
-//                self.convertDeliveryToString() doesn't work right now. api doesn't know
-//                self.convertReservableToString() same as above
+            RestaurantController.shared.fetchRestaurantPhoneNumber { (phoneNumber) in
+                DispatchQueue.main.async {
+                    self.restaurantNameLabel.text = restaurant.restaurantName
+                    self.restaurantAddressLabel.text = restaurant.address
+                    self.phoneNumberLabel.text = phoneNumber
+                    self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
+                    self.restaurantImageView.image = image
+                    self.convertDeliveryToString() // might not work properly
+                    self.convertReservableToString() // might not work properly
+                }
             }
         }
     }
@@ -101,6 +107,28 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
             self.reservableLabel.text = "Doesn't Take Reservations"
         } else {
             self.reservableLabel.text = "Takes Reservations"
+        }
+    }
+    
+    // MARK: - Call Restaurant Alert Controller
+    
+    func callRestaurantAlert() {
+        guard let restaurant = self.restaurant, let restaurantName = restaurant.restaurantName else { return }
+        RestaurantController.shared.fetchRestaurantPhoneNumber { (phoneNumber) in
+            let alertController = UIAlertController(title: "Call \(restaurantName)?", message: phoneNumber, preferredStyle: .alert)
+            let callAction = UIAlertAction(title: "Call", style: .default) { (_) in
+                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10, *) {
+                        UIApplication.shared.open(url)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(callAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
