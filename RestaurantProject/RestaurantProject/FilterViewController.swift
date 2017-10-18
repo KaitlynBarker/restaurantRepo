@@ -38,6 +38,13 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - Price Slider
+    
+    func sliderFuncs() {
+        self.priceRangeSlider.minimumValue = 1.0
+        self.priceRangeSlider.maximumValue = 5.0
+    }
+    
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
