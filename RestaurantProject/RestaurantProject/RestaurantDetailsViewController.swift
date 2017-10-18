@@ -20,6 +20,7 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     // buttons
     
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var toTryButton: UIButton!
     @IBOutlet weak var callRestaurantButton: UIButton!
     
     // description labels

@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let customTabBar = storyboard.instantiateViewController(withIdentifier: "CustomTabBar") as? CustomTabBarController else { return false }
+        
+        window?.rootViewController = customTabBar
+        window?.makeKeyAndVisible()
+        
         LocationManager.shared.requestAuthorization()
         
         RestaurantController.shared.fetchNearbyRestaurants { (restaurants) in

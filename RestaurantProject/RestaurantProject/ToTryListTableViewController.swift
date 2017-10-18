@@ -39,7 +39,7 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "" {
+        if segue.identifier == "ToRestaurantDetailFromToTry" {
             guard let destinationVC = segue.destination as? RestaurantDetailsViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let toTryRestaurant = RestaurantController.shared.toTryRestaurants[indexPath.row]

@@ -17,7 +17,6 @@
 		711705A71F6C403800BB107F /* CuisineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A61F6C403800BB107F /* CuisineController.swift */; };
 		711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */; };
 		7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7361F68303A00E90CB9 /* AppDelegate.swift */; };
-		7144E73C1F68303A00E90CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73A1F68303A00E90CB9 /* Main.storyboard */; };
 		7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73D1F68303A00E90CB9 /* Assets.xcassets */; };
 		7144E7411F68303A00E90CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7144E73F1F68303A00E90CB9 /* LaunchScreen.storyboard */; };
 		7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7511F68457800E90CB9 /* CoreDataStack.swift */; };
@@ -32,11 +31,9 @@
 		7165519B1F8E742F0016E2A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7165519A1F8E742F0016E2A6 /* MapKit.framework */; };
 		716F6E661F91795600FE0344 /* ToTryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F6E651F91795600FE0344 /* ToTryListTableViewCell.swift */; };
 		716F6E681F91796400FE0344 /* ToTryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */; };
-		717EF81C1F9502BA0059292A /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81B1F9502BA0059292A /* TabBarController.storyboard */; };
-		717EF81E1F95034D0059292A /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81D1F95034D0059292A /* Favorites.storyboard */; };
-		717EF8201F9503550059292A /* ToTrys.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81F1F9503550059292A /* ToTrys.storyboard */; };
-		717EF8221F9653FB0059292A /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF8211F9653FB0059292A /* MapView.storyboard */; };
+		717EF81C1F9502BA0059292A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81B1F9502BA0059292A /* Main.storyboard */; };
 		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
+		71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D51A2C1F97B5970028862D /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +48,6 @@
 		711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListTableViewController.swift; sourceTree = "<group>"; };
 		7144E7331F68303A00E90CB9 /* RestaurantProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7144E7361F68303A00E90CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7144E73B1F68303A00E90CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7144E73D1F68303A00E90CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7144E7401F68303A00E90CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7144E7421F68303A00E90CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,11 +63,9 @@
 		7165519A1F8E742F0016E2A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		716F6E651F91795600FE0344 /* ToTryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTryListTableViewCell.swift; sourceTree = "<group>"; };
 		716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTryListTableViewController.swift; sourceTree = "<group>"; };
-		717EF81B1F9502BA0059292A /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
-		717EF81D1F95034D0059292A /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
-		717EF81F1F9503550059292A /* ToTrys.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ToTrys.storyboard; sourceTree = "<group>"; };
-		717EF8211F9653FB0059292A /* MapView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
+		717EF81B1F9502BA0059292A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		71D51A2C1F97B5970028862D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,11 +126,7 @@
 		7144E7491F683B9200E90CB9 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				7144E73A1F68303A00E90CB9 /* Main.storyboard */,
-				717EF81B1F9502BA0059292A /* TabBarController.storyboard */,
-				717EF81D1F95034D0059292A /* Favorites.storyboard */,
-				717EF81F1F9503550059292A /* ToTrys.storyboard */,
-				717EF8211F9653FB0059292A /* MapView.storyboard */,
+				717EF81B1F9502BA0059292A /* Main.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -208,6 +198,7 @@
 			children = (
 				7165512D1F8C19530016E2A6 /* Color.swift */,
 				71B12BF61F8ED406003C2398 /* LocationManager.swift */,
+				71D51A2C1F97B5970028862D /* TabBarController.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -279,12 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7144E7411F68303A00E90CB9 /* LaunchScreen.storyboard in Resources */,
-				717EF8221F9653FB0059292A /* MapView.storyboard in Resources */,
 				7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */,
-				717EF81C1F9502BA0059292A /* TabBarController.storyboard in Resources */,
-				7144E73C1F68303A00E90CB9 /* Main.storyboard in Resources */,
-				717EF81E1F95034D0059292A /* Favorites.storyboard in Resources */,
-				717EF8201F9503550059292A /* ToTrys.storyboard in Resources */,
+				717EF81C1F9502BA0059292A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +287,7 @@
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
 				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
 				711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */,
+				71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */,
 				7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */,
 				7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */,
 				7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */,
@@ -323,14 +311,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7144E73A1F68303A00E90CB9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7144E73B1F68303A00E90CB9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7144E73F1F68303A00E90CB9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
