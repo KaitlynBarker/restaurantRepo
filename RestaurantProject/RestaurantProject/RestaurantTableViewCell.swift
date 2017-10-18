@@ -24,14 +24,14 @@ class RestaurantTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        guard let restaurant = restaurant, let image = restaurant.imageURL else { return }
+        guard let restaurant = restaurant, let imageURL = restaurant.imageURL else { return }
         
 //        self.backgroundColor = UIColor.blueGrey60
 //        self.restaurantNameLabel.textColor = UIColor.peach30
 //        self.restaurantDistanceLabel.textColor = UIColor.peach30
 //        self.averagePriceLabel.textColor = UIColor.peach30
         
-        RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
+        RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }
             
             RestaurantController.shared.convertAddressToDistance { (distance) in

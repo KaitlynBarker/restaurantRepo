@@ -80,5 +80,15 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
             destinationVC.restaurant = restaurant
         }
     }
+}
 
+extension UIViewController {
+    func hideKeyboardWhenViewIsTapped() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
 }

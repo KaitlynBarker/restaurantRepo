@@ -17,26 +17,24 @@ class CustomTabBarController: UITabBarController {
     }
     
     func customTabBar() {
-        let storyboard1 = UIStoryboard(name: "RestaurantViews", bundle: nil)
-        let navigationController = storyboard1.instantiateViewController(withIdentifier: "RestaurantSearch")
-        let secondNavigationController = UINavigationController(rootViewController: navigationController)
-        navigationController.title = "Search"
+        let storyboard1 = UIStoryboard(name: "Main", bundle: nil)
+        let searchNav = storyboard1.instantiateViewController(withIdentifier: "RestaurantSearch")
+        let searchNavController = UINavigationController(rootViewController: searchNav)
+        searchNav.title = "Search"
         
-        let storyboard2 = UIStoryboard(name: "Favorites", bundle: nil)
-        let navigationController2 = storyboard2.instantiateViewController(withIdentifier: "FavoritesList")
-        let secondNavController = UINavigationController(rootViewController: navigationController2)
-        navigationController2.title = "Favorites"
+        let favsNav = storyboard1.instantiateViewController(withIdentifier: "FavoritesList")
+        let favsNavController = UINavigationController(rootViewController: favsNav)
+        favsNav.title = "Favorites"
+        favsNav.tabBarItem.image = #imageLiteral(resourceName: "heart") // do this for the others
         
-        let storyboard3 = UIStoryboard(name: "ToTrys", bundle: nil)
-        let navigationController3 = storyboard3.instantiateViewController(withIdentifier: "ToTrysList")
-        let secondNavController3 = UINavigationController(rootViewController: navigationController3)
-        navigationController3.title = "To Try List"
+        let toTryNav = storyboard1.instantiateViewController(withIdentifier: "ToTrysList")
+        let toTryNavController = UINavigationController(rootViewController: toTryNav)
+        toTryNav.title = "To Try"
         
-        let storyboard4 = UIStoryboard(name: "MapView", bundle: nil)
-        let navigationController4 = storyboard4.instantiateViewController(withIdentifier: "MapView")
-        let lastNavController = UINavigationController(rootViewController: navigationController4)
-        navigationController4.title = "Map"
+        let mapNav = storyboard1.instantiateViewController(withIdentifier: "MapView")
+        let mapNavController = UINavigationController(rootViewController: mapNav)
+        mapNav.title = "Map"
         
-        viewControllers = [secondNavigationController, secondNavController, secondNavController3, lastNavController]
+        viewControllers = [searchNavController, favsNavController, toTryNavController, mapNavController]
     }
 }

@@ -7,6 +7,8 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,30 +78,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-5J-p2C">
-                                            <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="v1X-5J-p2C">
+                                            <rect key="frame" x="29" y="10.5" width="94" height="80"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="84" id="IsU-Qx-DzG"/>
-                                                <constraint firstAttribute="width" secondItem="v1X-5J-p2C" secondAttribute="height" multiplier="1:1" id="mqp-h8-cNc"/>
+                                                <constraint firstAttribute="width" secondItem="v1X-5J-p2C" secondAttribute="height" multiplier="83:71" id="XsN-av-Z5k"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eet-G0-K2M">
-                                            <rect key="frame" x="100" y="8" width="267" height="84"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eet-G0-K2M">
+                                            <rect key="frame" x="146" y="14.5" width="215" height="71.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9G-Eh-dgk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="24.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="215" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyW-iG-KhN">
-                                                    <rect key="frame" x="0.0" y="29.5" width="267" height="25"/>
+                                                    <rect key="frame" x="0.0" y="25.5" width="215" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpO-bd-eDl">
-                                                    <rect key="frame" x="0.0" y="59.5" width="267" height="24.5"/>
+                                                    <rect key="frame" x="0.0" y="51" width="215" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -108,21 +109,20 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="v1X-5J-p2C" secondAttribute="bottom" constant="7.5" id="82A-hs-SNv"/>
-                                        <constraint firstAttribute="bottom" secondItem="eet-G0-K2M" secondAttribute="bottom" constant="7.5" id="9W1-LN-hkv"/>
-                                        <constraint firstAttribute="trailing" secondItem="eet-G0-K2M" secondAttribute="trailing" constant="8" id="G7V-qn-3lP"/>
-                                        <constraint firstItem="v1X-5J-p2C" firstAttribute="leading" secondItem="Eri-oV-9eV" secondAttribute="leading" constant="8" id="PI6-bc-T7a"/>
-                                        <constraint firstItem="eet-G0-K2M" firstAttribute="height" secondItem="v1X-5J-p2C" secondAttribute="height" id="Yml-pd-KW4"/>
-                                        <constraint firstItem="eet-G0-K2M" firstAttribute="leading" secondItem="v1X-5J-p2C" secondAttribute="trailing" constant="8" id="eo4-CC-zeK"/>
-                                        <constraint firstItem="v1X-5J-p2C" firstAttribute="top" secondItem="Eri-oV-9eV" secondAttribute="top" constant="8" id="hNJ-yU-iLc"/>
-                                        <constraint firstItem="eet-G0-K2M" firstAttribute="top" secondItem="Eri-oV-9eV" secondAttribute="top" constant="8" id="qZH-dy-EBv"/>
+                                        <constraint firstItem="eet-G0-K2M" firstAttribute="leading" secondItem="v1X-5J-p2C" secondAttribute="trailing" constant="23" id="0o0-gx-C8w"/>
+                                        <constraint firstItem="v1X-5J-p2C" firstAttribute="centerY" secondItem="Eri-oV-9eV" secondAttribute="centerY" id="3Gh-qa-2Nc"/>
+                                        <constraint firstItem="eet-G0-K2M" firstAttribute="top" secondItem="Eri-oV-9eV" secondAttribute="top" constant="14.5" id="6zN-BI-elt"/>
+                                        <constraint firstItem="eet-G0-K2M" firstAttribute="width" secondItem="Eri-oV-9eV" secondAttribute="width" multiplier="4/7" id="Bsq-oM-n9Z"/>
+                                        <constraint firstItem="v1X-5J-p2C" firstAttribute="leading" secondItem="Eri-oV-9eV" secondAttribute="leadingMargin" constant="21" id="knS-vt-Mfa"/>
+                                        <constraint firstItem="v1X-5J-p2C" firstAttribute="width" secondItem="Eri-oV-9eV" secondAttribute="width" multiplier="1/4" id="lpq-5e-Kg5"/>
+                                        <constraint firstItem="eet-G0-K2M" firstAttribute="centerY" secondItem="Eri-oV-9eV" secondAttribute="centerY" id="pb3-Ui-I0u"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="averagePriceLabel" destination="MpO-bd-eDl" id="u0T-9n-QFt"/>
-                                    <outlet property="restaurantDistanceLabel" destination="VyW-iG-KhN" id="oda-lH-EMd"/>
-                                    <outlet property="restaurantImageView" destination="v1X-5J-p2C" id="SFk-le-D2B"/>
-                                    <outlet property="restaurantNameLabel" destination="t9G-Eh-dgk" id="tDk-DV-hH3"/>
+                                    <outlet property="averagePriceLabel" destination="MpO-bd-eDl" id="WFx-AA-a80"/>
+                                    <outlet property="restaurantDistanceLabel" destination="VyW-iG-KhN" id="ti6-j3-abQ"/>
+                                    <outlet property="restaurantImageView" destination="v1X-5J-p2C" id="hJu-rp-zGe"/>
+                                    <outlet property="restaurantNameLabel" destination="t9G-Eh-dgk" id="jc1-Oc-TWY"/>
                                     <segue destination="3Hh-i5-cIL" kind="show" identifier="ToRestaurantDetailVC" id="pcy-ay-err">
                                         <nil key="action"/>
                                     </segue>
@@ -569,7 +569,6 @@
                                         <constraint firstItem="3EH-dr-hck" firstAttribute="leading" secondItem="iUB-LS-YYi" secondAttribute="leading" constant="8" id="Bdi-fx-GDy"/>
                                         <constraint firstItem="0Cy-S0-qrz" firstAttribute="height" secondItem="3EH-dr-hck" secondAttribute="height" id="Bge-D9-Dmc"/>
                                         <constraint firstItem="3EH-dr-hck" firstAttribute="top" secondItem="iUB-LS-YYi" secondAttribute="top" constant="8" id="BnF-VG-6Bg"/>
-                                        <constraint firstAttribute="bottom" secondItem="3EH-dr-hck" secondAttribute="bottom" constant="8" id="Cvw-Ls-by5"/>
                                         <constraint firstItem="STd-kQ-uAy" firstAttribute="leading" secondItem="0Cy-S0-qrz" secondAttribute="trailing" constant="8" id="PtI-Z4-YSU"/>
                                         <constraint firstItem="STd-kQ-uAy" firstAttribute="top" secondItem="iUB-LS-YYi" secondAttribute="top" constant="27" id="aut-Hw-sHa"/>
                                         <constraint firstItem="0Cy-S0-qrz" firstAttribute="top" secondItem="iUB-LS-YYi" secondAttribute="top" constant="8" id="i5H-eF-8Xo"/>
@@ -680,7 +679,6 @@
                                         <constraint firstItem="DXJ-Dr-ScE" firstAttribute="leading" secondItem="93S-ti-6eb" secondAttribute="trailing" constant="8" id="NUi-y2-KOI"/>
                                         <constraint firstItem="DXJ-Dr-ScE" firstAttribute="height" secondItem="93S-ti-6eb" secondAttribute="height" id="T5K-uO-fLm"/>
                                         <constraint firstItem="gSK-MQ-8cS" firstAttribute="leading" secondItem="DXJ-Dr-ScE" secondAttribute="trailing" constant="8" id="ZKM-sd-gPD"/>
-                                        <constraint firstAttribute="bottom" secondItem="93S-ti-6eb" secondAttribute="bottom" constant="8" id="aO7-ga-tqW"/>
                                         <constraint firstAttribute="bottom" secondItem="gSK-MQ-8cS" secondAttribute="bottom" constant="27.5" id="enP-Tq-1Zo"/>
                                         <constraint firstItem="gSK-MQ-8cS" firstAttribute="top" secondItem="RUl-KX-PdU" secondAttribute="top" constant="27" id="gmd-L4-L2L"/>
                                         <constraint firstAttribute="bottom" secondItem="DXJ-Dr-ScE" secondAttribute="bottom" constant="8" id="iHt-M3-cTr"/>
@@ -788,6 +786,6 @@
         <image name="incomplete" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kN8-om-zA1"/>
+        <segue reference="pcy-ay-err"/>
     </inferredMetricsTieBreakers>
 </document>

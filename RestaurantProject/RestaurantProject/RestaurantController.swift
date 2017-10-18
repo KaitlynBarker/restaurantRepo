@@ -141,7 +141,7 @@ class RestaurantController {
     func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
         guard let imageURL = URL(string: imageURL) else { completion(nil); return }
         
-        let dataTask = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
             if let error = error { NSLog("unable to retreive image. Error: \(error.localizedDescription)"); completion(nil); return }
             
             guard let data = data, let image = UIImage(data: data) else { completion(nil); return }
