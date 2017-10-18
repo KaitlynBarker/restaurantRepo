@@ -10,7 +10,11 @@ import UIKit
 
 class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var restaurant: Restaurant?
+    var restaurant: Restaurant? {
+        didSet {
+            updateViews()
+        }
+    }
     
     //MARK: - Outlets
     
@@ -27,14 +31,13 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
-    @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var aveCostForTwoLabel: UILabel!
     @IBOutlet weak var deliverableLabel: UILabel!
     @IBOutlet weak var reservableLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = restaurant?.restaurantName
         
         self.reviewTableView.separatorStyle = .none
@@ -77,16 +80,13 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            RestaurantController.shared.fetchRestaurantPhoneNumber { (phoneNumber) in
-                DispatchQueue.main.async {
-                    self.restaurantNameLabel.text = restaurant.restaurantName
-                    self.restaurantAddressLabel.text = restaurant.address
-                    self.phoneNumberLabel.text = phoneNumber
-                    self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
-                    self.restaurantImageView.image = image
-                    self.convertDeliveryToString() // might not work properly
-                    self.convertReservableToString() // might not work properly
-                }
+            DispatchQueue.main.async {
+                self.restaurantNameLabel.text = restaurant.restaurantName
+                self.restaurantAddressLabel.text = restaurant.address
+                self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
+                self.restaurantImageView.image = image
+                self.convertDeliveryToString() // might not work properly
+                self.convertReservableToString() // might not work properly
             }
         }
     }

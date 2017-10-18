@@ -35,32 +35,32 @@ class FavoriteTableViewCell: UITableViewCell {
     func updateViews() {
         guard let favRestaurant = self.favoriteRes, let image = favRestaurant.imageURL else { return }
         
-//        self.backgroundColor = UIColor.blueGrey60
-//        self.favoriteButton.backgroundColor = UIColor.blueGrey60
-//        self.restaurantNameLabel.textColor = UIColor.peach30
-//        self.resDistanceLabel.textColor = UIColor.peach30
-//        self.avePriceLabel.textColor = UIColor.peach30
+        //        self.backgroundColor = UIColor.blueGrey60
+        //        self.favoriteButton.backgroundColor = UIColor.blueGrey60
+        //        self.restaurantNameLabel.textColor = UIColor.peach30
+        //        self.resDistanceLabel.textColor = UIColor.peach30
+        //        self.avePriceLabel.textColor = UIColor.peach30
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-//            RestaurantController.shared.convertAddressToDistance { (distance) in
-//                let distance = distance
+            //            RestaurantController.shared.convertAddressToDistance { (distance) in
+            //                let distance = distance
+            
+            DispatchQueue.main.async {
+                self.restaurantImageView.image = image
+                self.restaurantNameLabel.text = favRestaurant.restaurantName
+                //                    self.resDistanceLabel.text = "Approx \(distance) away"
                 
-                DispatchQueue.main.async {
-                    self.restaurantImageView.image = image
-                    self.restaurantNameLabel.text = favRestaurant.restaurantName
-//                    self.resDistanceLabel.text = "Approx \(distance) away"
-                    
-                    self.calculateAvePrice()
-                    
-                    if favRestaurant.isFavorited {
-                        self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
-                    } else {
-                        self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
-                    }
+                self.calculateAvePrice()
+                
+                if favRestaurant.isFavorited {
+                    self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+                } else {
+                    self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
                 }
-//            }
+            }
+            //            }
         }
     }
     

@@ -35,34 +35,34 @@ class ToTryListTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
-        guard let toTryRes = self.toTryRes, let image = toTryRes.imageURL else { return }
+        guard let toTryRes = self.toTryRes, let imageURL = toTryRes.imageURL else { return }
         
-//        self.backgroundColor = UIColor.blueGrey60
-//        self.toTryButton.backgroundColor = UIColor.blueGrey60
-//        self.nameLabel.textColor = UIColor.peach30
-//        self.distanceLabel.textColor = UIColor.peach30
-//        self.avePriceLabel.textColor = UIColor.peach30
+        //        self.backgroundColor = UIColor.blueGrey60
+        //        self.toTryButton.backgroundColor = UIColor.blueGrey60
+        //        self.nameLabel.textColor = UIColor.peach30
+        //        self.distanceLabel.textColor = UIColor.peach30
+        //        self.avePriceLabel.textColor = UIColor.peach30
         
-        RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
+        RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }
             
-            RestaurantController.shared.convertAddressToDistance { (distance) in
-                let distance = distance
+            //            RestaurantController.shared.convertAddressToDistance { (distance) in
+            //                let distance = distance
+            
+            DispatchQueue.main.async {
+                self.restaurantImageView.image = image
+                self.nameLabel.text = toTryRes.restaurantName
+                //                    self.distanceLabel.text = "Approx \(distance) away"
                 
-                DispatchQueue.main.async {
-                    self.restaurantImageView.image = image
-                    self.nameLabel.text = toTryRes.restaurantName
-                    self.distanceLabel.text = "Approx \(distance) away"
-                    
-                    self.calculateAvePrice()
-                    
-                    if toTryRes.isOnToTryList {
-                        // set image
-                    } else {
-                        // set image
-                    }
+                self.calculateAvePrice()
+                
+                if toTryRes.isOnToTryList {
+                    // set image
+                } else {
+                    // set image
                 }
             }
+            //            }
         }
     }
     

@@ -41,6 +41,15 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
         return cell
     }
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
+            RestaurantController.shared.removeRestaurantFromList(restaurant: favRestaurant)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

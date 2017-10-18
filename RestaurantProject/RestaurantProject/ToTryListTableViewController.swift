@@ -36,6 +36,15 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
         return cell
     }
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let toTryRestaurant = RestaurantController.shared.toTryRestaurants[indexPath.row]
+            RestaurantController.shared.removeRestaurantFromList(restaurant: toTryRestaurant)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
