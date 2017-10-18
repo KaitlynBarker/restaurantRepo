@@ -50,7 +50,7 @@ class RestaurantController {
     
     // MARK: - Retreive/Fetch
     
-    func fetchNearbyRestaurants(completion: @escaping ([Restaurant]) -> Void) {
+    func fetchNearbyRestaurants(completion: @escaping ([Restaurant]) -> Void = { _ in }) {
         
         guard let baseURL = self.baseURL else { completion([]); return }
         

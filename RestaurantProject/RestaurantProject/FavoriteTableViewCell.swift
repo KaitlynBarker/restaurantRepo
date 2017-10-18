@@ -44,13 +44,13 @@ class FavoriteTableViewCell: UITableViewCell {
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
             
-            RestaurantController.shared.convertAddressToDistance { (distance) in
-                let distance = distance
+//            RestaurantController.shared.convertAddressToDistance { (distance) in
+//                let distance = distance
                 
                 DispatchQueue.main.async {
                     self.restaurantImageView.image = image
                     self.restaurantNameLabel.text = favRestaurant.restaurantName
-                    self.resDistanceLabel.text = "Approx \(distance) away"
+//                    self.resDistanceLabel.text = "Approx \(distance) away"
                     
                     self.calculateAvePrice()
                     
@@ -60,7 +60,7 @@ class FavoriteTableViewCell: UITableViewCell {
                         self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
                     }
                 }
-            }
+//            }
         }
     }
     

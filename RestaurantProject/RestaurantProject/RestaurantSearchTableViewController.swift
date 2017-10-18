@@ -37,7 +37,9 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         
         RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
             
-            //
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -49,7 +51,9 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         
         RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
             
-            //
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -79,16 +83,5 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
             
             destinationVC.restaurant = restaurant
         }
-    }
-}
-
-extension UIViewController {
-    func hideKeyboardWhenViewIsTapped() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        self.view.endEditing(true)
     }
 }

@@ -34,17 +34,17 @@ class RestaurantTableViewCell: UITableViewCell {
         RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }
             
-            RestaurantController.shared.convertAddressToDistance { (distance) in
-                let distance = distance
-                
+//            RestaurantController.shared.convertAddressToDistance { (distance) in
+//                let distance = distance
+//            }
+            
                 DispatchQueue.main.async {
                     self.restaurantImageView.image = image
                     self.restaurantNameLabel.text = restaurant.restaurantName
-                    self.restaurantDistanceLabel.text = "Approx \(distance) away"
-                    
+//                    self.restaurantDistanceLabel.text = "Approx \(distance) away"
+                
                     self.calculateAvePrice()
                 }
-            }
         }
     }
     
@@ -52,15 +52,15 @@ class RestaurantTableViewCell: UITableViewCell {
         guard let restaurant = restaurant else { return }
         
         if restaurant.priceRange == 1 {
-            self.averagePriceLabel.text = "Average Price: 💲"
+            self.averagePriceLabel.text = "Average Price: 💰"
         } else if restaurant.priceRange == 2 {
-            self.averagePriceLabel.text = "Average Price: 💲💲"
+            self.averagePriceLabel.text = "Average Price: 💰💰"
         } else if restaurant.priceRange == 3 {
-            self.averagePriceLabel.text = "Average Price: 💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💰💰💰"
         } else if restaurant.priceRange == 4 {
-            self.averagePriceLabel.text = "Average Price: 💲💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💰💰💰💰"
         } else {
-            self.averagePriceLabel.text = "Average Price: 💲💲💲💲💲"
+            self.averagePriceLabel.text = "Average Price: 💰💰💰💰💰"
         }
     }
     
