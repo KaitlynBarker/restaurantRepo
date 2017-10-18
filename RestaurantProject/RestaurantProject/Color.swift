@@ -13,6 +13,18 @@ extension UIColor {
     
     // MARK: - Color Pallette
     
+    class var customWhite: UIColor {
+        return UIColor(hex: "FEFBF8")
+    }
+    
+    class var customBlue: UIColor {
+        return UIColor(hex: "1A2F56")
+    }
+    
+    class var customRed: UIColor {
+        return UIColor(hex: "E64D31")
+    }
+    
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0
