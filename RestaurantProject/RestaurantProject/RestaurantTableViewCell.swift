@@ -26,10 +26,10 @@ class RestaurantTableViewCell: UITableViewCell {
     func updateViews() {
         guard let restaurant = restaurant, let imageURL = restaurant.imageURL else { return }
         
-//        self.backgroundColor = UIColor.blueGrey60
-//        self.restaurantNameLabel.textColor = UIColor.peach30
-//        self.restaurantDistanceLabel.textColor = UIColor.peach30
-//        self.averagePriceLabel.textColor = UIColor.peach30
+        self.backgroundColor = UIColor.customGrey
+        self.restaurantNameLabel.textColor = UIColor.customBlue
+        self.restaurantDistanceLabel.textColor = UIColor.customBlue
+        self.averagePriceLabel.textColor = UIColor.customBlue
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }

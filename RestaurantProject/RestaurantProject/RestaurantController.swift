@@ -91,7 +91,7 @@ class RestaurantController {
         dataTask.resume()
     }
     
-    func fetchRestaurants(bySearchTerm searchTerm: String?, selectedCuisines: [Cuisine], priceRangeValue: Float, completion: @escaping ([Restaurant]) -> Void = { _ in }) {
+    func fetchRestaurants(bySearchTerm searchTerm: String?, selectedCuisines: [Cuisine], completion: @escaping ([Restaurant]) -> Void = { _ in }) {
         guard let baseURL = self.baseURL else { completion([]); return }
         
         let coordinate = LocationManager.shared.fetchCurrentLocation()
@@ -130,31 +130,6 @@ class RestaurantController {
             guard let jsonDict = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any], let restaurantDicts = jsonDict[self.restaurantsKey] as? [[String:Any]] else { NSLog("unable to serialize JSON. \n\(responseDataString)"); completion([]); return }
             
             let restaurants = restaurantDicts.flatMap { Restaurant(dictionary: $0) }
-            guard priceRangeValue == PriceRangeSlider.shared.priceRangeSlider?.value else { return }
-            
-            if priceRangeValue == 1.0 {
-                let filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in
-                    return restaurant.priceRange == 1
-                })
-                completion(filteredRestaurants)
-            } else if priceRangeValue == 2.0 {
-                let filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in
-                    return restaurant.priceRange == 1 && restaurant.priceRange == 2
-                })
-                completion(filteredRestaurants)
-            } else if priceRangeValue == 3.0 {
-                let filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in
-                    return restaurant.priceRange == 1 && restaurant.priceRange == 2 && restaurant.priceRange == 3
-                })
-                completion(filteredRestaurants)
-            } else if priceRangeValue == 4.0 {
-                let filteredRestaurants = restaurants.filter({ (restaurant) -> Bool in
-                    return restaurant.priceRange == 1 && restaurant.priceRange == 2 && restaurant.priceRange == 3 && restaurant.priceRange == 4
-                })
-                completion(filteredRestaurants)
-            } else {
-                completion(restaurants)
-            }
             
             completion(restaurants)
         }

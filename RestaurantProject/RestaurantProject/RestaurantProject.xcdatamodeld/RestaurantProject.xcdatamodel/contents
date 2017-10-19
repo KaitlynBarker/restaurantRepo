@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Cuisine" representedClassName="Cuisine" syncable="YES" codeGenerationType="class">
         <attribute name="cuisineName" attributeType="String" syncable="YES"/>
         <attribute name="isCuisineChosen" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -15,7 +15,7 @@
         <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isOnToTryList" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
-        <attribute name="priceRange" attributeType="Integer 32" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="priceRange" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ratingText" attributeType="String" syncable="YES"/>
         <attribute name="reservable" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="resID" attributeType="String" syncable="YES"/>

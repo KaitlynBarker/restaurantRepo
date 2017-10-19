@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let barButtonItemAppearance = UIBarButtonItem.appearance()
         let buttonAppearance = UIButton.appearance()
         
-        navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customWhite, NSAttributedStringKey.font: UIFont.merriweatherLight]
+        navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.navBarTitle]
         
-        labelAppearance.font = UIFont.merriweatherLight
-        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customWhite, NSAttributedStringKey.font: UIFont.merriweatherLight], for: .normal)
+        labelAppearance.font = UIFont.labelFont
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)
         buttonAppearance.titleLabel?.font = UIFont.merriweatherLight
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

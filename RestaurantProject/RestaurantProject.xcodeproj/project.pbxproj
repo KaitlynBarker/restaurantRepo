@@ -33,7 +33,6 @@
 		716F6E681F91796400FE0344 /* ToTryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */; };
 		717EF81C1F9502BA0059292A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81B1F9502BA0059292A /* Main.storyboard */; };
 		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
-		71D1DB111F9913C40090DE76 /* PriceRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1DB101F9913C40090DE76 /* PriceRangeSlider.swift */; };
 		71D1DB131F9921FF0090DE76 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1DB121F9921FF0090DE76 /* Font.swift */; };
 		71D1DB171F9922EE0090DE76 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71D1DB161F9922EE0090DE76 /* Merriweather-LightItalic.ttf */; };
 		71D1DB191F9923090090DE76 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71D1DB181F9923090090DE76 /* Merriweather-Light.ttf */; };
@@ -69,7 +68,6 @@
 		716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTryListTableViewController.swift; sourceTree = "<group>"; };
 		717EF81B1F9502BA0059292A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		71D1DB101F9913C40090DE76 /* PriceRangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRangeSlider.swift; sourceTree = "<group>"; };
 		71D1DB121F9921FF0090DE76 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		71D1DB161F9922EE0090DE76 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-LightItalic.ttf"; path = "../../../../../../../Downloads/Merriweather/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
 		71D1DB181F9923090090DE76 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-Light.ttf"; path = "../../../../../../../Downloads/Merriweather/Merriweather-Light.ttf"; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 				7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */,
 				7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */,
 				716F6E651F91795600FE0344 /* ToTryListTableViewCell.swift */,
-				71D1DB101F9913C40090DE76 /* PriceRangeSlider.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
 				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
-				71D1DB111F9913C40090DE76 /* PriceRangeSlider.swift in Sources */,
 				711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */,
 				71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */,
 				71D1DB131F9921FF0090DE76 /* Font.swift in Sources */,

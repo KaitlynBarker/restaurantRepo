@@ -21,7 +21,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         
         
         searchBar.delegate = self
-//        self.view.backgroundColor = UIColor.blueGrey60
+        self.view.backgroundColor = UIColor.customGrey
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -31,11 +31,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Actions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text, searchTerm != "", let priceRangeValue = PriceRangeSlider.shared.priceRangeSlider?.value else { return }
+        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
         
         let selectedCuisines = CuisineController.shared.selectedCuisines
         
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, priceRangeValue: priceRangeValue) { (restaurants) in
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines) { (restaurants) in
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -44,11 +44,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
-        guard let searchTerm = searchBar.text, searchTerm != "", let priceRangeValue = PriceRangeSlider.shared.priceRangeSlider?.value else { return }
+        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
         
         let selectedCuisines = CuisineController.shared.selectedCuisines
         
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, priceRangeValue: priceRangeValue) { (restaurants) in
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines) { (restaurants) in
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

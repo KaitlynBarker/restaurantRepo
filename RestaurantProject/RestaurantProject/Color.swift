@@ -13,8 +13,8 @@ extension UIColor {
     
     // MARK: - Color Pallette
     
-    class var customWhite: UIColor {
-        return UIColor(hex: "FEFBF8")
+    class var customGrey: UIColor {
+        return UIColor(hex: "E4E4E5")
     }
     
     class var customBlue: UIColor {
