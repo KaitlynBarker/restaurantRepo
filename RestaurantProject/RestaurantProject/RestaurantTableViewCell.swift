@@ -14,8 +14,7 @@ class RestaurantTableViewCell: UITableViewCell {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var restaurantDistanceLabel: UILabel!
-    @IBOutlet weak var averagePriceLabel: UILabel!
+    @IBOutlet weak var aveCostForTwoLabel: UILabel!
     
     var restaurant: Restaurant? {
         didSet {
@@ -28,40 +27,16 @@ class RestaurantTableViewCell: UITableViewCell {
         
         self.backgroundColor = UIColor.customGrey
         self.restaurantNameLabel.textColor = UIColor.customBlue
-        self.restaurantDistanceLabel.textColor = UIColor.customBlue
-        self.averagePriceLabel.textColor = UIColor.customBlue
+        self.aveCostForTwoLabel.textColor = UIColor.customBlue
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }
             
-//            RestaurantController.shared.convertAddressToDistance { (distance) in
-//                let distance = distance
-//            }
-            
-                DispatchQueue.main.async {
-                    self.restaurantImageView.image = image
-                    self.restaurantNameLabel.text = restaurant.restaurantName
-//                    self.restaurantDistanceLabel.text = "Approx \(distance) away"
-                
-                    self.calculateAvePrice()
-                }
+            DispatchQueue.main.async {
+                self.restaurantImageView.image = image
+                self.restaurantNameLabel.text = restaurant.restaurantName
+                self.aveCostForTwoLabel.text = "Ave Cost For Two: $\(restaurant.averageCostForTwo)"
+            }
         }
     }
-    
-    func calculateAvePrice() {
-        guard let restaurant = restaurant else { return }
-        
-        if restaurant.priceRange == 1 {
-            self.averagePriceLabel.text = "Average Price: 💰"
-        } else if restaurant.priceRange == 2 {
-            self.averagePriceLabel.text = "Average Price: 💰💰"
-        } else if restaurant.priceRange == 3 {
-            self.averagePriceLabel.text = "Average Price: 💰💰💰"
-        } else if restaurant.priceRange == 4 {
-            self.averagePriceLabel.text = "Average Price: 💰💰💰💰"
-        } else {
-            self.averagePriceLabel.text = "Average Price: 💰💰💰💰💰"
-        }
-    }
-    
 }

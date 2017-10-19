@@ -16,17 +16,17 @@ extension UIFont {
     }
     
     static var navBarTitle: UIFont {
-        guard let fontName = UIFont(name: "Merriweather-Light", size: 24.0) else { return UIFont() }
-        return fontName
-    }
-    
-    static var barButtonFont: UIFont {
         guard let fontName = UIFont(name: "Merriweather-Light", size: 20.0) else { return UIFont() }
         return fontName
     }
     
-    static var labelFont: UIFont {
+    static var barButtonFont: UIFont {
         guard let fontName = UIFont(name: "Merriweather-Light", size: 18.0) else { return UIFont() }
+        return fontName
+    }
+    
+    static var labelFont: UIFont {
+        guard let fontName = UIFont(name: "Merriweather-Light", size: 16.0) else { return UIFont() }
         return fontName
     }
 }

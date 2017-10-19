@@ -41,6 +41,18 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
                 self.tableView.reloadData()
             }
         }
+        self.resignFirstResponder()
+        self.searchBar.text = ""
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if #available(iOS 11.0, *) {
+            self.navigationItem.searchController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
@@ -68,6 +80,14 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         let restaurant = RestaurantController.shared.restaurants[indexPath.row]
         
         cell.restaurant = restaurant
+        
+        DispatchQueue.main.async {
+            if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath != indexPath {
+                print("Got image for now-reused cell")
+                return
+            }
+            cell.setNeedsLayout()
+        }
 
         return cell
     }
@@ -84,3 +104,16 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         }
     }
 }
+
+extension RestaurantSearchTableViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            let item = RestaurantController.shared.restaurants[indexPath.row]
+            guard let imageURL = item.imageURL else { return }
+            guard let itemURL = URL(string: imageURL) else { return }
+            let dataTask = URLSession.shared.dataTask(with: itemURL)
+            dataTask.resume()
+        }
+    }
+}
+
