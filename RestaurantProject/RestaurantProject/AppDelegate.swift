@@ -15,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let navBarAppearance = UINavigationBar.appearance()
+        let labelAppearance = UILabel.appearance()
+        let barButtonItemAppearance = UIBarButtonItem.appearance()
+        let buttonAppearance = UIButton.appearance()
+        
+        navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customWhite, NSAttributedStringKey.font: UIFont.merriweatherLight]
+        
+        labelAppearance.font = UIFont.merriweatherLight
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customWhite, NSAttributedStringKey.font: UIFont.merriweatherLight], for: .normal)
+        buttonAppearance.titleLabel?.font = UIFont.merriweatherLight
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let customTabBar = storyboard.instantiateViewController(withIdentifier: "CustomTabBar") as? CustomTabBarController else { return false }

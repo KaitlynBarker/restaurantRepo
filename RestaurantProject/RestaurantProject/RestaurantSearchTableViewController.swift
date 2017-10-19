@@ -19,6 +19,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         searchBar.delegate = self
 //        self.view.backgroundColor = UIColor.blueGrey60
         
@@ -30,12 +31,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     //MARK: - Actions
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
+        guard let searchTerm = searchBar.text, searchTerm != "", let priceRangeValue = PriceRangeSlider.shared.priceRangeSlider?.value else { return }
         
         let selectedCuisines = CuisineController.shared.selectedCuisines
-        let location = LocationManager.shared.fetchCurrentLocation()
         
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, priceRangeValue: priceRangeValue) { (restaurants) in
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -44,12 +44,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
-        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
+        guard let searchTerm = searchBar.text, searchTerm != "", let priceRangeValue = PriceRangeSlider.shared.priceRangeSlider?.value else { return }
         
         let selectedCuisines = CuisineController.shared.selectedCuisines
-        let location = LocationManager.shared.fetchCurrentLocation()
         
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, location: location) { (restaurants) in
+        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines, priceRangeValue: priceRangeValue) { (restaurants) in
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

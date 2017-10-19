@@ -12,7 +12,7 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Outlets
     
-    @IBOutlet weak var priceRangeSlider: UISlider!
+    @IBOutlet weak var priceRangeSlider: PriceRangeSlider!
     @IBOutlet weak var cuisineTableView: UITableView!
     
     override func viewDidLoad() {
@@ -30,19 +30,14 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.cuisineTableView.separatorStyle = .none
         self.cuisineTableView.rowHeight = UITableViewAutomaticDimension
         self.cuisineTableView.estimatedRowHeight = 60
+        self.priceRangeSlider.minimumTrackTintColor = UIColor.customBlue
+        self.priceRangeSlider.maximumTrackTintColor = UIColor.customRed
     }
     
     //MARK: - Actions
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK: - Price Slider
-    
-    func sliderFuncs() {
-        self.priceRangeSlider.minimumValue = 1.0
-        self.priceRangeSlider.maximumValue = 5.0
     }
     
     // MARK: - Table view data source
@@ -72,3 +67,5 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.updateViews()
     }
 }
+
+
