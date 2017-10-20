@@ -50,6 +50,11 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         self.favoriteButton.backgroundColor = UIColor.customGrey
         self.toTryButton.backgroundColor = UIColor.customGrey
         self.callRestaurantButton.backgroundColor = UIColor.customGrey
+        self.restaurantNameLabel.backgroundColor = UIColor.customGrey
+        self.restaurantAddressLabel.backgroundColor = UIColor.customGrey
+        self.aveCostForTwoLabel.backgroundColor = UIColor.customGrey
+        self.deliverableLabel.backgroundColor = UIColor.customGrey
+        self.reservableLabel.backgroundColor = UIColor.customGrey
     }
     
     // MARK: - Table view data source
@@ -73,6 +78,12 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         guard let restaurant = self.restaurant else { return }
         RestaurantController.shared.isFavoritedToggle(restaurant: restaurant)
+        
+        if restaurant.isFavorited {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        }
     }
     
     @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {

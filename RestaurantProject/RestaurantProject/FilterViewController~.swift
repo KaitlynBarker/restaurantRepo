@@ -29,8 +29,6 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.cuisineTableView.separatorStyle = .none
         self.cuisineTableView.rowHeight = UITableViewAutomaticDimension
         self.cuisineTableView.estimatedRowHeight = 60
-        
-        self.cuisineTableView.backgroundColor = UIColor.customGrey
     }
     
     //MARK: - Actions
