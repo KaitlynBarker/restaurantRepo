@@ -43,6 +43,7 @@ class RestaurantDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = restaurant?.restaurantName
+        self.view.backgroundColor = UIColor.customGrey
         
         self.buttonsBackgroundView.backgroundColor = UIColor.customGrey
         self.favoriteButton.backgroundColor = UIColor.customGrey
@@ -53,6 +54,19 @@ class RestaurantDetailsViewController: UIViewController {
         self.aveCostForTwoLabel.backgroundColor = UIColor.customGrey
         self.deliverableLabel.backgroundColor = UIColor.customGrey
         self.reservableLabel.backgroundColor = UIColor.customGrey
+        self.averageRatingLabel.backgroundColor = UIColor.customGrey
+        self.ratingTextLabel.backgroundColor = UIColor.customGrey
+        self.numberOfVotesLabel.backgroundColor = UIColor.customGrey
+        
+        self.restaurantNameLabel.textColor = UIColor.customBlue
+        self.restaurantAddressLabel.textColor = UIColor.customBlue
+        self.aveCostForTwoLabel.textColor = UIColor.customBlue
+        self.deliverableLabel.textColor = UIColor.customBlue
+        self.reservableLabel.textColor = UIColor.customBlue
+        self.averageRatingLabel.textColor = UIColor.customBlue
+        self.ratingTextLabel.textColor = UIColor.customBlue
+        self.numberOfVotesLabel.textColor = UIColor.customBlue
+        self.takeMeHereButton.titleLabel?.textColor = UIColor.customBlue
     }
     
     //MARK: - Actions
@@ -72,6 +86,10 @@ class RestaurantDetailsViewController: UIViewController {
         self.callRestaurantAlert()
     }
     
+    @IBAction func toTryButtonTapped(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func takeMeHereButtonTapped(_ sender: UIButton) {
         
     }
@@ -79,7 +97,7 @@ class RestaurantDetailsViewController: UIViewController {
     //MARK: - Linking outlets to restaurant info
     
     func updateViews() {
-        guard let restaurant = restaurant, let image = restaurant.imageURL else { return }
+        guard let restaurant = restaurant, let image = restaurant.imageURL, let aveRating = restaurant.averageRating, let ratingText = restaurant.ratingText, let numOfVotes = restaurant.numberOfVotes else { return }
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
@@ -91,6 +109,9 @@ class RestaurantDetailsViewController: UIViewController {
                 self.restaurantImageView.image = image
                 self.convertDeliveryToString() // might not work properly
                 self.convertReservableToString() // might not work properly
+                self.averageRatingLabel.text = "Average Rating: \(aveRating.capitalized)"
+                self.ratingTextLabel.text = "Rating Text: \(ratingText.capitalized)"
+                self.numberOfVotesLabel.text = "Number of Votes: \(numOfVotes.capitalized)"
             }
         }
     }

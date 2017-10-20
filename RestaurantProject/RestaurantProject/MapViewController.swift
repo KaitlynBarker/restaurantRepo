@@ -33,6 +33,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             let startPlacemark = MKPlacemark(coordinate: startCoordinates)
             let endPlacemark = MKPlacemark(coordinate: coordinates)
             
+            let startPinAnnotation = PinAnnotation(title: "You Are Here", subtitle: "Right Here", coordinate: startCoordinates)
+            
+            let endPinAnnotation = PinAnnotation(title: "\()", subtitle: "\()", coordinate: coordinates)
+            
+            self.mapView.addAnnotation(startPinAnnotation)
+            self.mapView.addAnnotation(endPinAnnotation)
+            
             let startItem = MKMapItem(placemark: startPlacemark)
             let endItem = MKMapItem(placemark: endPlacemark)
             
@@ -62,7 +69,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.blue
+        renderer.strokeColor = UIColor.customRed
         renderer.lineWidth = 2.5
         
         return renderer

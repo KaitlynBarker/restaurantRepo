@@ -17,6 +17,8 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.customGrey
+        
         self.cuisineTableView.delegate = self
         self.cuisineTableView.dataSource = self
         

@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let buttonAppearance = UIButton.appearance()
         
         navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.navBarTitle]
+        navBarAppearance.backgroundColor = UIColor.customGrey
         
         labelAppearance.font = UIFont.labelFont
         barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)

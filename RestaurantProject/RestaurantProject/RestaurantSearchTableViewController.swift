@@ -15,13 +15,18 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var searchBackgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         searchBar.delegate = self
         self.view.backgroundColor = UIColor.customGrey
+        self.searchBackgroundView.backgroundColor = UIColor.customGrey
+        self.searchButton.backgroundColor = UIColor.customGrey
+        self.searchBar.backgroundColor = UIColor.customGrey
+        
+        self.searchButton.titleLabel?.textColor = UIColor.customBlue
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
