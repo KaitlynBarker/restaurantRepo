@@ -16,7 +16,6 @@ extension Restaurant {
     private static var resIDKey: String { return "id" }
     private static var restaurantNameKey: String { return "name" }
     private static var cuisineKey: String { return "cuisines" }
-    private static var priceRangeKey: String { return "price_range" }
     private static var deliveryOptionKey: String { return "is_delivering_now" }
     private static var reservableKey: String { return "has_table_booking" }
     private static var featuredImageKey: String { return "featured_image" }
@@ -52,7 +51,6 @@ extension Restaurant {
             let restaurantName = restaurantDictionary[Restaurant.restaurantNameKey] as? String,
             let resID = restaurantDictionary[Restaurant.resIDKey] as? String,
             let cuisine = restaurantDictionary[Restaurant.cuisineKey] as? String,
-            let priceRange = restaurantDictionary[Restaurant.priceRangeKey] as? Int32,
             let deliveryOption = restaurantDictionary[Restaurant.deliveryOptionKey] as? Int32,
             let reservable = restaurantDictionary[Restaurant.reservableKey] as? Int32,
             let featuredImage = restaurantDictionary[Restaurant.featuredImageKey] as? String,
@@ -68,7 +66,6 @@ extension Restaurant {
         self.restaurantName = restaurantName
         self.resID = resID
         self.address = address
-        self.priceRange = priceRange
         self.reservable = reservable
         self.imageURL = featuredImage
         self.averageCostForTwo = averageCostForTwo

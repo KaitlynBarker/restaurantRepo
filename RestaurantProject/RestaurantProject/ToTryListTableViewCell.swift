@@ -15,10 +15,8 @@ class ToTryListTableViewCell: UITableViewCell {
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var avePriceLabel: UILabel!
     @IBOutlet weak var toTryButton: UIButton!
-    
-    
+    @IBOutlet weak var avePriceForTwo: UILabel!
     
     // MARK: - Actions
     
@@ -37,11 +35,10 @@ class ToTryListTableViewCell: UITableViewCell {
     func updateViews() {
         guard let toTryRes = self.toTryRes, let imageURL = toTryRes.imageURL else { return }
         
-        //        self.backgroundColor = UIColor.blueGrey60
-        //        self.toTryButton.backgroundColor = UIColor.blueGrey60
-        //        self.nameLabel.textColor = UIColor.peach30
+                self.backgroundColor = UIColor.customGrey
+                self.toTryButton.backgroundColor = UIColor.customGrey
+                self.nameLabel.textColor = UIColor.customBlue
         //        self.distanceLabel.textColor = UIColor.peach30
-        //        self.avePriceLabel.textColor = UIColor.peach30
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
             guard let image = image else { return }
@@ -54,8 +51,6 @@ class ToTryListTableViewCell: UITableViewCell {
                 self.nameLabel.text = toTryRes.restaurantName
                 //                    self.distanceLabel.text = "Approx \(distance) away"
                 
-                self.calculateAvePrice()
-                
                 if toTryRes.isOnToTryList {
                     // set image
                 } else {
@@ -63,22 +58,6 @@ class ToTryListTableViewCell: UITableViewCell {
                 }
             }
             //            }
-        }
-    }
-    
-    func calculateAvePrice() {
-        guard let toTryRes = self.toTryRes else { return }
-        
-        if toTryRes.priceRange == 1 {
-            self.avePriceLabel.text = "Expected Price: 💲"
-        } else if toTryRes.priceRange == 2 {
-            self.avePriceLabel.text = "Expected Price: 💲💲"
-        } else if toTryRes.priceRange == 3 {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲"
-        } else if toTryRes.priceRange == 4 {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲💲"
-        } else {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲💲💲"
         }
     }
 }

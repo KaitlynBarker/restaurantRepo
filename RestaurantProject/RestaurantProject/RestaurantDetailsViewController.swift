@@ -20,6 +20,7 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var reviewTableView: UITableView!
+    @IBOutlet weak var buttonsBackgroundView: UIView!
     
     // buttons
     
@@ -43,6 +44,12 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         self.reviewTableView.separatorStyle = .none
         self.reviewTableView.rowHeight = UITableViewAutomaticDimension
         self.reviewTableView.estimatedRowHeight = 60
+        
+        self.buttonsBackgroundView.backgroundColor = UIColor.customGrey
+        self.reviewTableView.backgroundColor = UIColor.customGrey
+        self.favoriteButton.backgroundColor = UIColor.customGrey
+        self.toTryButton.backgroundColor = UIColor.customGrey
+        self.callRestaurantButton.backgroundColor = UIColor.customGrey
     }
     
     // MARK: - Table view data source

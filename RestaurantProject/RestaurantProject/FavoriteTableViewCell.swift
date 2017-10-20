@@ -15,8 +15,8 @@ class FavoriteTableViewCell: UITableViewCell {
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var resDistanceLabel: UILabel!
-    @IBOutlet weak var avePriceLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var avePriceForTwo: UILabel!
     
     // MARK: - Actions
     
@@ -35,11 +35,10 @@ class FavoriteTableViewCell: UITableViewCell {
     func updateViews() {
         guard let favRestaurant = self.favoriteRes, let image = favRestaurant.imageURL else { return }
         
-        //        self.backgroundColor = UIColor.blueGrey60
-        //        self.favoriteButton.backgroundColor = UIColor.blueGrey60
-        //        self.restaurantNameLabel.textColor = UIColor.peach30
+                self.backgroundColor = UIColor.customGrey
+                self.favoriteButton.backgroundColor = UIColor.customGrey
+                self.restaurantNameLabel.textColor = UIColor.customBlue
         //        self.resDistanceLabel.textColor = UIColor.peach30
-        //        self.avePriceLabel.textColor = UIColor.peach30
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }
@@ -52,8 +51,6 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.restaurantNameLabel.text = favRestaurant.restaurantName
                 //                    self.resDistanceLabel.text = "Approx \(distance) away"
                 
-                self.calculateAvePrice()
-                
                 if favRestaurant.isFavorited {
                     self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
                 } else {
@@ -61,22 +58,6 @@ class FavoriteTableViewCell: UITableViewCell {
                 }
             }
             //            }
-        }
-    }
-    
-    func calculateAvePrice() {
-        guard let favRestaurant = self.favoriteRes else { return }
-        
-        if favRestaurant.priceRange == 1 {
-            self.avePriceLabel.text = "Expected Price: 💲"
-        } else if favRestaurant.priceRange == 2 {
-            self.avePriceLabel.text = "Expected Price: 💲💲"
-        } else if favRestaurant.priceRange == 3 {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲"
-        } else if favRestaurant.priceRange == 4 {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲💲"
-        } else {
-            self.avePriceLabel.text = "Expected Price: 💲💲💲💲💲"
         }
     }
 }
