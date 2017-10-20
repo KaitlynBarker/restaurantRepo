@@ -20,18 +20,9 @@
         <attribute name="resID" attributeType="String" syncable="YES"/>
         <attribute name="restaurantName" attributeType="String" syncable="YES"/>
         <relationship name="cuisines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cuisine" inverseName="restaurant" inverseEntity="Cuisine" syncable="YES"/>
-        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="restaurant" inverseEntity="Review" syncable="YES"/>
-    </entity>
-    <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
-        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="ratingText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reviewPostTime" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="reviewText" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="restaurant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="reviews" inverseEntity="Restaurant" syncable="YES"/>
     </entity>
     <elements>
         <element name="Cuisine" positionX="-45" positionY="162" width="128" height="88"/>
-        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="270"/>
-        <element name="Review" positionX="-72" positionY="-216" width="137" height="118"/>
+        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="255"/>
     </elements>
 </model>

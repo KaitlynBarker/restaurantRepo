@@ -13,6 +13,9 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.customGrey
+        self.tableView.backgroundColor = UIColor.customGrey
+        
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60

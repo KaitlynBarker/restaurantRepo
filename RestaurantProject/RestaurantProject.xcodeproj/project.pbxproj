@@ -10,7 +10,6 @@
 		711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */; };
 		711705841F69B0C100BB107F /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */; };
 		7117058F1F69CDC400BB107F /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */; };
-		711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */; };
 		711705971F6C281C00BB107F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705961F6C281C00BB107F /* FilterViewController.swift */; };
 		7117059F1F6C2FB800BB107F /* CuisineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */; };
 		711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */; };
@@ -22,9 +21,7 @@
 		7144E7521F68457800E90CB9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7511F68457800E90CB9 /* CoreDataStack.swift */; };
 		7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */; };
 		7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */; };
-		7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7581F687A5500E90CB9 /* Review+Convenience.swift */; };
 		7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E75A1F69810000E90CB9 /* RestaurantController.swift */; };
-		7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E75C1F69810A00E90CB9 /* ReviewController.swift */; };
 		7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512B1F8C18F00016E2A6 /* MapViewController.swift */; };
 		7165512E1F8C19530016E2A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512D1F8C19530016E2A6 /* Color.swift */; };
 		716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */; };
@@ -43,7 +40,6 @@
 		711705811F69B09500BB107F /* RestaurantSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchTableViewController.swift; sourceTree = "<group>"; };
 		711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
-		711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		711705961F6C281C00BB107F /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuisineTableViewCell.swift; sourceTree = "<group>"; };
 		711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cuisine+Convenience.swift"; sourceTree = "<group>"; };
@@ -57,9 +53,7 @@
 		7144E7511F68457800E90CB9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7144E7541F68458700E90CB9 /* RestaurantProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantProject.xcdatamodel; sourceTree = "<group>"; };
 		7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Restaurant+Convenience.swift"; sourceTree = "<group>"; };
-		7144E7581F687A5500E90CB9 /* Review+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Review+Convenience.swift"; sourceTree = "<group>"; };
 		7144E75A1F69810000E90CB9 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
-		7144E75C1F69810A00E90CB9 /* ReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewController.swift; sourceTree = "<group>"; };
 		7165512B1F8C18F00016E2A6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7165512D1F8C19530016E2A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,7 +138,6 @@
 			children = (
 				7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */,
 				7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */,
-				7144E7581F687A5500E90CB9 /* Review+Convenience.swift */,
 				711705A41F6C400B00BB107F /* Cuisine+Convenience.swift */,
 			);
 			name = Models;
@@ -154,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				7144E75A1F69810000E90CB9 /* RestaurantController.swift */,
-				7144E75C1F69810A00E90CB9 /* ReviewController.swift */,
 				711705A61F6C403800BB107F /* CuisineController.swift */,
 			);
 			name = ModelControllers;
@@ -177,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				711705831F69B0C100BB107F /* RestaurantTableViewCell.swift */,
-				711705941F6AFCAB00BB107F /* ReviewTableViewCell.swift */,
 				7117059E1F6C2FB800BB107F /* CuisineTableViewCell.swift */,
 				7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */,
 				716F6E651F91795600FE0344 /* ToTryListTableViewCell.swift */,
@@ -293,10 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7144E7591F687A5500E90CB9 /* Review+Convenience.swift in Sources */,
-				711705951F6AFCAB00BB107F /* ReviewTableViewCell.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
-				7144E75D1F69810A00E90CB9 /* ReviewController.swift in Sources */,
 				711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */,
 				71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */,
 				71D1DB131F9921FF0090DE76 /* Font.swift in Sources */,

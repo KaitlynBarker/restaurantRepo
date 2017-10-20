@@ -38,7 +38,7 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.backgroundColor = UIColor.customGrey
                 self.favoriteButton.backgroundColor = UIColor.customGrey
                 self.restaurantNameLabel.textColor = UIColor.customBlue
-        //        self.resDistanceLabel.textColor = UIColor.peach30
+                self.resDistanceLabel.textColor = UIColor.customBlue
         
         RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
             guard let image = image else { return }

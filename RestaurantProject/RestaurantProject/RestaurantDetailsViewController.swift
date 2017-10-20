@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RestaurantDetailsViewController: UIViewController {
     
     var restaurant: Restaurant? {
         didSet {
@@ -19,7 +19,6 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     //MARK: - Outlets
     
     @IBOutlet weak var restaurantImageView: UIImageView!
-    @IBOutlet weak var reviewTableView: UITableView!
     @IBOutlet weak var buttonsBackgroundView: UIView!
     
     // buttons
@@ -27,6 +26,7 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var toTryButton: UIButton!
     @IBOutlet weak var callRestaurantButton: UIButton!
+    @IBOutlet weak var takeMeHereButton: UIButton!
     
     // description labels
     
@@ -35,18 +35,16 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var aveCostForTwoLabel: UILabel!
     @IBOutlet weak var deliverableLabel: UILabel!
     @IBOutlet weak var reservableLabel: UILabel!
+    @IBOutlet weak var averageRatingLabel: UILabel!
+    @IBOutlet weak var ratingTextLabel: UILabel!
+    @IBOutlet weak var numberOfVotesLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = restaurant?.restaurantName
         
-        self.reviewTableView.separatorStyle = .none
-        self.reviewTableView.rowHeight = UITableViewAutomaticDimension
-        self.reviewTableView.estimatedRowHeight = 60
-        
         self.buttonsBackgroundView.backgroundColor = UIColor.customGrey
-        self.reviewTableView.backgroundColor = UIColor.customGrey
         self.favoriteButton.backgroundColor = UIColor.customGrey
         self.toTryButton.backgroundColor = UIColor.customGrey
         self.callRestaurantButton.backgroundColor = UIColor.customGrey
@@ -55,22 +53,6 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
         self.aveCostForTwoLabel.backgroundColor = UIColor.customGrey
         self.deliverableLabel.backgroundColor = UIColor.customGrey
         self.reservableLabel.backgroundColor = UIColor.customGrey
-    }
-    
-    // MARK: - Table view data source
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ReviewController.shared.reviews.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewCell", for: indexPath) as? ReviewTableViewCell else { return UITableViewCell() }
-        
-        let review = ReviewController.shared.reviews[indexPath.row]
-        
-        cell.review = review
-        
-        return cell
     }
     
     //MARK: - Actions
@@ -88,6 +70,10 @@ class RestaurantDetailsViewController: UIViewController, UITableViewDelegate, UI
     
     @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {
         self.callRestaurantAlert()
+    }
+    
+    @IBAction func takeMeHereButtonTapped(_ sender: UIButton) {
+        
     }
     
     //MARK: - Linking outlets to restaurant info
