@@ -16,6 +16,8 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    let locationManager = LocationManager.shared.locationManager
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +29,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func calculateDirections() {
-        let startCoordinates = LocationManager.shared.fetchCurrentLocation()
+        let startCoordinates = self.mapView.userLocation.coordinate
         
         RestaurantController.shared.convertAddressToCoordinates { (coordinates) in
             let startPlacemark = MKPlacemark(coordinate: startCoordinates)
@@ -35,7 +37,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             
             let startPinAnnotation = PinAnnotation(title: "You Are Here", subtitle: "Right Here", coordinate: startCoordinates)
             
-            let endPinAnnotation = PinAnnotation(title: "\()", subtitle: "\()", coordinate: coordinates)
+            let endPinAnnotation = PinAnnotation(title: "", subtitle: "", coordinate: coordinates)
             
             self.mapView.addAnnotation(startPinAnnotation)
             self.mapView.addAnnotation(endPinAnnotation)
@@ -49,7 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             directionRequest.transportType = .any
             
             let directions = MKDirections(request: directionRequest)
-            directions.calculate { (response, error) in
+            directions.calculate { (response: MKDirectionsResponse?, error: Error?) in
                 guard let response = response else { return }
                 
                 if let error = error {
@@ -58,7 +60,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                 }
                 
                 let route = response.routes[0]
-                self.mapView.add(route.polyline, level: .aboveRoads)
+                
+                DispatchQueue.main.async {
+                    self.mapView.add(route.polyline, level: .aboveRoads)
+                }
                 
                 let rect = route.polyline.boundingMapRect
                 let region = MKCoordinateRegionForMapRect(rect)
