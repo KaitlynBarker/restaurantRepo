@@ -40,7 +40,7 @@ class FavoriteTableViewCell: UITableViewCell {
                 self.restaurantNameLabel.textColor = UIColor.customBlue
                 self.resDistanceLabel.textColor = UIColor.customBlue
         
-        RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
+        RestaurantController.shared.fetchRestaurantImage(imageURLString: image) { (image) in
             guard let image = image else { return }
             
             //            RestaurantController.shared.convertAddressToDistance { (distance) in

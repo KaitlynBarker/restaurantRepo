@@ -14,12 +14,14 @@ import MapKit
 
 class RestaurantController {
     
+    
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var nearbyRestaurantsKey: String { return "nearby_restaurants" }
     private var restaurantsKey: String { return "restaurants" }
     
     static let shared = RestaurantController()
+    let imageCache = NSCache<NSString, AnyObject>()
     let baseURL = URL(string: "https://developers.zomato.com/api/v2.1")
     
     var restaurants: [Restaurant] {
@@ -46,6 +48,7 @@ class RestaurantController {
         })
     }
     
+    var searchedRestaurants: [Restaurant] = []
     var restaurant: Restaurant?
     
     // MARK: - Retreive/Fetch
@@ -130,7 +133,7 @@ class RestaurantController {
             guard let jsonDict = (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)) as? [String:Any], let restaurantDicts = jsonDict[self.restaurantsKey] as? [[String:Any]] else { NSLog("unable to serialize JSON. \n\(responseDataString)"); completion([]); return }
             
             let restaurants = restaurantDicts.flatMap { Restaurant(dictionary: $0) }
-            
+      
             completion(restaurants)
         }
         dataTask.resume()
@@ -139,13 +142,23 @@ class RestaurantController {
         // search?q=ruth&lat=40.7608&lon=-111.8910&cuisines=chinese%2C%20mexican
     }
     
-    func fetchRestaurantImage(imageURL: String, completion: @escaping (UIImage?) -> Void) {
-        guard let imageURL = URL(string: imageURL) else { completion(nil); return }
+    func fetchRestaurantImage(imageURLString: String, completion: @escaping (UIImage?) -> Void) {
+        if let cachedImage = imageCache.object(forKey: imageURLString as NSString) as? UIImage {
+            completion(cachedImage)
+        }
+        
+        if imageURLString == "" {
+            completion(#imageLiteral(resourceName: "ImageNotAvailable"))
+        }
+        
+        guard let imageURL = URL(string: imageURLString) else { completion(nil); return }
+        print("Fetching image for url: \(imageURL)")
         
         let dataTask = URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
             if let error = error { NSLog("unable to retreive image. Error: \(error.localizedDescription)"); completion(nil); return }
             
             guard let data = data, let image = UIImage(data: data) else { completion(nil); return }
+            self.imageCache.setObject(image, forKey: imageURLString as NSString)
             
             completion(image)
         }

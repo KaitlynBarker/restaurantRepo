@@ -17,6 +17,8 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchBackgroundView: UIView!
     
+    var restaurants: [Restaurant] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,13 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
+        
+        RestaurantController.shared.fetchNearbyRestaurants { (restaurants) in
+            DispatchQueue.main.async {
+                self.restaurants = restaurants
+                self.tableView.reloadData()
+            }
+        }
     }
     
     //MARK: - Actions
@@ -43,10 +52,11 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines) { (restaurants) in
             
             DispatchQueue.main.async {
+                self.restaurants = restaurants
                 self.tableView.reloadData()
             }
         }
-        self.resignFirstResponder()
+        self.searchBar.resignFirstResponder()
         self.searchBar.text = ""
     }
     
@@ -68,6 +78,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines) { (restaurants) in
             
             DispatchQueue.main.async {
+                self.restaurants = restaurants
                 self.tableView.reloadData()
             }
         }
@@ -76,13 +87,13 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return RestaurantController.shared.restaurants.count
+        return self.restaurants.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
 
-        let restaurant = RestaurantController.shared.restaurants[indexPath.row]
+        let restaurant = self.restaurants[indexPath.row]
         
         cell.restaurant = restaurant
         
@@ -99,11 +110,15 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
 
     // MARK: - Navigation
 
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToRestaurantDetailVC" {
             guard let destinationVC = segue.destination as? RestaurantDetailsViewController else { return }
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let restaurant = RestaurantController.shared.restaurants[indexPath.row]
+            let restaurant = self.restaurants[indexPath.row]
             
             destinationVC.restaurant = restaurant
         }
@@ -113,7 +128,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
 extension RestaurantSearchTableViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            let item = RestaurantController.shared.restaurants[indexPath.row]
+            let item = self.restaurants[indexPath.row]
             guard let imageURL = item.imageURL else { return }
             guard let itemURL = URL(string: imageURL) else { return }
             let dataTask = URLSession.shared.dataTask(with: itemURL)
@@ -121,4 +136,6 @@ extension RestaurantSearchTableViewController: UITableViewDataSourcePrefetching 
         }
     }
 }
+
+
 

@@ -40,7 +40,7 @@ class ToTryListTableViewCell: UITableViewCell {
                 self.nameLabel.textColor = UIColor.customBlue
         //        self.distanceLabel.textColor = UIColor.peach30
         
-        RestaurantController.shared.fetchRestaurantImage(imageURL: imageURL) { (image) in
+        RestaurantController.shared.fetchRestaurantImage(imageURLString: imageURL) { (image) in
             guard let image = image else { return }
             
             //            RestaurantController.shared.convertAddressToDistance { (distance) in

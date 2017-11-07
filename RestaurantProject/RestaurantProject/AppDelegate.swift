@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationManager.shared.requestAuthorization()
         
-        RestaurantController.shared.fetchNearbyRestaurants()
+//        RestaurantController.shared.fetchNearbyRestaurants()
         
         return true
     }

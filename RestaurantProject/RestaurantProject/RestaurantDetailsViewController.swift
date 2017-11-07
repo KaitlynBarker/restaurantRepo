@@ -99,19 +99,22 @@ class RestaurantDetailsViewController: UIViewController {
     func updateViews() {
         guard let restaurant = restaurant, let image = restaurant.imageURL, let aveRating = restaurant.averageRating, let ratingText = restaurant.ratingText, let numOfVotes = restaurant.numberOfVotes else { return }
         
-        RestaurantController.shared.fetchRestaurantImage(imageURL: image) { (image) in
+        
+        
+        RestaurantController.shared.fetchRestaurantImage(imageURLString: image) { (image) in
+            
             guard let image = image else { return }
             
             DispatchQueue.main.async {
                 self.restaurantNameLabel.text = restaurant.restaurantName
                 self.restaurantAddressLabel.text = restaurant.address
                 self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
-                self.restaurantImageView.image = image
                 self.convertDeliveryToString() // might not work properly
                 self.convertReservableToString() // might not work properly
                 self.averageRatingLabel.text = "Average Rating: \(aveRating.capitalized)"
                 self.ratingTextLabel.text = "Rating Text: \(ratingText.capitalized)"
                 self.numberOfVotesLabel.text = "Number of Votes: \(numOfVotes.capitalized)"
+                self.restaurantImageView.image = image
             }
         }
     }
