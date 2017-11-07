@@ -48,9 +48,9 @@ class ToTryListTableViewCell: UITableViewCell {
                 self.avePriceForTwo.text = "Ave Price For Two: $\(toTryRes.averageCostForTwo)"
                 
                 if toTryRes.isOnToTryList {
-                    // set image
+                    self.toTryButton.setImage(#imageLiteral(resourceName: "list"), for: .normal)
                 } else {
-                    // set image
+                    self.toTryButton.setImage(#imageLiteral(resourceName: "taskList"), for: .normal)
                 }
             }
         }

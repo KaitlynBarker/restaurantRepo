@@ -83,6 +83,12 @@ class RestaurantDetailsViewController: UIViewController {
     @IBAction func toTryButtonTapped(_ sender: UIButton) {
         guard let restaurant = self.restaurant else { return }
         RestaurantController.shared.toTryListToggle(restaurant: restaurant)
+        
+        if restaurant.isOnToTryList {
+            self.toTryButton.setImage(#imageLiteral(resourceName: "list"), for: .normal)
+        } else {
+            self.toTryButton.setImage(#imageLiteral(resourceName: "taskList"), for: .normal)
+        }
     }
     
     @IBAction func takeMeHereButtonTapped(_ sender: UIButton) {
