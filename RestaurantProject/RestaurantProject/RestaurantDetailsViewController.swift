@@ -19,7 +19,7 @@ class RestaurantDetailsViewController: UIViewController {
     //MARK: - Outlets
     
     @IBOutlet weak var restaurantImageView: UIImageView!
-    @IBOutlet weak var buttonsBackgroundView: UIView!
+    @IBOutlet weak var buttonStackView: UIStackView!
     
     // buttons
     
@@ -33,8 +33,6 @@ class RestaurantDetailsViewController: UIViewController {
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var restaurantAddressLabel: UILabel!
     @IBOutlet weak var aveCostForTwoLabel: UILabel!
-    @IBOutlet weak var deliverableLabel: UILabel!
-    @IBOutlet weak var reservableLabel: UILabel!
     @IBOutlet weak var averageRatingLabel: UILabel!
     @IBOutlet weak var ratingTextLabel: UILabel!
     @IBOutlet weak var numberOfVotesLabel: UILabel!
@@ -45,15 +43,13 @@ class RestaurantDetailsViewController: UIViewController {
         self.title = restaurant?.restaurantName
         self.view.backgroundColor = UIColor.customGrey
         
-        self.buttonsBackgroundView.backgroundColor = UIColor.customGrey
+        self.buttonStackView.backgroundColor = UIColor.customGrey
         self.favoriteButton.backgroundColor = UIColor.customGrey
         self.toTryButton.backgroundColor = UIColor.customGrey
         self.callRestaurantButton.backgroundColor = UIColor.customGrey
         self.restaurantNameLabel.backgroundColor = UIColor.customGrey
         self.restaurantAddressLabel.backgroundColor = UIColor.customGrey
         self.aveCostForTwoLabel.backgroundColor = UIColor.customGrey
-        self.deliverableLabel.backgroundColor = UIColor.customGrey
-        self.reservableLabel.backgroundColor = UIColor.customGrey
         self.averageRatingLabel.backgroundColor = UIColor.customGrey
         self.ratingTextLabel.backgroundColor = UIColor.customGrey
         self.numberOfVotesLabel.backgroundColor = UIColor.customGrey
@@ -61,8 +57,6 @@ class RestaurantDetailsViewController: UIViewController {
         self.restaurantNameLabel.textColor = UIColor.customBlue
         self.restaurantAddressLabel.textColor = UIColor.customBlue
         self.aveCostForTwoLabel.textColor = UIColor.customBlue
-        self.deliverableLabel.textColor = UIColor.customBlue
-        self.reservableLabel.textColor = UIColor.customBlue
         self.averageRatingLabel.textColor = UIColor.customBlue
         self.ratingTextLabel.textColor = UIColor.customBlue
         self.numberOfVotesLabel.textColor = UIColor.customBlue
@@ -87,19 +81,18 @@ class RestaurantDetailsViewController: UIViewController {
     }
     
     @IBAction func toTryButtonTapped(_ sender: UIButton) {
-        
+        guard let restaurant = self.restaurant else { return }
+        RestaurantController.shared.toTryListToggle(restaurant: restaurant)
     }
     
     @IBAction func takeMeHereButtonTapped(_ sender: UIButton) {
-        
+        // FIXME: - actually put something in this function
     }
     
     //MARK: - Linking outlets to restaurant info
     
     func updateViews() {
         guard let restaurant = restaurant, let image = restaurant.imageURL, let aveRating = restaurant.averageRating, let ratingText = restaurant.ratingText, let numOfVotes = restaurant.numberOfVotes else { return }
-        
-        
         
         RestaurantController.shared.fetchRestaurantImage(imageURLString: image) { (image) in
             
@@ -109,33 +102,11 @@ class RestaurantDetailsViewController: UIViewController {
                 self.restaurantNameLabel.text = restaurant.restaurantName
                 self.restaurantAddressLabel.text = restaurant.address
                 self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
-                self.convertDeliveryToString() // might not work properly
-                self.convertReservableToString() // might not work properly
                 self.averageRatingLabel.text = "Average Rating: \(aveRating.capitalized)"
                 self.ratingTextLabel.text = "Rating Text: \(ratingText.capitalized)"
                 self.numberOfVotesLabel.text = "Number of Votes: \(numOfVotes.capitalized)"
                 self.restaurantImageView.image = image
             }
-        }
-    }
-    
-    func convertDeliveryToString() {
-        guard let restaurant = restaurant else { return }
-        
-        if restaurant.deliveryOption == 0 {
-            self.deliverableLabel.text = "Does Not Deliver"
-        } else {
-            self.deliverableLabel.text = "Delivers"
-        }
-    }
-    
-    func convertReservableToString() {
-        guard let restaurant = restaurant else { return }
-        
-        if restaurant.reservable == 0 {
-            self.reservableLabel.text = "Doesn't Take Reservations"
-        } else {
-            self.reservableLabel.text = "Takes Reservations"
         }
     }
     

@@ -14,7 +14,6 @@ class ToTryListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var toTryButton: UIButton!
     @IBOutlet weak var avePriceForTwo: UILabel!
     
@@ -35,21 +34,18 @@ class ToTryListTableViewCell: UITableViewCell {
     func updateViews() {
         guard let toTryRes = self.toTryRes, let imageURL = toTryRes.imageURL else { return }
         
-                self.backgroundColor = UIColor.customGrey
-                self.toTryButton.backgroundColor = UIColor.customGrey
-                self.nameLabel.textColor = UIColor.customBlue
-        //        self.distanceLabel.textColor = UIColor.peach30
+        self.backgroundColor = UIColor.customGrey
+        self.toTryButton.backgroundColor = UIColor.customGrey
+        self.nameLabel.textColor = UIColor.customBlue
+        self.avePriceForTwo.textColor = UIColor.customBlue
         
         RestaurantController.shared.fetchRestaurantImage(imageURLString: imageURL) { (image) in
             guard let image = image else { return }
             
-            //            RestaurantController.shared.convertAddressToDistance { (distance) in
-            //                let distance = distance
-            
             DispatchQueue.main.async {
                 self.restaurantImageView.image = image
                 self.nameLabel.text = toTryRes.restaurantName
-                //                    self.distanceLabel.text = "Approx \(distance) away"
+                self.avePriceForTwo.text = "Ave Price For Two: $\(toTryRes.averageCostForTwo)"
                 
                 if toTryRes.isOnToTryList {
                     // set image
@@ -57,7 +53,6 @@ class ToTryListTableViewCell: UITableViewCell {
                     // set image
                 }
             }
-            //            }
         }
     }
 }

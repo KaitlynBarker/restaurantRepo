@@ -14,7 +14,6 @@ class FavoriteTableViewCell: UITableViewCell {
     
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    @IBOutlet weak var resDistanceLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var avePriceForTwo: UILabel!
     
@@ -35,21 +34,18 @@ class FavoriteTableViewCell: UITableViewCell {
     func updateViews() {
         guard let favRestaurant = self.favoriteRes, let image = favRestaurant.imageURL else { return }
         
-                self.backgroundColor = UIColor.customGrey
-                self.favoriteButton.backgroundColor = UIColor.customGrey
-                self.restaurantNameLabel.textColor = UIColor.customBlue
-                self.resDistanceLabel.textColor = UIColor.customBlue
+        self.backgroundColor = UIColor.customGrey
+        self.favoriteButton.backgroundColor = UIColor.customGrey
+        self.restaurantNameLabel.textColor = UIColor.customBlue
+        self.avePriceForTwo.textColor = UIColor.customBlue
         
         RestaurantController.shared.fetchRestaurantImage(imageURLString: image) { (image) in
             guard let image = image else { return }
             
-            //            RestaurantController.shared.convertAddressToDistance { (distance) in
-            //                let distance = distance
-            
             DispatchQueue.main.async {
                 self.restaurantImageView.image = image
                 self.restaurantNameLabel.text = favRestaurant.restaurantName
-                //                    self.resDistanceLabel.text = "Approx \(distance) away"
+                self.avePriceForTwo.text = "Ave Price For Two: $\(favRestaurant.averageCostForTwo)"
                 
                 if favRestaurant.isFavorited {
                     self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
@@ -57,7 +53,6 @@ class FavoriteTableViewCell: UITableViewCell {
                     self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
                 }
             }
-            //            }
         }
     }
 }

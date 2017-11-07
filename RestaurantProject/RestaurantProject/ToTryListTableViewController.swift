@@ -12,13 +12,28 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         self.view.backgroundColor = UIColor.customGrey
         self.tableView.backgroundColor = UIColor.customGrey
         
+        self.tableView.refreshControl = refreshControl
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Refresh func
+    
+    @objc func refresh() {
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     // MARK: - Table view data source

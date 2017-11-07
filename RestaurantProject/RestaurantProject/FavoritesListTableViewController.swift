@@ -9,35 +9,48 @@
 import UIKit
 
 class FavoritesListTableViewController: UITableViewController, FavoriteTableViewCellDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
         self.view.backgroundColor = UIColor.customGrey
         
+        self.tableView.refreshControl = refreshControl
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
         self.tableView.backgroundColor = UIColor.customGrey
-        
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Refresh func
+    
+    @objc func refresh() {
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
+    }
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return RestaurantController.shared.favoritedRestaurants.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
-
+        
         cell.delegate = self
         
         let favRestaurant = RestaurantController.shared.favoritedRestaurants[indexPath.row]
         
         cell.favoriteRes = favRestaurant
-
+        
         return cell
     }
     
