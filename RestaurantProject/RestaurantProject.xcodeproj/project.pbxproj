@@ -32,8 +32,6 @@
 		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
 		71B349201F9AACED002435EB /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B3491F1F9AACED002435EB /* PinAnnotation.swift */; };
 		71D1DB131F9921FF0090DE76 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1DB121F9921FF0090DE76 /* Font.swift */; };
-		71D1DB171F9922EE0090DE76 /* Merriweather-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71D1DB161F9922EE0090DE76 /* Merriweather-LightItalic.ttf */; };
-		71D1DB191F9923090090DE76 /* Merriweather-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71D1DB181F9923090090DE76 /* Merriweather-Light.ttf */; };
 		71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D51A2C1F97B5970028862D /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,9 +63,9 @@
 		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		71B3491F1F9AACED002435EB /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		71D1DB121F9921FF0090DE76 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		71D1DB161F9922EE0090DE76 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-LightItalic.ttf"; path = "../../../../../../../Downloads/Merriweather/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
-		71D1DB181F9923090090DE76 /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-Light.ttf"; path = "../../../../../../../Downloads/Merriweather/Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		71D51A2C1F97B5970028862D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		71F0D3911FB63A0900FAB88D /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-LightItalic.ttf"; path = "../../../../../../../../Downloads/Merriweather/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		71F0D3921FB63A0A00FAB88D /* Merriweather-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-Light.ttf"; path = "../../../../../../../../Downloads/Merriweather/Merriweather-Light.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +115,8 @@
 		7144E7481F683B8D00E90CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				71D1DB181F9923090090DE76 /* Merriweather-Light.ttf */,
-				71D1DB161F9922EE0090DE76 /* Merriweather-LightItalic.ttf */,
+				71F0D3921FB63A0A00FAB88D /* Merriweather-Light.ttf */,
+				71F0D3911FB63A0900FAB88D /* Merriweather-LightItalic.ttf */,
 				7144E7361F68303A00E90CB9 /* AppDelegate.swift */,
 				7144E73D1F68303A00E90CB9 /* Assets.xcassets */,
 				7144E73F1F68303A00E90CB9 /* LaunchScreen.storyboard */,
@@ -274,9 +272,7 @@
 			files = (
 				7144E7411F68303A00E90CB9 /* LaunchScreen.storyboard in Resources */,
 				7144E73E1F68303A00E90CB9 /* Assets.xcassets in Resources */,
-				71D1DB171F9922EE0090DE76 /* Merriweather-LightItalic.ttf in Resources */,
 				717EF81C1F9502BA0059292A /* Main.storyboard in Resources */,
-				71D1DB191F9923090090DE76 /* Merriweather-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
