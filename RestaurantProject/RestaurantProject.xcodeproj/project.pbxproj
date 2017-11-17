@@ -29,7 +29,6 @@
 		716F6E681F91796400FE0344 /* ToTryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */; };
 		717EF81C1F9502BA0059292A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 717EF81B1F9502BA0059292A /* Main.storyboard */; };
 		71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B12BF61F8ED406003C2398 /* LocationManager.swift */; };
-		71B349201F9AACED002435EB /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B3491F1F9AACED002435EB /* PinAnnotation.swift */; };
 		71D1DB131F9921FF0090DE76 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D1DB121F9921FF0090DE76 /* Font.swift */; };
 		71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D51A2C1F97B5970028862D /* TabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -59,7 +58,6 @@
 		716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTryListTableViewController.swift; sourceTree = "<group>"; };
 		717EF81B1F9502BA0059292A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		71B12BF61F8ED406003C2398 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		71B3491F1F9AACED002435EB /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		71D1DB121F9921FF0090DE76 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		71D51A2C1F97B5970028862D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		71F0D3911FB63A0900FAB88D /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Merriweather-LightItalic.ttf"; path = "../../../../../../../../Downloads/Merriweather/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 				71B12BF61F8ED406003C2398 /* LocationManager.swift */,
 				71D51A2C1F97B5970028862D /* TabBarController.swift */,
 				71D1DB121F9921FF0090DE76 /* Font.swift */,
-				71B3491F1F9AACED002435EB /* PinAnnotation.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -280,7 +277,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B349201F9AACED002435EB /* PinAnnotation.swift in Sources */,
 				711705A51F6C400B00BB107F /* Cuisine+Convenience.swift in Sources */,
 				711705821F69B09500BB107F /* RestaurantSearchTableViewController.swift in Sources */,
 				71D51A2D1F97B5970028862D /* TabBarController.swift in Sources */,
