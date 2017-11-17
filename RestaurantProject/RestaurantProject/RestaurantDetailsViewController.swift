@@ -120,7 +120,7 @@ class RestaurantDetailsViewController: UIViewController {
     
     func callRestaurantAlert() {
         guard let restaurant = self.restaurant, let restaurantName = restaurant.restaurantName else { return }
-        RestaurantController.shared.fetchRestaurantPhoneNumber { (phoneNumber) in
+        RestaurantController.shared.fetchRestaurantPhoneNumber(restaurant: restaurant) { (phoneNumber) in
             let alertController = UIAlertController(title: "Call \(restaurantName)?", message: phoneNumber, preferredStyle: .alert)
             let callAction = UIAlertAction(title: "Call", style: .default) { (_) in
                 if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {

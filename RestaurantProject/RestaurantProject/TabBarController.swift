@@ -32,11 +32,6 @@ class CustomTabBarController: UITabBarController {
         toTryNav.title = "To Try"
         toTryNav.tabBarItem.image = #imageLiteral(resourceName: "taskList")
         
-        let mapNav = storyboard1.instantiateViewController(withIdentifier: "MapView")
-        let mapNavController = UINavigationController(rootViewController: mapNav)
-        mapNav.title = "Map"
-        mapNav.tabBarItem.image = #imageLiteral(resourceName: "map")
-        
-        viewControllers = [searchNavController, favsNavController, toTryNavController, mapNavController]
+        viewControllers = [searchNavController, favsNavController, toTryNavController]
     }
 }

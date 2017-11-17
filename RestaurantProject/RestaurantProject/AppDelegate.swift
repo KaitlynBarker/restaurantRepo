@@ -40,9 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         LocationManager.shared.requestAuthorization()
         
-//        RestaurantController.shared.fetchNearbyRestaurants()
-        
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        // find a way to delete unneccessary restaurants
     }
 }
 

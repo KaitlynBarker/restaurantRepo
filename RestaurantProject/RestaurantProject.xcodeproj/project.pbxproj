@@ -22,7 +22,6 @@
 		7144E7551F68458700E90CB9 /* RestaurantProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7531F68458700E90CB9 /* RestaurantProject.xcdatamodeld */; };
 		7144E7571F68460100E90CB9 /* Restaurant+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */; };
 		7144E75B1F69810000E90CB9 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144E75A1F69810000E90CB9 /* RestaurantController.swift */; };
-		7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512B1F8C18F00016E2A6 /* MapViewController.swift */; };
 		7165512E1F8C19530016E2A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512D1F8C19530016E2A6 /* Color.swift */; };
 		716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */; };
 		7165519B1F8E742F0016E2A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7165519A1F8E742F0016E2A6 /* MapKit.framework */; };
@@ -53,7 +52,6 @@
 		7144E7541F68458700E90CB9 /* RestaurantProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RestaurantProject.xcdatamodel; sourceTree = "<group>"; };
 		7144E7561F68460100E90CB9 /* Restaurant+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Restaurant+Convenience.swift"; sourceTree = "<group>"; };
 		7144E75A1F69810000E90CB9 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantController.swift; sourceTree = "<group>"; };
-		7165512B1F8C18F00016E2A6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7165512D1F8C19530016E2A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		7165512F1F8C25C10016E2A6 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		7165519A1F8E742F0016E2A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -159,7 +157,6 @@
 				7117058E1F69CDC400BB107F /* RestaurantDetailsViewController.swift */,
 				711705961F6C281C00BB107F /* FilterViewController.swift */,
 				711705A81F6C7BE500BB107F /* FavoritesListTableViewController.swift */,
-				7165512B1F8C18F00016E2A6 /* MapViewController.swift */,
 				716F6E671F91796400FE0344 /* ToTryListTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -295,7 +292,6 @@
 				711705A91F6C7BE500BB107F /* FavoritesListTableViewController.swift in Sources */,
 				716551301F8C25C10016E2A6 /* FavoriteTableViewCell.swift in Sources */,
 				7165512E1F8C19530016E2A6 /* Color.swift in Sources */,
-				7165512C1F8C18F00016E2A6 /* MapViewController.swift in Sources */,
 				71B12BF71F8ED406003C2398 /* LocationManager.swift in Sources */,
 				7144E7371F68303A00E90CB9 /* AppDelegate.swift in Sources */,
 				711705971F6C281C00BB107F /* FilterViewController.swift in Sources */,

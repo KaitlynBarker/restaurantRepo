@@ -48,8 +48,8 @@ class RestaurantController {
         })
     }
     
-    var searchedRestaurants: [Restaurant] = []
-    var restaurant: Restaurant?
+//    var searchedRestaurants: [Restaurant] = []
+//    var restaurant: Restaurant?
     
     // MARK: - Retreive/Fetch
     
@@ -165,39 +165,10 @@ class RestaurantController {
         dataTask.resume()
     }
     
-    func convertAddressToCoordinates(completion: @escaping (CLLocationCoordinate2D) -> Void = { _ in }) {
-        guard let address = restaurant?.address else { return }
+    func fetchRestaurantPhoneNumber(restaurant: Restaurant, completion: @escaping (String) -> Void = { _ in }) {
+//        guard let address = restaurant?.address else { return }
         
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            if let error = error {
-                NSLog("error found. \(#file) \(#function) \n\(error.localizedDescription)")
-                return
-            }
-            guard let coordinates = placemarks?.first?.location?.coordinate else { return }
-            print(coordinates)
-            completion(coordinates)
-        }
-    }
-    
-    func convertAddressToDistance(completion: @escaping (CLLocationDistance) -> Void = { _ in }) {
-        guard let address = restaurant?.address else { return }
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            if let error = error {
-                NSLog("error found. \(#file) \(#function) \(error.localizedDescription)")
-                return
-            }
-            guard let restaurantLocation = placemarks?.first?.location else { return }
-            guard let currentLocation = LocationManager.shared.locationManager.location else { return }
-            let distance = currentLocation.distance(from: restaurantLocation)
-            completion(distance)
-        }
-    }
-    
-    func fetchRestaurantPhoneNumber(completion: @escaping (String) -> Void = { _ in }) {
-        guard let address = restaurant?.address else { return }
+        guard let address = restaurant.address else { return }
         
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(address) { (placemarks, error) in
