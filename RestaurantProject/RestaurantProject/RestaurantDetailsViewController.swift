@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RestaurantDetailsViewController: UIViewController {
     
@@ -92,7 +93,20 @@ class RestaurantDetailsViewController: UIViewController {
     }
     
     @IBAction func takeMeHereButtonTapped(_ sender: UIButton) {
-        // FIXME: - actually put something in this function
+        guard let restaurant = self.restaurant else { return }
+        
+        RestaurantController.shared.convertAddressToCoordinates(restaurant: restaurant) { (coordinates) in
+            
+            let regionDistance: CLLocationDistance = 1000
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+            
+            let placemark = MKPlacemark(coordinate: coordinates)
+            let mapItem = MKMapItem(placemark: placemark)
+            
+            mapItem.name = restaurant.restaurantName
+            mapItem.openInMaps(launchOptions: options)
+        }
     }
     
     //MARK: - Linking outlets to restaurant info
