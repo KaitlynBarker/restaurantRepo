@@ -17,7 +17,7 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.customGrey
+        self.view.backgroundColor = UIColor.customIvory
         
         self.cuisineTableView.delegate = self
         self.cuisineTableView.dataSource = self
@@ -32,7 +32,7 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.cuisineTableView.rowHeight = UITableViewAutomaticDimension
         self.cuisineTableView.estimatedRowHeight = 60
         
-        self.cuisineTableView.backgroundColor = UIColor.customGrey
+        self.cuisineTableView.backgroundColor = UIColor.customIvory
     }
     
     //MARK: - Actions

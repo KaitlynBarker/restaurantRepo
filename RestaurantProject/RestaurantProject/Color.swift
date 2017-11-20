@@ -13,16 +13,16 @@ extension UIColor {
     
     // MARK: - Color Pallette
     
-    class var customGrey: UIColor {
-        return UIColor(hex: "E4E4E5")
+    class var customMaroon: UIColor {
+        return UIColor(hex: "3D0B07")
     }
     
-    class var customBlue: UIColor {
-        return UIColor(hex: "1A2F56")
+    class var customIvory: UIColor {
+        return UIColor(hex: "FCF1ED")
     }
     
-    class var customRed: UIColor {
-        return UIColor(hex: "E64D31")
+    class var candyAppleRed: UIColor {
+        return UIColor(hex: "D53D2D")
     }
     
     convenience init(hex: String) {

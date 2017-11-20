@@ -28,9 +28,9 @@ class RestaurantTableViewCell: UITableViewCell {
         
         self.activityIndicator.startAnimating()
         
-        self.backgroundColor = UIColor.customGrey
-        self.restaurantNameLabel.textColor = UIColor.customBlue
-        self.aveCostForTwoLabel.textColor = UIColor.customBlue
+        self.backgroundColor = UIColor.customIvory
+        self.restaurantNameLabel.textColor = UIColor.customMaroon
+        self.aveCostForTwoLabel.textColor = UIColor.customMaroon
         self.restaurantNameLabel.text = restaurant.restaurantName
         self.aveCostForTwoLabel.text = "Ave Cost For Two: $\(restaurant.averageCostForTwo)"
         

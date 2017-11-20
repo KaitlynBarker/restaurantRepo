@@ -41,26 +41,26 @@ class RestaurantDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = restaurant?.restaurantName
-        self.view.backgroundColor = UIColor.customGrey
+        self.view.backgroundColor = UIColor.customIvory
         
-        self.buttonStackView.backgroundColor = UIColor.customGrey
-        self.favoriteButton.backgroundColor = UIColor.customGrey
-        self.toTryButton.backgroundColor = UIColor.customGrey
-        self.callRestaurantButton.backgroundColor = UIColor.customGrey
-        self.restaurantNameLabel.backgroundColor = UIColor.customGrey
-        self.restaurantAddressLabel.backgroundColor = UIColor.customGrey
-        self.aveCostForTwoLabel.backgroundColor = UIColor.customGrey
-        self.averageRatingLabel.backgroundColor = UIColor.customGrey
-        self.ratingTextLabel.backgroundColor = UIColor.customGrey
-        self.numberOfVotesLabel.backgroundColor = UIColor.customGrey
+        self.buttonStackView.backgroundColor = UIColor.customIvory
+        self.favoriteButton.backgroundColor = UIColor.customIvory
+        self.toTryButton.backgroundColor = UIColor.customIvory
+        self.callRestaurantButton.backgroundColor = UIColor.customIvory
+        self.restaurantNameLabel.backgroundColor = UIColor.customIvory
+        self.restaurantAddressLabel.backgroundColor = UIColor.customIvory
+        self.aveCostForTwoLabel.backgroundColor = UIColor.customIvory
+        self.averageRatingLabel.backgroundColor = UIColor.customIvory
+        self.ratingTextLabel.backgroundColor = UIColor.customIvory
+        self.numberOfVotesLabel.backgroundColor = UIColor.customIvory
         
-        self.restaurantNameLabel.textColor = UIColor.customBlue
-        self.restaurantAddressLabel.textColor = UIColor.customBlue
-        self.aveCostForTwoLabel.textColor = UIColor.customBlue
-        self.averageRatingLabel.textColor = UIColor.customBlue
-        self.ratingTextLabel.textColor = UIColor.customBlue
-        self.numberOfVotesLabel.textColor = UIColor.customBlue
-        self.takeMeHereButton.titleLabel?.textColor = UIColor.customBlue
+        self.restaurantNameLabel.textColor = UIColor.customMaroon
+        self.restaurantAddressLabel.textColor = UIColor.customMaroon
+        self.aveCostForTwoLabel.textColor = UIColor.customMaroon
+        self.averageRatingLabel.textColor = UIColor.customMaroon
+        self.ratingTextLabel.textColor = UIColor.customMaroon
+        self.numberOfVotesLabel.textColor = UIColor.customMaroon
+        self.takeMeHereButton.titleLabel?.textColor = UIColor.customMaroon
     }
     
     //MARK: - Actions

@@ -15,8 +15,8 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        self.view.backgroundColor = UIColor.customGrey
-        self.tableView.backgroundColor = UIColor.customGrey
+        self.view.backgroundColor = UIColor.customIvory
+        self.tableView.backgroundColor = UIColor.customIvory
         
         self.tableView.refreshControl = refreshControl
         self.tableView.separatorStyle = .none

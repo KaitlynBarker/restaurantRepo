@@ -23,12 +23,12 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         super.viewDidLoad()
         
         searchBar.delegate = self
-        self.view.backgroundColor = UIColor.customGrey
-        self.searchBackgroundView.backgroundColor = UIColor.customGrey
-        self.searchButton.backgroundColor = UIColor.customGrey
-        self.searchBar.backgroundColor = UIColor.customGrey
+        self.view.backgroundColor = UIColor.customIvory
+        self.searchBackgroundView.backgroundColor = UIColor.customIvory
+        self.searchButton.backgroundColor = UIColor.customIvory
+        self.searchBar.backgroundColor = UIColor.customIvory
         
-        self.searchButton.titleLabel?.textColor = UIColor.customBlue
+        self.searchButton.titleLabel?.textColor = UIColor.customMaroon
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension

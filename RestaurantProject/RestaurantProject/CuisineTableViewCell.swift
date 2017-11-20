@@ -33,15 +33,15 @@ class CuisineTableViewCell: UITableViewCell {
         guard let cuisine = cuisine else { return }
         cuisineNameLabel.text = cuisine.cuisineName
         
-        self.backgroundColor = UIColor.customGrey
-        self.cuisineCheckBoxButton.backgroundColor = UIColor.customGrey
+        self.backgroundColor = UIColor.customIvory
+        self.cuisineCheckBoxButton.backgroundColor = UIColor.customIvory
         
         if cuisine.isCuisineChosen {
             cuisineCheckBoxButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
-            cuisineNameLabel.textColor = UIColor.customRed
+            cuisineNameLabel.textColor = UIColor.candyAppleRed
         } else {
             cuisineCheckBoxButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
-            cuisineNameLabel.textColor = UIColor.customBlue
+            cuisineNameLabel.textColor = UIColor.customMaroon
         }
     }
 }

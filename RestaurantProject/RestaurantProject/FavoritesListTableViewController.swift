@@ -15,13 +15,13 @@ class FavoritesListTableViewController: UITableViewController, FavoriteTableView
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
-        self.view.backgroundColor = UIColor.customGrey
+        self.view.backgroundColor = UIColor.customIvory
         
         self.tableView.refreshControl = refreshControl
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
-        self.tableView.backgroundColor = UIColor.customGrey
+        self.tableView.backgroundColor = UIColor.customIvory
     }
     
     override func viewWillAppear(_ animated: Bool) {

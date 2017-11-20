@@ -10,10 +10,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let temporaryDirectory = NSTemporaryDirectory()
@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let barButtonItemAppearance = UIBarButtonItem.appearance()
         let buttonAppearance = UIButton.appearance()
         
-        navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.navBarTitle]
-        navBarAppearance.backgroundColor = UIColor.customGrey
+        navBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.customMaroon, NSAttributedStringKey.font: UIFont.navBarTitle]
+        navBarAppearance.backgroundColor = UIColor.customIvory
         
         labelAppearance.font = UIFont.labelFont
-        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customBlue, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customMaroon, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)
         buttonAppearance.titleLabel?.font = UIFont.merriweatherLight
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         LocationManager.shared.requestAuthorization()
-        
+
         return true
     }
     
