@@ -139,7 +139,7 @@
                             <outlet property="delegate" destination="8cd-bX-Iik" id="iOd-eS-8zI"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="ckq-MI-T1h"/>
+                    <tabBarItem key="tabBarItem" id="ckq-MI-T1h"/>
                     <navigationItem key="navigationItem" id="28u-nz-zyi">
                         <barButtonItem key="rightBarButtonItem" title="Filter" id="lDI-vb-GvB">
                             <connections>
@@ -646,6 +646,6 @@
         <image name="taskList" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MD7-Tn-BFy"/>
+        <segue reference="pcy-ay-err"/>
     </inferredMetricsTieBreakers>
 </document>
