@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pHk-Vo-oeq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="erY-Sg-opK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,6 +17,34 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Loading Screen View Controller-->
+        <scene sceneID="80S-ZG-k5E">
+            <objects>
+                <viewController id="erY-Sg-opK" customClass="LoadingScreenViewController" customModule="RestaurantProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IZ5-4e-ImJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mag&amp;food" translatesAutoresizingMaskIntoConstraints="NO" id="vSC-yO-mD5">
+                                <rect key="frame" x="98" y="233" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vSC-yO-mD5" secondAttribute="height" multiplier="1:1" id="bLH-xD-ecC"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vSC-yO-mD5" firstAttribute="leading" secondItem="yhV-YD-aum" secondAttribute="leading" constant="98" id="0MI-2m-Z2s"/>
+                            <constraint firstItem="vSC-yO-mD5" firstAttribute="top" secondItem="yhV-YD-aum" secondAttribute="top" constant="213" id="33z-jA-ken"/>
+                            <constraint firstItem="vSC-yO-mD5" firstAttribute="centerY" secondItem="IZ5-4e-ImJ" secondAttribute="centerY" id="4MZ-VH-3el"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yhV-YD-aum"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INt-2j-gzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226" y="139"/>
+        </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="LhP-7f-IyN">
             <objects>
@@ -49,30 +77,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fvf-2X-ctb">
-                                    <rect key="frame" x="0.0" y="0.0" width="309" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9W-L7-gkP">
-                                    <rect key="frame" x="317" y="0.0" width="50" height="44"/>
-                                    <fontDescription key="fontDescription" name="Merriweather-Light" family="Merriweather" pointSize="15"/>
-                                    <state key="normal" title="Search">
-                                        <color key="titleColor" red="0.10321779549121857" green="0.18125759065151215" blue="0.33736345171928406" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="searchButtonTapped:" destination="8cd-bX-Iik" eventType="touchUpInside" id="Lxq-LJ-xYl"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="fvf-2X-ctb" firstAttribute="leading" secondItem="dZs-PS-VbE" secondAttribute="leading" id="61f-tb-ITI"/>
-                                <constraint firstItem="L9W-L7-gkP" firstAttribute="leading" secondItem="fvf-2X-ctb" secondAttribute="trailing" constant="8" id="7nu-Gl-B9x"/>
-                                <constraint firstItem="L9W-L7-gkP" firstAttribute="leading" secondItem="fvf-2X-ctb" secondAttribute="trailing" constant="8" id="BMh-Lu-TBU"/>
-                                <constraint firstAttribute="bottom" secondItem="L9W-L7-gkP" secondAttribute="bottom" id="Sfl-9O-aUD"/>
                                 <constraint firstAttribute="bottom" secondItem="fvf-2X-ctb" secondAttribute="bottom" id="VH2-ap-WFw"/>
-                                <constraint firstItem="L9W-L7-gkP" firstAttribute="top" secondItem="dZs-PS-VbE" secondAttribute="top" id="e9v-b2-Nbm"/>
-                                <constraint firstAttribute="trailing" secondItem="L9W-L7-gkP" secondAttribute="trailing" constant="8" id="eLM-1d-Acs"/>
                                 <constraint firstItem="fvf-2X-ctb" firstAttribute="top" secondItem="dZs-PS-VbE" secondAttribute="top" id="fjD-Bs-aco"/>
+                                <constraint firstAttribute="trailing" secondItem="fvf-2X-ctb" secondAttribute="trailing" id="j6h-ph-9Zp"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -151,12 +165,11 @@
                         <outlet property="filterButton" destination="lDI-vb-GvB" id="ykf-E5-3A1"/>
                         <outlet property="searchBackgroundView" destination="dZs-PS-VbE" id="Phz-M5-zoS"/>
                         <outlet property="searchBar" destination="fvf-2X-ctb" id="9u1-hf-8fU"/>
-                        <outlet property="searchButton" destination="L9W-L7-gkP" id="Ge6-HX-JtA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84R-N3-zxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2338" y="-1255"/>
+            <point key="canvasLocation" x="2336.8000000000002" y="-1255.3223388305848"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="x7P-UW-cf7">
@@ -173,7 +186,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKR-Si-2CQ">
                                 <rect key="frame" x="16" y="28" width="343" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" red="0.1032177955" green="0.1812575907" blue="0.33736345169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3F-KT-bpm">
@@ -182,9 +195,7 @@
                                     <constraint firstAttribute="height" constant="30" id="8m3-jR-XfP"/>
                                     <constraint firstAttribute="width" secondItem="H3F-KT-bpm" secondAttribute="height" multiplier="23:15" id="Aqo-V3-LT9"/>
                                 </constraints>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.1032177955" green="0.1812575907" blue="0.33736345169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="fR6-Vz-pCP" eventType="touchUpInside" id="JIa-xJ-M2D"/>
                                 </connections>
@@ -236,7 +247,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cuisines" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykk-Kd-U2q">
                                 <rect key="frame" x="16" y="65" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.1032177955" green="0.1812575907" blue="0.33736345169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -262,6 +273,7 @@
                     </view>
                     <connections>
                         <outlet property="cuisineTableView" destination="UmE-G5-Jpu" id="o6g-bE-VaS"/>
+                        <outlet property="doneButton" destination="H3F-KT-bpm" id="wJF-fZ-W04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dH3-Ec-qRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -642,6 +654,7 @@
     <resources>
         <image name="heart" width="22" height="18"/>
         <image name="incomplete" width="25" height="25"/>
+        <image name="mag&amp;food" width="455" height="431"/>
         <image name="phone" width="22" height="22"/>
         <image name="taskList" width="25" height="25"/>
     </resources>

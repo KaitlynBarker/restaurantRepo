@@ -29,8 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.backgroundColor = UIColor.customIvory
         
         labelAppearance.font = UIFont.labelFont
+        labelAppearance.textColor = UIColor.customMaroon
         barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customMaroon, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)
-        buttonAppearance.titleLabel?.font = UIFont.merriweatherLight
+        buttonAppearance.titleLabel?.font = UIFont.optimusPrincepsSemiBold
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let customTabBar = storyboard.instantiateViewController(withIdentifier: "CustomTabBar") as? CustomTabBarController else { return false }

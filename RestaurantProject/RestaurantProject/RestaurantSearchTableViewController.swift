@@ -14,7 +14,6 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var filterButton: UIBarButtonItem!
-    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var searchBackgroundView: UIView!
     
     var restaurants: [Restaurant] = []
@@ -25,10 +24,7 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
         searchBar.delegate = self
         self.view.backgroundColor = UIColor.customIvory
         self.searchBackgroundView.backgroundColor = UIColor.customIvory
-        self.searchButton.backgroundColor = UIColor.customIvory
         self.searchBar.backgroundColor = UIColor.customIvory
-        
-        self.searchButton.titleLabel?.textColor = UIColor.customMaroon
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -67,20 +63,6 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         if #available(iOS 11.0, *) {
             self.navigationItem.searchController?.dismiss(animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func searchButtonTapped(_ sender: UIButton) {
-        guard let searchTerm = searchBar.text, searchTerm != "" else { return }
-        
-        let selectedCuisines = CuisineController.shared.selectedCuisines
-        
-        RestaurantController.shared.fetchRestaurants(bySearchTerm: searchTerm, selectedCuisines: selectedCuisines) { (restaurants) in
-            
-            DispatchQueue.main.async {
-                self.restaurants = restaurants
-                self.tableView.reloadData()
-            }
         }
     }
     

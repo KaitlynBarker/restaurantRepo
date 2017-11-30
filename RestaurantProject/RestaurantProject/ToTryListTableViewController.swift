@@ -75,7 +75,7 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
         }
     }
     
-    // MARK: - ThumbsDownTableViewCellDelegate
+    // MARK: - ToTryTableViewCellDelegate
     
     func restaurantStatusWasUpdate(cell: ToTryListTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }

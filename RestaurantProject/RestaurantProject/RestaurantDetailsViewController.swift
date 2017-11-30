@@ -61,7 +61,17 @@ class RestaurantDetailsViewController: UIViewController {
         self.averageRatingLabel.textColor = UIColor.customMaroon
         self.ratingTextLabel.textColor = UIColor.customMaroon
         self.numberOfVotesLabel.textColor = UIColor.customMaroon
-        self.takeMeHereButton.titleLabel?.textColor = UIColor.customMaroon
+        self.takeMeHereButton.titleLabel?.textColor = UIColor.candyAppleRed
+        
+        self.takeMeHereButton.titleLabel?.font = UIFont.labelFont
+        
+        guard let restaurant = self.restaurant else { return }
+        
+        if restaurant.isFavorited == true {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "filledHeart"), for: .normal)
+        } else {
+            self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        }
     }
     
     //MARK: - Actions
@@ -79,6 +89,7 @@ class RestaurantDetailsViewController: UIViewController {
     
     @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {
         self.callRestaurantAlert()
+        print("call button tapped")
     }
     
     @IBAction func toTryButtonTapped(_ sender: UIButton) {

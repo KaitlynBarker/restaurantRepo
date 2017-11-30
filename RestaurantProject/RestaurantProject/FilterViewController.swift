@@ -13,11 +13,15 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - Outlets
     
     @IBOutlet weak var cuisineTableView: UITableView!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.doneButton.titleLabel?.font = UIFont.labelFont
+        
         self.view.backgroundColor = UIColor.customIvory
+        self.doneButton.titleLabel?.textColor = UIColor.customMaroon
         
         self.cuisineTableView.delegate = self
         self.cuisineTableView.dataSource = self
@@ -26,6 +30,10 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             DispatchQueue.main.async {
                 self.cuisineTableView.reloadData()
             }
+        }
+        
+        CuisineController.shared.fetchCuisines { (cuisines) in
+            print(cuisines)
         }
         
         self.cuisineTableView.separatorStyle = .none
