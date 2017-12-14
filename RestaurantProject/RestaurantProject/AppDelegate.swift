@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = customTabBar
         window?.makeKeyAndVisible()
-        
+
         LocationManager.shared.requestAuthorization()
 
         return true

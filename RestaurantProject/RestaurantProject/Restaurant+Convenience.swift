@@ -37,7 +37,7 @@ extension Restaurant {
     
     // convenience inits
     
-    convenience init(isFavorited: Bool = false, isOnToTryList: Bool = false, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(isFavorited: Bool = false, isOnToTryList: Bool = false, timestamp: Date = Date(), context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         self.isFavorited = isFavorited

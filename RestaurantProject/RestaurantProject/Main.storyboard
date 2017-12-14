@@ -195,7 +195,9 @@
                                     <constraint firstAttribute="height" constant="30" id="8m3-jR-XfP"/>
                                     <constraint firstAttribute="width" secondItem="H3F-KT-bpm" secondAttribute="height" multiplier="23:15" id="Aqo-V3-LT9"/>
                                 </constraints>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.23895597457885742" green="0.043621711432933807" blue="0.027431024238467216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonTapped:" destination="fR6-Vz-pCP" eventType="touchUpInside" id="JIa-xJ-M2D"/>
                                 </connections>
@@ -331,7 +333,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYu-L3-NjG">
                                 <rect key="frame" x="8" y="578" width="359" height="32"/>
                                 <fontDescription key="fontDescription" name="Merriweather-Light" family="Merriweather" pointSize="17"/>
-                                <state key="normal" title="Take Me Here"/>
+                                <state key="normal" title="Take Me Here">
+                                    <color key="titleColor" red="0.23895597457885742" green="0.043621711432933807" blue="0.027431024238467216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="takeMeHereButtonTapped:" destination="3Hh-i5-cIL" eventType="touchUpInside" id="U9Z-cn-2Mb"/>
                                 </connections>

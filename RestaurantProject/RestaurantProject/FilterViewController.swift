@@ -15,6 +15,8 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var cuisineTableView: UITableView!
     @IBOutlet weak var doneButton: UIButton!
     
+    var cuisines: [Cuisine] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,14 +28,11 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.cuisineTableView.delegate = self
         self.cuisineTableView.dataSource = self
         
-        CuisineController.shared.fetchCuisines { (_) in
+        CuisineController.shared.fetchCuisines { (cuisines) in
             DispatchQueue.main.async {
+                self.cuisines = cuisines
                 self.cuisineTableView.reloadData()
             }
-        }
-        
-        CuisineController.shared.fetchCuisines { (cuisines) in
-            print(cuisines)
         }
         
         self.cuisineTableView.separatorStyle = .none
@@ -57,6 +56,8 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CuisineCell", for: indexPath) as? CuisineTableViewCell else { return UITableViewCell() }
+        
+        cell.cuisine = nil
         
         cell.delegate = self
         

@@ -26,7 +26,7 @@ extension UIFont {
     }
     
     static var labelFont: UIFont {
-        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 16.0) else { return UIFont() }
+        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 18.0) else { return UIFont() }
         return fontName
     }
 }

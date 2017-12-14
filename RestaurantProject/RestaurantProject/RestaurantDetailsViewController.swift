@@ -89,7 +89,6 @@ class RestaurantDetailsViewController: UIViewController {
     
     @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {
         self.callRestaurantAlert()
-        print("call button tapped")
     }
     
     @IBAction func toTryButtonTapped(_ sender: UIButton) {
@@ -133,7 +132,7 @@ class RestaurantDetailsViewController: UIViewController {
                 self.restaurantNameLabel.text = restaurant.restaurantName
                 self.restaurantAddressLabel.text = restaurant.address
                 self.aveCostForTwoLabel.text = "Average Cost For Two: $\(restaurant.averageCostForTwo)"
-                self.averageRatingLabel.text = "Average Rating: \(aveRating.capitalized)"
+                self.averageRatingLabel.text = "Average Rating: \(aveRating.capitalized)/5"
                 self.ratingTextLabel.text = "Rating Text: \(ratingText.capitalized)"
                 self.numberOfVotesLabel.text = "Number of Votes: \(numOfVotes.capitalized)"
                 self.restaurantImageView.image = image
@@ -144,16 +143,18 @@ class RestaurantDetailsViewController: UIViewController {
     // MARK: - Call Restaurant Alert Controller
     
     func callRestaurantAlert() {
-        guard let restaurant = self.restaurant, let restaurantName = restaurant.restaurantName else { return }
-        RestaurantController.shared.fetchRestaurantPhoneNumber(restaurant: restaurant) { (phoneNumber) in
+        guard let restaurant = self.restaurant, let restaurantName = restaurant.restaurantName else { print("didn't work"); return }
+        RestaurantController.shared.callRestaurant(restaurant: restaurant) { (phoneNumber) in
             let alertController = UIAlertController(title: "Call \(restaurantName)?", message: phoneNumber, preferredStyle: .alert)
             let callAction = UIAlertAction(title: "Call", style: .default) { (_) in
                 if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
                     if #available(iOS 10, *) {
-                        UIApplication.shared.open(url)
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     } else {
                         UIApplication.shared.openURL(url)
                     }
+                } else {
+                    print("oops")
                 }
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -163,3 +164,18 @@ class RestaurantDetailsViewController: UIViewController {
         }
     }
 }
+
+/*
+ func doCall() {
+ if let selectedPin = selectedPin {
+ let mapItem = MKMapItem(placemark: selectedPin)
+ if let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: ""),
+ let url = URL(string: "telprompt://" + phoneNumber) {
+ UIApplication.shared.open(url, options: [:], completionHandler: nil)
+ } else {
+ print("Unable to call because number is nil")
+ }
+ }
+ }
+ */
+

@@ -27,7 +27,7 @@ class RestaurantController {
     var restaurants: [Restaurant] {
         let moc = CoreDataStack.context
         let request: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
-        
+
         do {
             return try moc.fetch(request)
         } catch {
@@ -35,21 +35,18 @@ class RestaurantController {
         }
         return []
     }
-    
+
     var favoritedRestaurants: [Restaurant] {
         return restaurants.filter({ (restaurant) -> Bool in
             return restaurant.isFavorited == true
         })
     }
-    
+
     var toTryRestaurants: [Restaurant] {
         return restaurants.filter({ (restaurant) -> Bool in
             return restaurant.isOnToTryList == true
         })
     }
-    
-//    var searchedRestaurants: [Restaurant] = []
-//    var restaurant: Restaurant?
     
     // MARK: - Retreive/Fetch
     
@@ -182,7 +179,7 @@ class RestaurantController {
         }
     }
     
-    func fetchRestaurantPhoneNumber(restaurant: Restaurant, completion: @escaping (String) -> Void = { _ in }) {
+    func callRestaurant(restaurant: Restaurant, completion: @escaping (String) -> Void = { _ in }) {
 //        guard let address = restaurant?.address else { return }
         
         guard let address = restaurant.address else { return }
@@ -196,10 +193,26 @@ class RestaurantController {
             guard let coordinates = placemarks?.first?.location?.coordinate else { return }
             let placemark = MKPlacemark(coordinate: coordinates)
             let mapItem = MKMapItem(placemark: placemark)
-            guard let phoneNumber = mapItem.phoneNumber else { return }
+
+            guard let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "") else { print("oops"); return }
             completion(phoneNumber)
         }
     }
+    
+    /*
+     func doCall() {
+     if let selectedPin = selectedPin {
+     let mapItem = MKMapItem(placemark: selectedPin)
+     if let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: ""),
+     let url = URL(string: "telprompt://" + phoneNumber) {
+     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+     } else {
+     print("Unable to call because number is nil")
+     }
+     }
+     }
+     */
+
     
     func convertCuisineArrayToString(cuisines: [Cuisine]) -> String {
         var cuisinesString = ""

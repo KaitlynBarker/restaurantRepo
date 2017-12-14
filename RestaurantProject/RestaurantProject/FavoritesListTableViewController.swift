@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoritesListTableViewController: UITableViewController, FavoriteTableViewCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         

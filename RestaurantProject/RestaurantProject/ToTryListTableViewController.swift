@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class ToTryListTableViewController: UITableViewController, ToTryListTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
@@ -79,9 +81,9 @@ class ToTryListTableViewController: UITableViewController, ToTryListTableViewCel
     
     func restaurantStatusWasUpdate(cell: ToTryListTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let thumbsDownRes = RestaurantController.shared.toTryRestaurants[indexPath.row]
+        let toTryRes = RestaurantController.shared.toTryRestaurants[indexPath.row]
         
-        RestaurantController.shared.toTryListToggle(restaurant: thumbsDownRes)
+        RestaurantController.shared.toTryListToggle(restaurant: toTryRes)
         cell.updateViews()
     }
 
