@@ -11,11 +11,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Merriweather-Light.ttf">
-            <string>Merriweather-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Loading Screen View Controller-->
         <scene sceneID="80S-ZG-k5E">
@@ -321,27 +316,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryO-v7-hWH">
                                         <rect key="frame" x="242.5" y="0.0" width="116.5" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <state key="normal" image="phone">
+                                        <state key="normal" image="map">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="callRestaurantButtonTapped:" destination="3Hh-i5-cIL" eventType="touchUpInside" id="ugg-pG-JR1"/>
+                                            <action selector="takeMeHereButtonTapped:" destination="3Hh-i5-cIL" eventType="touchUpInside" id="XFr-cX-ibz"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYu-L3-NjG">
-                                <rect key="frame" x="8" y="578" width="359" height="32"/>
-                                <fontDescription key="fontDescription" name="Merriweather-Light" family="Merriweather" pointSize="17"/>
-                                <state key="normal" title="Take Me Here">
-                                    <color key="titleColor" red="0.23895597457885742" green="0.043621711432933807" blue="0.027431024238467216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="takeMeHereButtonTapped:" destination="3Hh-i5-cIL" eventType="touchUpInside" id="U9Z-cn-2Mb"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zF-dT-1hY">
-                                <rect key="frame" x="8" y="348.5" width="359" height="221.5"/>
+                                <rect key="frame" x="8" y="348.5" width="359" height="261.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="87X-jO-QyN">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="123"/>
@@ -396,20 +381,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VYu-L3-NjG" firstAttribute="top" secondItem="0zF-dT-1hY" secondAttribute="bottom" constant="8" id="3MX-2F-k8c"/>
-                            <constraint firstItem="VYu-L3-NjG" firstAttribute="leading" secondItem="J0b-cJ-Rte" secondAttribute="leading" constant="8" id="CGf-mf-EoC"/>
                             <constraint firstItem="0zF-dT-1hY" firstAttribute="leading" secondItem="J0b-cJ-Rte" secondAttribute="leading" constant="8" id="GNV-Fs-EQo"/>
                             <constraint firstItem="0zF-dT-1hY" firstAttribute="top" secondItem="8HT-P4-4ed" secondAttribute="bottom" constant="8" id="HjI-Qu-mob"/>
                             <constraint firstItem="41d-q5-HwP" firstAttribute="top" secondItem="4aW-Vs-SXU" secondAttribute="bottom" constant="8" id="O13-0t-s0s"/>
                             <constraint firstItem="41d-q5-HwP" firstAttribute="leading" secondItem="ycR-Je-Bq3" secondAttribute="leading" constant="8" id="UyM-bH-LjD"/>
-                            <constraint firstItem="J0b-cJ-Rte" firstAttribute="trailing" secondItem="VYu-L3-NjG" secondAttribute="trailing" constant="8" id="cF9-Gv-USZ"/>
                             <constraint firstItem="J0b-cJ-Rte" firstAttribute="trailing" secondItem="0zF-dT-1hY" secondAttribute="trailing" constant="8" id="gFS-1K-mdU"/>
                             <constraint firstItem="J0b-cJ-Rte" firstAttribute="trailing" secondItem="8HT-P4-4ed" secondAttribute="trailing" constant="8" id="kSc-cu-RDP"/>
                             <constraint firstItem="8HT-P4-4ed" firstAttribute="top" secondItem="41d-q5-HwP" secondAttribute="bottom" constant="8" id="lmt-Zd-FKJ"/>
-                            <constraint firstItem="WYZ-X7-z7e" firstAttribute="top" secondItem="VYu-L3-NjG" secondAttribute="bottom" constant="8" id="o53-dZ-poQ"/>
                             <constraint firstItem="41d-q5-HwP" firstAttribute="height" secondItem="J0b-cJ-Rte" secondAttribute="height" multiplier="2/5" id="ppt-Zu-PzK"/>
                             <constraint firstItem="8HT-P4-4ed" firstAttribute="leading" secondItem="J0b-cJ-Rte" secondAttribute="leading" constant="8" id="rAb-zJ-dlA"/>
                             <constraint firstAttribute="trailing" secondItem="41d-q5-HwP" secondAttribute="trailing" constant="8" id="u0U-R5-Mdr"/>
+                            <constraint firstItem="WYZ-X7-z7e" firstAttribute="top" secondItem="0zF-dT-1hY" secondAttribute="bottom" constant="8" id="vt5-Na-Eut"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J0b-cJ-Rte"/>
                     </view>
@@ -417,14 +399,13 @@
                         <outlet property="aveCostForTwoLabel" destination="c1z-Iu-mI5" id="Oi9-PK-XXu"/>
                         <outlet property="averageRatingLabel" destination="K9H-G0-b4n" id="yBh-Fy-CiM"/>
                         <outlet property="buttonStackView" destination="8HT-P4-4ed" id="637-Tl-Gvy"/>
-                        <outlet property="callRestaurantButton" destination="ryO-v7-hWH" id="Mkd-i0-PRH"/>
                         <outlet property="favoriteButton" destination="cO2-L5-drO" id="NmL-nh-KKy"/>
                         <outlet property="numberOfVotesLabel" destination="JCg-kc-DZ3" id="dlL-8s-foV"/>
                         <outlet property="ratingTextLabel" destination="ZbM-Jc-xRx" id="2tH-uh-fOQ"/>
                         <outlet property="restaurantAddressLabel" destination="VoW-Db-UXF" id="uT7-CR-Qik"/>
                         <outlet property="restaurantImageView" destination="41d-q5-HwP" id="FXB-jo-72Z"/>
                         <outlet property="restaurantNameLabel" destination="Ien-cd-HHq" id="kRD-EU-9yB"/>
-                        <outlet property="takeMeHereButton" destination="VYu-L3-NjG" id="6U6-8U-5Qm"/>
+                        <outlet property="takeMeHereButton" destination="ryO-v7-hWH" id="f2t-QS-bFb"/>
                         <outlet property="toTryButton" destination="fJm-kj-mHR" id="Juf-7S-4Xc"/>
                     </connections>
                 </viewController>
@@ -659,7 +640,7 @@
         <image name="heart" width="22" height="18"/>
         <image name="incomplete" width="25" height="25"/>
         <image name="mag&amp;food" width="455" height="431"/>
-        <image name="phone" width="22" height="22"/>
+        <image name="map" width="25" height="25"/>
         <image name="taskList" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

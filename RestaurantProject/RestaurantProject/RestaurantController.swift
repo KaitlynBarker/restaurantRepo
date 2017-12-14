@@ -14,7 +14,6 @@ import MapKit
 
 class RestaurantController {
     
-    
     private var apiKey: String { return "ac0c5c9c0b899a64283b5da5ab2f835a" }
     private var headerKey: String { return "user-key" }
     private var nearbyRestaurantsKey: String { return "nearby_restaurants" }
@@ -54,7 +53,7 @@ class RestaurantController {
         
         guard let baseURL = self.baseURL else { completion([]); return }
         
-        let coordinate = LocationManager.shared.fetchCurrentLocation() // if it doesn't work, talk to michael
+        let coordinate = LocationManager.shared.fetchCurrentLocation()
         
         let url = baseURL.appendingPathComponent("geocode")
         
@@ -134,9 +133,6 @@ class RestaurantController {
             completion(restaurants)
         }
         dataTask.resume()
-        
-        // search?q=ruth&lat=40.7608&lon=-111.8910&cuisines=chinese
-        // search?q=ruth&lat=40.7608&lon=-111.8910&cuisines=chinese%2C%20mexican
     }
     
     func fetchRestaurantImage(imageURLString: String, completion: @escaping (UIImage?) -> Void) {
@@ -163,7 +159,6 @@ class RestaurantController {
     }
     
     func convertAddressToCoordinates(restaurant: Restaurant, completion: @escaping (CLLocationCoordinate2D) -> Void = { _ in }) {
-        //        guard let address = restaurant?.address else { return }
         
         guard let address = restaurant.address else { return }
         
@@ -178,41 +173,6 @@ class RestaurantController {
             completion(coordinates)
         }
     }
-    
-    func callRestaurant(restaurant: Restaurant, completion: @escaping (String) -> Void = { _ in }) {
-//        guard let address = restaurant?.address else { return }
-        
-        guard let address = restaurant.address else { return }
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.geocodeAddressString(address) { (placemarks, error) in
-            if let error = error {
-                NSLog("error found. \(#file) \(#function) \n\(error.localizedDescription)")
-                return
-            }
-            guard let coordinates = placemarks?.first?.location?.coordinate else { return }
-            let placemark = MKPlacemark(coordinate: coordinates)
-            let mapItem = MKMapItem(placemark: placemark)
-
-            guard let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "") else { print("oops"); return }
-            completion(phoneNumber)
-        }
-    }
-    
-    /*
-     func doCall() {
-     if let selectedPin = selectedPin {
-     let mapItem = MKMapItem(placemark: selectedPin)
-     if let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: ""),
-     let url = URL(string: "telprompt://" + phoneNumber) {
-     UIApplication.shared.open(url, options: [:], completionHandler: nil)
-     } else {
-     print("Unable to call because number is nil")
-     }
-     }
-     }
-     */
-
     
     func convertCuisineArrayToString(cuisines: [Cuisine]) -> String {
         var cuisinesString = ""
@@ -240,6 +200,17 @@ class RestaurantController {
         saveToStorage()
     }
     
+    func emptyRestList(restaurants: [Restaurant]) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Restaurant")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try CoreDataStack.context.execute(deleteRequest)
+        } catch {
+            NSLog("Error deleting unnecessary restaurants")
+        }
+    }
+    
     func saveToStorage() {
         let moc = CoreDataStack.context
         do {
@@ -249,6 +220,3 @@ class RestaurantController {
         }
     }
 }
-
-// developers.zomato.com/api/v2.1/geocode?lat=40.7608&lon=-111.8910
-

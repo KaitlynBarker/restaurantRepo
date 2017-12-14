@@ -21,7 +21,7 @@ extension UIFont {
     }
     
     static var barButtonFont: UIFont {
-        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 18.0) else { return UIFont() }
+        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 16.0) else { return UIFont() }
         return fontName
     }
     
@@ -29,4 +29,5 @@ extension UIFont {
         guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 18.0) else { return UIFont() }
         return fontName
     }
+    
 }

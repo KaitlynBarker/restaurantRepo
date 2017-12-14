@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         labelAppearance.font = UIFont.labelFont
         labelAppearance.textColor = UIColor.customMaroon
-        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customMaroon, NSAttributedStringKey.font: UIFont.barButtonFont], for: .normal)
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.customMaroon, NSAttributedStringKey.font: UIFont.labelFont], for: .normal)
         buttonAppearance.titleLabel?.font = UIFont.optimusPrincepsSemiBold
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -45,7 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        // find a way to delete unneccessary restaurants
+        let restaurants = RestaurantController.shared.restaurants
+        RestaurantController.shared.emptyRestList(restaurants: restaurants)
     }
 }
 

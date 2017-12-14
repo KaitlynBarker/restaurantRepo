@@ -20,7 +20,7 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.doneButton.titleLabel?.font = UIFont.labelFont
+        self.doneButton.titleLabel?.font = UIFont.barButtonFont
         
         self.view.backgroundColor = UIColor.customIvory
         self.doneButton.titleLabel?.textColor = UIColor.customMaroon
@@ -29,8 +29,13 @@ class FilterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.cuisineTableView.dataSource = self
         
         CuisineController.shared.fetchCuisines { (cuisines) in
-            DispatchQueue.main.async {
+            
+            if self.cuisines.count == 0 {
                 self.cuisines = cuisines
+                DispatchQueue.main.async {
+                    self.cuisineTableView.reloadData()
+                }
+            } else if self.cuisines.count > 0 {
                 self.cuisineTableView.reloadData()
             }
         }

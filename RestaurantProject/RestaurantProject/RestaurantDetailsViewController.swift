@@ -26,7 +26,6 @@ class RestaurantDetailsViewController: UIViewController {
     
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var toTryButton: UIButton!
-    @IBOutlet weak var callRestaurantButton: UIButton!
     @IBOutlet weak var takeMeHereButton: UIButton!
     
     // description labels
@@ -47,7 +46,7 @@ class RestaurantDetailsViewController: UIViewController {
         self.buttonStackView.backgroundColor = UIColor.customIvory
         self.favoriteButton.backgroundColor = UIColor.customIvory
         self.toTryButton.backgroundColor = UIColor.customIvory
-        self.callRestaurantButton.backgroundColor = UIColor.customIvory
+        self.takeMeHereButton.backgroundColor = UIColor.customIvory
         self.restaurantNameLabel.backgroundColor = UIColor.customIvory
         self.restaurantAddressLabel.backgroundColor = UIColor.customIvory
         self.aveCostForTwoLabel.backgroundColor = UIColor.customIvory
@@ -61,9 +60,6 @@ class RestaurantDetailsViewController: UIViewController {
         self.averageRatingLabel.textColor = UIColor.customMaroon
         self.ratingTextLabel.textColor = UIColor.customMaroon
         self.numberOfVotesLabel.textColor = UIColor.customMaroon
-        self.takeMeHereButton.titleLabel?.textColor = UIColor.candyAppleRed
-        
-        self.takeMeHereButton.titleLabel?.font = UIFont.labelFont
         
         guard let restaurant = self.restaurant else { return }
         
@@ -85,10 +81,6 @@ class RestaurantDetailsViewController: UIViewController {
         } else {
             self.favoriteButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         }
-    }
-    
-    @IBAction func callRestaurantButtonTapped(_ sender: UIButton) {
-        self.callRestaurantAlert()
     }
     
     @IBAction func toTryButtonTapped(_ sender: UIButton) {
@@ -139,43 +131,5 @@ class RestaurantDetailsViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Call Restaurant Alert Controller
-    
-    func callRestaurantAlert() {
-        guard let restaurant = self.restaurant, let restaurantName = restaurant.restaurantName else { print("didn't work"); return }
-        RestaurantController.shared.callRestaurant(restaurant: restaurant) { (phoneNumber) in
-            let alertController = UIAlertController(title: "Call \(restaurantName)?", message: phoneNumber, preferredStyle: .alert)
-            let callAction = UIAlertAction(title: "Call", style: .default) { (_) in
-                if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
-                    if #available(iOS 10, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
-                } else {
-                    print("oops")
-                }
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            alertController.addAction(callAction)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
 }
-
-/*
- func doCall() {
- if let selectedPin = selectedPin {
- let mapItem = MKMapItem(placemark: selectedPin)
- if let phoneNumber = mapItem.phoneNumber?.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: ""),
- let url = URL(string: "telprompt://" + phoneNumber) {
- UIApplication.shared.open(url, options: [:], completionHandler: nil)
- } else {
- print("Unable to call because number is nil")
- }
- }
- }
- */
 
