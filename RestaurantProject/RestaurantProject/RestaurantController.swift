@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 import UIKit
 import CoreLocation
-import MapKit
 
 class RestaurantController {
     

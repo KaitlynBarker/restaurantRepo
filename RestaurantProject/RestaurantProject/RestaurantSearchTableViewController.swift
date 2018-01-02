@@ -21,11 +21,15 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
         searchBar.delegate = self
         self.view.backgroundColor = UIColor.customIvory
         self.searchBackgroundView.backgroundColor = UIColor.customIvory
         self.searchBar.backgroundColor = UIColor.customIvory
         
+        self.tableView.refreshControl = refreshControl
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 60
@@ -36,6 +40,13 @@ class RestaurantSearchTableViewController: UITableViewController, UISearchBarDel
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    // MARK: - Refresh Func
+    
+    @objc func refresh() {
+        self.tableView.reloadData()
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     //MARK: - Actions

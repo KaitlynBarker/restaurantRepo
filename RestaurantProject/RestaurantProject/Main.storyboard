@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mag&amp;food" translatesAutoresizingMaskIntoConstraints="NO" id="vSC-yO-mD5">
-                                <rect key="frame" x="98" y="233" width="200" height="200"/>
+                                <rect key="frame" x="76" y="233" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="vSC-yO-mD5" secondAttribute="height" multiplier="1:1" id="bLH-xD-ecC"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vSC-yO-mD5" firstAttribute="leading" secondItem="yhV-YD-aum" secondAttribute="leading" constant="98" id="0MI-2m-Z2s"/>
+                            <constraint firstItem="vSC-yO-mD5" firstAttribute="leading" secondItem="yhV-YD-aum" secondAttribute="leading" constant="76" id="0MI-2m-Z2s"/>
                             <constraint firstItem="vSC-yO-mD5" firstAttribute="top" secondItem="yhV-YD-aum" secondAttribute="top" constant="213" id="33z-jA-ken"/>
                             <constraint firstItem="vSC-yO-mD5" firstAttribute="centerY" secondItem="IZ5-4e-ImJ" secondAttribute="centerY" id="4MZ-VH-3el"/>
                         </constraints>
