@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17C88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cuisine" representedClassName="Cuisine" syncable="YES" codeGenerationType="class">
+        <attribute name="cuisineName" attributeType="String" syncable="YES"/>
+        <attribute name="isCuisineChosen" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="restaurant" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="cuisines" inverseEntity="Restaurant" syncable="YES"/>
+    </entity>
+    <entity name="Restaurant" representedClassName="Restaurant" syncable="YES" codeGenerationType="class">
+        <attribute name="address" attributeType="String" syncable="YES"/>
+        <attribute name="averageCostForTwo" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="averageRating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cuisine" attributeType="String" syncable="YES"/>
+        <attribute name="imageURL" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorited" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isOnToTryList" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numberOfVotes" attributeType="String" syncable="YES"/>
+        <attribute name="ratingText" attributeType="String" syncable="YES"/>
+        <attribute name="resID" attributeType="String" syncable="YES"/>
+        <attribute name="restaurantName" attributeType="String" syncable="YES"/>
+        <relationship name="cuisines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Cuisine" inverseName="restaurant" inverseEntity="Cuisine" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cuisine" positionX="-45" positionY="162" width="128" height="88"/>
+        <element name="Restaurant" positionX="-396" positionY="-108" width="128" height="225"/>
+    </elements>
+</model>
